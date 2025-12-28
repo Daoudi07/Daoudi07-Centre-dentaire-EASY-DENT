@@ -63,8 +63,9 @@ export default function Contact() {
                 <h3 className="font-bold text-lg text-secondary mb-1">Nous trouver</h3>
                 <p className="text-muted-foreground">
                   Centre Dentaire Easy Dent<br />
-                  Route Nationale 568<br />
-                  13230 Port-de-Bouc
+                  39 Avenue du Groupe Manouchian<br />
+                  13110 Port-de-Bouc<br />
+                  France
                 </p>
               </div>
             </div>
@@ -76,94 +77,45 @@ export default function Contact() {
               <div>
                 <h3 className="font-bold text-lg text-secondary mb-1">Horaires</h3>
                 <ul className="text-muted-foreground text-sm space-y-1">
-                  <li className="flex justify-between w-40"><span>Lun - Ven:</span> <span>09:00 - 19:00</span></li>
-                  <li className="flex justify-between w-40"><span>Samedi:</span> <span>Sur RDV</span></li>
-                  <li className="flex justify-between w-40"><span>Dimanche:</span> <span>Fermé</span></li>
+                  <li className="flex justify-between w-40"><span>Lun - Ven:</span> <span>09:00 - 12:00 / 14:00 - 18:00</span></li>
+                  <li className="flex justify-between w-40"><span>Samedi - Dimanche:</span> <span className="text-accent font-bold">Fermé</span></li>
                 </ul>
               </div>
             </div>
           </div>
+        </div>
+      </Section>
 
-          {/* Contact Form */}
-          <div className="bg-white p-8 md:p-10 rounded-3xl shadow-2xl border border-gray-100">
-            <h2 className="text-2xl font-bold font-display text-secondary mb-6">Envoyez-nous un message</h2>
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                <FormField
-                  control={form.control}
-                  name="name"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Nom complet</FormLabel>
-                      <FormControl>
-                        <Input placeholder="Votre nom" className="rounded-xl h-12" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Email</FormLabel>
-                        <FormControl>
-                          <Input placeholder="vous@email.com" type="email" className="rounded-xl h-12" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="phone"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Téléphone</FormLabel>
-                        <FormControl>
-                          <Input placeholder="06 12 34 56 78" className="rounded-xl h-12" {...field} value={field.value || ''} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                </div>
-
-                <FormField
-                  control={form.control}
-                  name="message"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Message</FormLabel>
-                      <FormControl>
-                        <Textarea placeholder="Comment pouvons-nous vous aider ?" className="rounded-xl min-h-[120px]" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                <Button 
-                  type="submit" 
-                  className="w-full" 
-                  size="lg"
-                  isLoading={mutation.isPending}
-                >
-                  Envoyer le message
-                </Button>
-              </form>
-            </Form>
-          </div>
+      {/* REVIEWS SECTION */}
+      <Section variant="muted">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-display font-bold text-secondary mb-4">Ils nous font confiance</h2>
+          <p className="text-lg text-muted-foreground">Découvrez les témoignages de nos patients satisfaits</p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto px-4">
+          {[
+            { text: "Cabinet au top! Le meilleur que j'ai fait dans ma vie! Que ce soit niveau soin dentaire, sans parler de la décoration du cabinet, l'hygiène vraiment au top!", author: "Patient vérifié" },
+            { text: "Nous sommes extrêmement satisfaits de ce cabinet dentaire, tant par l'accueil, le professionnalisme et la gentillesse del personale ainsi que l'hygiène irréprochable.", author: "Sophie M." },
+            { text: "Un cabinet super classe, un accueil irréprochable par une équipe efficace et plutôt rare chez un dentiste jamais d'attente! Le directeur et les dentistes rapides, efficaces.", author: "Thomas B." },
+            { text: "Enfin un dentiste qui donne envie d'aller chez le dentiste :) Que ce soit du côté dentaire ou du côté médecine esthétique je le recommande fortement.", author: "Marie L." },
+            { text: "Le docteur Margheriti m'a fait de superbes couronnes fidèle à sa réputation. Le centre est très propre et ils ont fait tous les papiers administratifs.", author: "Jean-Pierre D." },
+            { text: "Cabinet dentaire au top!! Des secrétaires adorables sans parler du Dr Margheriti, enfin un chirurgien gentil et compétent à la fois. Merci à vous.", author: "Caroline R." }
+          ].map((rev, idx) => (
+            <div key={idx} className="bg-white p-8 rounded-2xl shadow-md border-l-4 border-accent">
+              <div className="flex gap-1 text-accent mb-4">
+                {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 fill-current" />)}
+              </div>
+              <p className="text-muted-foreground italic mb-6 leading-relaxed">"{rev.text}"</p>
+              <p className="font-bold text-secondary">— {rev.author}</p>
+            </div>
+          ))}
         </div>
       </Section>
 
       {/* Map */}
-      <div className="h-[400px] w-full mt-16 bg-muted">
+      <div className="h-[400px] w-full bg-muted">
         <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2900.563065476342!2d4.9781829!3d43.3653188!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12b9d19a2e6f4819%3A0x629531804132890!2sCentre%20Dentaire%20Easy%20Dent!5e0!3m2!1sfr!2sfr!4v1650000000000!5m2!1sfr!2sfr" 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2900.563065476342!2d4.9781829!3d43.3653188!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12b9d19a2e6f4819%3A0x629531804132890!2s39%20Av.%20du%20Groupe%20Manouchian%2C%2013110%20Port-de-Bouc%2C%20France!5e0!3m2!1sfr!2sfr!4v1650000000000!5m2!1sfr!2sfr" 
           width="100%" 
           height="100%" 
           style={{ border: 0 }} 
@@ -173,6 +125,7 @@ export default function Contact() {
           title="Carte Centre Dentaire Easy Dent"
         ></iframe>
       </div>
+
     </Layout>
   );
 }

@@ -57,7 +57,33 @@
   .text-shadow-lg {
     text-shadow: 0 4px 8px rgba(0,0,0,0.25);
   }
+
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  @keyframes scroll-reverse {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+
+  .animate-scroll {
+    animation: scroll 40s linear infinite;
+  }
+
+  .animate-scroll-reverse {
+    animation: scroll-reverse 50s linear infinite;
+  }
 }
+
+/* Nascondere badge Replit */
+[class*="replit"], 
+[class*="Replit"],
+iframe[src*="replit"] {
+  display: none !important;
+}
+
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {

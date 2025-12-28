@@ -58,8 +58,9 @@ export function Footer() {
               <li className="flex items-start gap-3 text-white/70">
                 <MapPin className="w-5 h-5 text-accent shrink-0 mt-0.5" />
                 <span>
-                  Route Nationale 568<br />
-                  13230 Port-de-Bouc
+                  39 Avenue du Groupe Manouchian<br />
+                  13110 Port-de-Bouc<br />
+                  France
                 </span>
               </li>
               <li className="flex items-center gap-3 text-white/70">

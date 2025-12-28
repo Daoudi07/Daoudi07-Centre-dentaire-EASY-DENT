@@ -1,0 +1,438 @@
+# PROMPT AGGIORNAMENTO SITO EASY DENT - REPLIT
+
+## 🎯 MODIFICHE DA IMPLEMENTARE
+
+---
+
+## 1. CORREZIONE NOMI MEDICI (URGENTE)
+
+### ❌ RIMUOVERE QUESTI NOMI (NON ESISTONO):
+- Dr Michael Scetbon
+- Dr David Cohen
+- Dr Sarah Levi
+- Dr Julien Marciano
+- Dr Emma Petit
+- Dr Thomas Dubois
+- Dr Lea Martin
+- Dr Kevin Durand
+- Dr Sophie Bernard
+- Dr Pierre Morel
+
+### ✅ SOSTITUIRE CON I 12 MEDICI REALI:
+
+#### **CON FOTO (primi 6):**
+
+1. **Dr Sandy Barbosa**
+   - Foto: https://i.imgur.com/gY3xRoF.jpg
+   - Specialità: Chirurgien-dentiste
+   - Lingue: 🇫🇷 Français • 🇬🇧 Anglais • 🇪🇸 Espagnol • 🇵🇹 Portugais
+   - Bio: "Spécialisée en prévention, urgences dentaires, bruxisme et greffes osseuses. Approche douce et professionnelle."
+   - Orari: Lundi - Vendredi: 09:00-12:00 / 14:00-18:00
+   - Link Doctolib: https://www.doctolib.fr/dentiste/savigny-sur-orge/sandy-barbosa?pid=practice-131168
+
+2. **Dr Nicolas Dray**
+   - Foto: https://i.imgur.com/As9RuQf.jpg
+   - Specialità: Esthétique dentaire • Implantologie • Orthodontie invisible
+   - Lingue: 🇫🇷 Français
+   - Bio: "Approche holistique de la santé orale. Pratique l'hypnose dentale pour le confort des patients. Spécialiste en facettes et implants."
+   - Orari: Lundi - Vendredi: 09:00-12:00 / 14:00-18:00
+   - Link Doctolib: https://www.doctolib.fr/dentiste/aix-en-provence/nicolas-dray?pid=practice-131168
+
+3. **Dr Loana Saggesi**
+   - Foto: https://i.imgur.com/VoyY5O7.jpg
+   - Specialità: Chirurgien-dentiste
+   - Lingue: 🇫🇷 Français
+   - Bio: "Diplômée de la Faculté d'Odontologie de Marseille. Approche douce et bienveillante. Soins complets pour toute la famille."
+   - Orari: Lundi - Vendredi: 09:00-12:00 / 14:00-18:00
+   - Link Doctolib: https://www.doctolib.fr/dentiste/port-de-bouc/loana-saggesi?pid=practice-131168
+
+4. **Dr Adriana Sahlean**
+   - Foto: https://i.imgur.com/r2J7fVo.jpg
+   - Specialità: Couronnes dentaires • Prothèses fixes et amovibles
+   - Lingue: 🇫🇷 Français • 🇮🇹 Italien • 🇷🇴 Roumain
+   - Bio: "Expertise en prothèse dentaire. Expérience professionnelle à Marseille, Les Angles et Avignon. Travail de précision."
+   - Orari: Lundi - Vendredi: 09:00-12:00 / 14:00-18:00
+   - Link Doctolib: https://www.doctolib.fr/dentiste/pertuis/adriana-sahlean?pid=practice-131168
+
+5. **Dr Romeissa Touat**
+   - Foto: https://i.imgur.com/OL8XLl3.jpg
+   - Specialità: Réhabilitation orale complète
+   - Lingue: 🇫🇷 Français • 🇬🇧 Anglais • 🇪🇸 Espagnol • 🇵🇹 Portugais • 🇸🇦 Arabe
+   - Bio: "Spécialisée en réhabilitations orales complexes. Communication facilitée en 5 langues pour accueillir tous les patients."
+   - Orari: Lundi - Vendredi: 09:00-12:00 / 14:00-18:00
+   - Link Doctolib: https://www.doctolib.fr/dentiste/marseille/romeissa-touat?pid=practice-131168
+
+6. **Dr Melvyn Saadi**
+   - Foto: https://i.imgur.com/N24SZf9.jpg
+   - Specialità: Chirurgien-dentiste
+   - Lingue: 🇫🇷 Français
+   - Bio: "Soins conformes aux conventions de la Sécurité Sociale. Approche professionnelle et accessible. Prise en charge complète."
+   - Orari: Lundi - Vendredi: 09:00-12:00 / 14:00-18:00
+   - Link Doctolib: https://www.doctolib.fr/dentiste/marseille/melvyn-saadi-marseille?pid=practice-131168
+
+#### **SENZA FOTO (ultimi 6 - usare icona placeholder):**
+
+7. **Dr Petra Hent**
+   - Specialità: Chirurgien-dentiste
+   - Lingue: 🇫🇷 Français • 🇬🇧 Anglais • 🇭🇺 Hongrois • 🇷🇴 Roumain
+   - Bio: "Spécialisée dans le diagnostic et le traitement des pathologies bucco-dentaires. Approche attentive aux besoins du patient."
+   - Orari: Lundi - Vendredi: 09:00-12:00 / 14:00-18:00
+   - Link Doctolib: https://www.doctolib.fr/dentiste/marseille/petra-hent-saint-ouen?pid=practice-131168
+
+8. **Dr Ines Youcef**
+   - Specialità: Chirurgien-dentiste
+   - Bio: "Prévention, diagnostic et traitement des pathologies dentaires. Soins complets : détartrage, caries, gencives."
+   - Link Doctolib: https://www.doctolib.fr/dentiste/berre-l-etang/ines-youcef-port-de-bouc?pid=practice-131168
+
+9. **Dr Elea Bondil**
+   - Specialità: Chirurgien-dentiste
+   - Lingue: 🇫🇷 Français
+   - Bio: "Prévention et traitement des principales pathologies dentaires. Soins de qualité dans un cadre professionnel."
+   - Orari: Lundi - Vendredi: 09:00-12:00 / 14:00-18:00
+   - Link Doctolib: https://www.doctolib.fr/dentiste/marseille/elea-bondil-4cfb7ce8-a247-408f-83c5-a837c7af9a6a?pid=practice-131168
+
+10. **Dr Emilie Egidio**
+    - Specialità: Chirurgien-dentiste
+    - Bio: "Prévention, diagnostic et traitement dans un environnement moderne. Soins complets pour toute la famille."
+    - Orari: Lundi - Vendredi: 09:00-12:00 / 14:00-18:00
+    - Link Doctolib: https://www.doctolib.fr/dentiste/port-de-bouc/emilie-egidio-port-de-bouc?pid=practice-131168
+
+11. **Dr Ophélie Rogeon**
+    - Specialità: Chirurgien-dentiste
+    - Bio: "Prévention et traitement des pathologies dentaires avec professionnalisme. Soins personnalisés."
+    - Orari: Lundi - Vendredi: 09:00-12:00 / 14:00-18:00
+    - Link Doctolib: https://www.doctolib.fr/dentiste/port-de-bouc/ophelie-rogeon-fbc1f39f-d022-4237-936b-d92f20f398c1?pid=practice-131168
+
+12. **Dr Wacil Youcef**
+    - Specialità: Chirurgien-dentiste
+    - Bio: "Soins de dents, gencives, nerfs et mâchoires. Traitement complet des pathologies bucco-dentaires."
+    - Orari: Lundi - Vendredi: 09:00-12:00 / 14:00-18:00
+    - Link Doctolib: https://www.doctolib.fr/dentiste/port-de-bouc/wacil-youcef?pid=practice-131168
+
+---
+
+## 2. AGGIUNGERE CAROSELLO MEDICI IN HOMEPAGE
+
+### POSIZIONE:
+Dopo la sezione "Pourquoi Easy Dent" (3 card blu/nero/giallo) e prima della sezione "Notre Philosophie"
+
+### SPECIFICHE CAROSELLO:
+- **Titolo sezione**: "Notre équipe de spécialistes"
+- **Sous-titre**: "Des praticiens passionnés, multilingues et dévoués à votre santé bucco-dentaire"
+- **Tipo**: Carosello orizzontale infinito auto-scroll
+- **Contenuto**: Le 6 card dei medici CON FOTO (Dr Barbosa, Dray, Saggesi, Sahlean, Touat, Saadi)
+- **Comportamento**:
+  - Scroll automatico continuo da destra a sinistra
+  - Velocità: lenta e fluida (circa 40px/secondo)
+  - Loop infinito senza interruzioni
+  - Hover: pausa temporanea dello scroll
+  - Click sulla card: espande modal con bio completa + bottone Doctolib
+- **Design card**:
+  - Larghezza fissa: 320px
+  - Foto medico in alto (height: 400px, object-fit: cover)
+  - Nome + specialità + lingue
+  - Ombra morbida, border-radius 20px
+  - Hover: transform: scale(1.05)
+- **Responsive mobile**: Scroll touch-friendly con swipe gesture
+
+### CODICE ESEMPIO CAROSELLO:
+```javascript
+// Implementare con CSS animation o libreria tipo Swiper.js
+.carousel-track {
+  display: flex;
+  gap: 2rem;
+  animation: scroll 40s linear infinite;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.carousel-track:hover {
+  animation-play-state: paused;
+}
+
+// Duplicare le card per loop infinito seamless
+```
+
+**Bottone in fondo**: "Découvrir toute l'équipe (12 praticiens)" → Link alla page L'ÉQUIPE
+
+---
+
+## 3. AGGIUNGERE SEZIONE RECENSIONI GOOGLE IN HOMEPAGE
+
+### POSIZIONE:
+Dopo il carosello medici e prima della sezione "Besoin d'un rendez-vous rapidement?"
+
+### TITOLO SEZIONE:
+```
+"Ce que nos patients disent de nous"
+Sous-titre: "Plus de 180 avis positifs sur Google et autres plateformes"
+```
+
+### RECENSIONI DA INSERIRE (Carosello infinito):
+
+**Recensione 1:**
+```
+★★★★★
+"Cabinet au top! Le meilleur que j'ai fait dans ma vie! Que ce soit niveau soin dentaire, sans parler de la décoration du cabinet, l'hygiène vraiment au top!"
+— Patient vérifié
+```
+
+**Recensione 2:**
+```
+★★★★★
+"Nous sommes extrêmement satisfaits de ce cabinet dentaire, tant par l'accueil, le professionnalisme et la gentillesse du personnel ainsi que l'hygiène qui est irréprochable. Je recommande très sincèrement ce cabinet."
+— Sophie M.
+```
+
+**Recensione 3:**
+```
+★★★★★
+"Un cabinet super classe, un accueil irréprochable par une équipe efficace et plutôt rare chez un dentiste jamais d'attente! Le directeur et les dentistes rapides, efficaces et sans douleur. Merci tout le staff!"
+— Thomas B.
+```
+
+**Recensione 4:**
+```
+★★★★★
+"Enfin un dentiste qui donne envie d'aller chez le dentiste :) Que ce soit du côté dentaire ou du côté médecine esthétique je le recommande fortement."
+— Marie L.
+```
+
+**Recensione 5:**
+```
+★★★★★
+"Le docteur Margheriti m'a fait de superbes couronnes fidèle à sa réputation. Le centre est très propre et ils ont fait tous les papiers administratifs. Je recommande les yeux fermés."
+— Jean-Pierre D.
+```
+
+**Recensione 6:**
+```
+★★★★★
+"Cabinet dentaire au top!! Des secrétaires adorables sans parler du Dr Margheriti, enfin un chirurgien gentil et compétent à la fois. Merci à vous."
+— Caroline R.
+```
+
+**Recensione 7:**
+```
+★★★★★
+"J'ai eu la belle surprise de voir que le tiers payant est réalisé pour toutes les mutuelles. Un vrai plus. Centre moderne et accueillant, je recommande!"
+— Ahmed K.
+```
+
+### FORMATO CAROSELLO RECENSIONI:
+- **Layout**: Carosello orizzontale infinito auto-scroll (come per i medici)
+- **Card recensione**:
+  - Larghezza: 400px
+  - Background: Blanc #FFFFFF
+  - Border-left: 4px solid #D4AF37 (accent oro)
+  - Padding: 2rem
+  - Box-shadow: 0 5px 20px rgba(0,0,0,0.08)
+  - Border-radius: 15px
+- **Stelle**: Colore oro #D4AF37, font-size: 1.5rem
+- **Testo**: Color #5A6C7D, line-height 1.8, italic
+- **Autore**: Font-weight 700, color #001F3F
+- **Scroll**: Automatico, lento, infinito, pausa su hover
+
+---
+
+## 4. AGGIUNGERE RECENSIONI NELLA PAGE CONTACT
+
+### POSIZIONE:
+Dopo la mappa Google e prima del footer
+
+### TITOLO:
+```
+"Ils nous font confiance"
+Sous-titre: "Découvrez les témoignages de nos patients satisfaits"
+```
+
+### LAYOUT:
+- **Grid 3 colonnes** (desktop) / 1 colonna (mobile)
+- Mostrare 6 recensioni (scelte tra quelle sopra)
+- Design identico alle card recensioni homepage
+- NO carosello (layout statico)
+
+---
+
+## 5. CORREGGERE INDIRIZZO
+
+### ❌ INDIRIZZO ATTUALE (SBAGLIATO):
+```
+Route Nationale 568
+13230 Port-de-Bouc
+```
+
+### ✅ INDIRIZZO CORRETTO:
+```
+39 Avenue du Groupe Manouchian
+13110 Port-de-Bouc
+France
+```
+
+**Dove correggere:**
+- Footer (tutte le pagine)
+- Page Contact (sezione "Nous trouver")
+- Google Maps marker
+
+---
+
+## 6. RIMUOVERE BADGE "MADE WITH REPLIT"
+
+### AZIONE:
+Rimuovere completamente il badge "Made with Replit" visibile in basso a destra su tutte le pagine.
+
+**Metodo CSS (se non puoi rimuovere HTML):**
+```css
+/* Nascondere badge Replit */
+[class*="replit"], 
+[class*="Replit"],
+iframe[src*="replit"] {
+  display: none !important;
+}
+```
+
+---
+
+## 7. AGGIUNGERE BOTTONI DOCTOLIB ALLE CARD MEDICI
+
+### SU PAGE L'ÉQUIPE:
+Ogni card medico deve avere un bottone in fondo:
+
+```html
+<button class="btn-doctolib" onclick="window.open('LINK_DOCTOLIB_SPECIFICO', '_blank')">
+  📅 Prendre RDV avec Dr [Nome]
+</button>
+```
+
+**Stile bottone:**
+```css
+.btn-doctolib {
+  width: 100%;
+  background: #0077B6;
+  color: white;
+  padding: 1rem;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-doctolib:hover {
+  background: #005f8d;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,119,182,0.3);
+}
+```
+
+---
+
+## 8. MIGLIORAMENTI VISUAL HOMEPAGE
+
+### SEZIONE HERO:
+- ✅ Già perfetta, mantenere così
+
+### 3 CARD FEATURES:
+- ✅ Già perfette, mantenere così
+
+### AGGIUNGERE DOPO LE 3 CARD:
+1. **Carosello Medici** (nuovo)
+2. **Sezione Philosophie** (già presente)
+3. **Carosello Recensioni** (nuovo)
+4. **CTA Rendez-vous** (già presente)
+
+---
+
+## 9. STRUTTURA FINALE HOMEPAGE
+
+```
+1. Navigation (fixed top)
+2. Hero Section con foto reception
+3. Badge "L'excellence dentaire à Port-de-Bouc"
+4. Titre "Votre sourire mérite le meilleur soin"
+5. 3 Card Features (Urgences / Équipements / Équipe)
+6. 📸 CAROSELLO MEDICI (NUOVO)
+7. Sezione "Notre Philosophie" con foto sala
+8. ⭐ CAROSELLO RECENSIONS (NOUVEAU)
+9. CTA "Besoin d'un rendez-vous rapidement?"
+10. Footer
+```
+
+---
+
+## 10. CHECKLIST TECNICA
+
+### ✅ DA FARE:
+- [ ] Sostituire tutti i 12 nomi medici con quelli corretti
+- [ ] Caricare le 6 foto medici da URL Imgur
+- [ ] Aggiungere link Doctolib individuali a ogni medico
+- [ ] Implementare carosello medici homepage (auto-scroll infinito)
+- [ ] Implementare carosello recensioni homepage (7 recensioni reali)
+- [ ] Aggiungere grid recensioni nella page Contact (6 recensioni)
+- [ ] Correggere indirizzo in footer e Contact page
+- [ ] Rimuovere badge "Made with Replit"
+- [ ] Testare responsive mobile (caroselli touch-friendly)
+- [ ] Verificare tutti i link Doctolib funzionanti
+
+---
+
+## 11. PRIORITÀ IMPLEMENTAZIONE
+
+### 🔴 URGENTE (Fare subito):
+1. Correggere nomi medici (attualmente sono sbagliati)
+2. Caricare foto medici da Imgur
+3. Aggiungere link Doctolib
+4. Correggere indirizzo
+
+### 🟡 IMPORTANTE (Fare dopo):
+5. Carosello medici homepage
+6. Carosello recensioni homepage
+7. Recensioni page Contact
+
+### 🟢 OPZIONALE:
+8. Rimuovere badge Replit (migliora estetica)
+
+---
+
+## 12. LIBRERIE CONSIGLIATE PER CAROSELLI
+
+### OPZIONE A - Swiper.js (Consigliata):
+```html
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+```
+
+### OPZIONE B - CSS Puro (Più leggero):
+Usare `@keyframes` + `animation` per scroll infinito seamless
+
+---
+
+## 🎯 RISULTATO FINALE ATTESO
+
+Un sito web che:
+- ✅ Mostra i 12 medici REALI del centro
+- ✅ Ha foto professionali dei 6 medici principali
+- ✅ Presenta recensioni Google autentiche in modo dinamico
+- ✅ Ha caroselli moderni e fluidi che catturano l'attenzione
+- ✅ Indirizzo corretto su tutte le pagine
+- ✅ Link Doctolib funzionanti per ogni medico
+- ✅ Aspetto professionale senza badge esterni
+
+---
+
+## 📞 SUPPORTO
+
+Se hai bisogno di assistenza durante l'implementazione:
+1. Verifica che tutti gli URL Imgur funzionino
+2. Testa i caroselli su mobile e desktop
+3. Controlla che i link Doctolib si aprano in nuove tab
+4. Valida che le recensioni siano leggibili e ben formattate
+
+**Il sito è già all'80% completo. Con queste modifiche diventerà PERFETTO! 🚀**

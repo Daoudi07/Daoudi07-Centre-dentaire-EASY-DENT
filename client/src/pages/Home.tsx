@@ -6,9 +6,73 @@ import { Section } from "@/components/ui/section";
 import heroImg from "@assets/attesa_1766941636456.jpg";
 import chairImg from "@assets/sala2_1766941636456.jpg";
 import { useLocation } from "wouter";
+import { useState } from "react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+
+const DOCTORS = [
+  {
+    name: "Dr Sandy Barbosa",
+    role: "Chirurgien-dentiste",
+    img: "https://i.imgur.com/gY3xRoF.jpg",
+    languages: ["Français", "Anglais", "Espagnol", "Portugais"],
+    bio: "Spécialisée en prévention, urgences dentaires, bruxisme et greffes osseuses. Approche douce et professionnelle.",
+    doctolib: "https://www.doctolib.fr/dentiste/savigny-sur-orge/sandy-barbosa?pid=practice-131168"
+  },
+  {
+    name: "Dr Nicolas Dray",
+    role: "Esthétique dentaire • Implantologie",
+    img: "https://i.imgur.com/As9RuQf.jpg",
+    languages: ["Français"],
+    bio: "Approche holistique de la santé orale. Pratique l'hypnose dentale pour le confort des patients. Spécialiste en facettes et implants.",
+    doctolib: "https://www.doctolib.fr/dentiste/aix-en-provence/nicolas-dray?pid=practice-131168"
+  },
+  {
+    name: "Dr Loana Saggesi",
+    role: "Chirurgien-dentiste",
+    img: "https://i.imgur.com/VoyY5O7.jpg",
+    languages: ["Français"],
+    bio: "Diplômée de la Faculté d'Odontologie de Marseille. Approche douce et bienveillante. Soins complets pour toute la famille.",
+    doctolib: "https://www.doctolib.fr/dentiste/port-de-bouc/loana-saggesi?pid=practice-131168"
+  },
+  {
+    name: "Dr Adriana Sahlean",
+    role: "Prothèses fixes et amovibles",
+    img: "https://i.imgur.com/r2J7fVo.jpg",
+    languages: ["Français", "Italien", "Roumain"],
+    bio: "Expertise en prothèse dentaire. Expérience professionnelle à Marseille, Les Angles et Avignon. Travail de précision.",
+    doctolib: "https://www.doctolib.fr/dentiste/pertuis/adriana-sahlean?pid=practice-131168"
+  },
+  {
+    name: "Dr Romeissa Touat",
+    role: "Réhabilitation orale complète",
+    img: "https://i.imgur.com/OL8XLl3.jpg",
+    languages: ["Français", "Anglais", "Espagnol", "Portugais", "Arabe"],
+    bio: "Spécialisée en réhabilitations orales complexes. Communication facilitée en 5 langues pour accueillir tous les patients.",
+    doctolib: "https://www.doctolib.fr/dentiste/marseille/romeissa-touat?pid=practice-131168"
+  },
+  {
+    name: "Dr Melvyn Saadi",
+    role: "Chirurgien-dentiste",
+    img: "https://i.imgur.com/N24SZf9.jpg",
+    languages: ["Français"],
+    bio: "Soins conformes aux conventions de la Sécurité Sociale. Approche professionnelle et accessible. Prise en charge complète.",
+    doctolib: "https://www.doctolib.fr/dentiste/marseille/melvyn-saadi-marseille?pid=practice-131168"
+  }
+];
+
+const REVIEWS = [
+  { text: "Cabinet au top! Le meilleur que j'ai fait dans ma vie! Que ce soit niveau soin dentaire, sans parler de la décoration du cabinet, l'hygiène vraiment au top!", author: "Patient vérifié" },
+  { text: "Nous sommes extrêmement satisfaits de ce cabinet dentaire, tant par l'accueil, le professionnalisme et la gentillesse du personnel ainsi que l'hygiène qui est irréprochable.", author: "Sophie M." },
+  { text: "Un cabinet super classe, un accueil irréprochable par une équipe efficace et plutôt rare chez un dentiste jamais d'attente! Le directeur et les dentistes rapides, efficaces.", author: "Thomas B." },
+  { text: "Enfin un dentiste qui donne envie d'aller chez le dentiste :) Que ce soit du côté dentaire ou du côté médecine esthétique je le recommande fortement.", author: "Marie L." },
+  { text: "Le docteur Margheriti m'a fait de superbes couronnes fidèle à sa réputation. Le centre est très propre et ils ont fait tous les papiers administratifs.", author: "Jean-Pierre D." },
+  { text: "Cabinet dentaire au top!! Des secrétaires adorables sans parler du Dr Margheriti, enfin un chirurgien gentil et compétent à la fois. Merci à vous.", author: "Caroline R." },
+  { text: "J'ai eu la belle surprise de voir que le tiers payant est réalisé pour tutte les mutuelles. Un vrai plus. Centre moderne et accueillant, je recommande!", author: "Ahmed K." }
+];
 
 export default function Home() {
   const [, setLocation] = useLocation();
+  const [selectedDoctor, setSelectedDoctor] = useState<any>(null);
 
   const fadeIn = {
     initial: { opacity: 0, y: 20 },
@@ -20,7 +84,6 @@ export default function Home() {
     <Layout>
       {/* HERO SECTION */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img 
             src={heroImg} 
@@ -60,7 +123,7 @@ export default function Home() {
               <Button 
                 size="lg" 
                 variant="accent"
-                onClick={() => window.open('https://www.doctolib.fr', '_blank')}
+                onClick={() => window.open('https://www.doctolib.fr/cabinet-dentaire/port-de-bouc/centre-dentaire-port-de-bouc', '_blank')}
                 className="text-secondary"
               >
                 Prendre rendez-vous
@@ -77,7 +140,6 @@ export default function Home() {
           </motion.div>
         </div>
 
-        {/* Scroll Indicator */}
         <motion.div 
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 2 }}
@@ -128,7 +190,42 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* INTRO */}
+      {/* DOCTORS CAROUSEL */}
+      <Section className="overflow-hidden">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-display font-bold text-secondary mb-4">Notre équipe de spécialistes</h2>
+          <p className="text-lg text-muted-foreground">Des praticiens passionnés, multilingues et dévoués à votre santé bucco-dentaire</p>
+        </div>
+        
+        <div className="relative group">
+          <div className="flex gap-8 animate-scroll hover:[animation-play-state:paused] w-max py-4">
+            {[...DOCTORS, ...DOCTORS].map((doc, idx) => (
+              <div 
+                key={idx}
+                onClick={() => setSelectedDoctor(doc)}
+                className="w-[320px] bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden cursor-pointer hover:scale-105 transition-all duration-300"
+              >
+                <div className="h-[400px]">
+                  <img src={doc.img} alt={doc.name} className="w-full h-full object-cover" />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-secondary font-display mb-1">{doc.name}</h3>
+                  <p className="text-sm font-semibold text-primary uppercase tracking-wide mb-2">{doc.role}</p>
+                  <p className="text-xs text-muted-foreground">{doc.languages.join(' • ')}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="text-center mt-12">
+          <Button size="lg" onClick={() => setLocation('/equipe')}>
+            Découvrir tutta l'équipe (12 praticiens)
+          </Button>
+        </div>
+      </Section>
+
+      {/* INTRO / PHILOSOPHY */}
       <Section>
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div className="relative">
@@ -141,7 +238,7 @@ export default function Home() {
           </div>
           <div>
             <span className="text-primary font-bold uppercase tracking-wider text-sm mb-2 block">Notre Philosophie</span>
-            <h2 className="text-4xl md:text-5xl mb-6 text-secondary">
+            <h2 className="text-4xl md:text-5xl mb-6 text-secondary font-display">
               L'art de soigner, <br />
               <span className="text-primary">le plaisir de sourire</span>
             </h2>
@@ -168,10 +265,35 @@ export default function Home() {
         </div>
       </Section>
 
+      {/* REVIEWS CAROUSEL */}
+      <Section variant="muted" className="overflow-hidden">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-display font-bold text-secondary mb-4">Ce que nos patients disent de nous</h2>
+          <p className="text-lg text-muted-foreground">Plus de 180 avis positifs sur Google et autres plateformes</p>
+        </div>
+
+        <div className="relative">
+          <div className="flex gap-8 animate-scroll-reverse hover:[animation-play-state:paused] w-max py-4">
+            {[...REVIEWS, ...REVIEWS].map((rev, idx) => (
+              <div 
+                key={idx}
+                className="w-[400px] bg-white p-8 rounded-2xl shadow-md border-l-4 border-accent"
+              >
+                <div className="flex gap-1 text-accent mb-4">
+                  {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 fill-current" />)}
+                </div>
+                <p className="text-muted-foreground italic mb-6 leading-relaxed">"{rev.text}"</p>
+                <p className="font-bold text-secondary">— {rev.author}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Section>
+
       {/* CTA BANNER */}
       <Section variant="dark" className="text-center">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl mb-6 text-white">Besoin d'un rendez-vous rapidement ?</h2>
+          <h2 className="text-3xl md:text-4xl mb-6 text-white font-display">Besoin d'un rendez-vous rapidement ?</h2>
           <p className="text-xl text-white/80 mb-8">
             Consultez nos disponibilités en ligne et réservez votre créneau en quelques clics.
           </p>
@@ -180,7 +302,7 @@ export default function Home() {
               size="lg" 
               variant="accent" 
               className="text-secondary"
-              onClick={() => window.open('https://www.doctolib.fr', '_blank')}
+              onClick={() => window.open('https://www.doctolib.fr/cabinet-dentaire/port-de-bouc/centre-dentaire-port-de-bouc', '_blank')}
             >
               Réserver sur Doctolib
             </Button>
@@ -195,6 +317,38 @@ export default function Home() {
           </div>
         </div>
       </Section>
+
+      {/* Doctor Modal */}
+      <Dialog open={!!selectedDoctor} onOpenChange={() => setSelectedDoctor(null)}>
+        <DialogContent className="max-w-2xl">
+          {selectedDoctor && (
+            <div className="flex flex-col md:flex-row gap-8">
+              <div className="w-full md:w-1/2 rounded-xl overflow-hidden shadow-lg">
+                <img src={selectedDoctor.img} alt={selectedDoctor.name} className="w-full h-full object-cover" />
+              </div>
+              <div className="w-full md:w-1/2 flex flex-col justify-between">
+                <div>
+                  <h2 className="text-3xl font-display font-bold text-secondary mb-2">{selectedDoctor.name}</h2>
+                  <p className="text-primary font-bold uppercase tracking-wider text-sm mb-4">{selectedDoctor.role}</p>
+                  <p className="text-muted-foreground mb-6 leading-relaxed">{selectedDoctor.bio}</p>
+                  <div className="mb-6">
+                    <p className="text-sm font-bold text-secondary mb-2">Langues parlées :</p>
+                    <p className="text-sm text-muted-foreground">{selectedDoctor.languages.join(', ')}</p>
+                  </div>
+                </div>
+                <Button 
+                  size="lg" 
+                  className="w-full bg-[#0077B6] hover:bg-[#005f8d]"
+                  onClick={() => window.open(selectedDoctor.doctolib, '_blank')}
+                >
+                  📅 Prendre RDV avec {selectedDoctor.name}
+                </Button>
+              </div>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </Layout>
   );
 }
+

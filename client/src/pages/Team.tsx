@@ -1,20 +1,98 @@
 import { Layout } from "@/components/layout/Layout";
 import { Section } from "@/components/ui/section";
 import { User2 } from "lucide-react";
+import { Button } from "@/components/ui/button-custom";
 
 const TEAM_MEMBERS = [
-  { name: "Dr Sandy Barbosa", role: "Chirurgien-Dentiste", spec: "Implantologie" },
-  { name: "Dr Nicolas Dray", role: "Chirurgien-Dentiste", spec: "Omnipratique" },
-  { name: "Dr Michael Scetbon", role: "Chirurgien-Dentiste", spec: "Esthétique" },
-  { name: "Dr David Cohen", role: "Chirurgien-Dentiste", spec: "Parodontologie" },
-  { name: "Dr Sarah Levi", role: "Chirurgien-Dentiste", spec: "Pédodontie" },
-  { name: "Dr Julien Marciano", role: "Chirurgien-Dentiste", spec: "Chirurgie Orale" },
-  { name: "Dr Emma Petit", role: "Chirurgien-Dentiste", spec: "Omnipratique" },
-  { name: "Dr Thomas Dubois", role: "Chirurgien-Dentiste", spec: "Endodontie" },
-  { name: "Dr Lea Martin", role: "Chirurgien-Dentiste", spec: "Orthodontie" },
-  { name: "Dr Kevin Durand", role: "Chirurgien-Dentiste", spec: "Prothèses" },
-  { name: "Dr Sophie Bernard", role: "Chirurgien-Dentiste", spec: "Omnipratique" },
-  { name: "Dr Pierre Morel", role: "Chirurgien-Dentiste", spec: "Implantologie" },
+  {
+    name: "Dr Sandy Barbosa",
+    role: "Chirurgien-dentiste",
+    img: "https://i.imgur.com/gY3xRoF.jpg",
+    languages: ["🇫🇷 Français", "🇬🇧 Anglais", "🇪🇸 Espagnol", "🇵🇹 Portugais"],
+    bio: "Spécialisée en prévention, urgences dentaires, bruxisme et greffes osseuses. Approche douce et professionnelle.",
+    doctolib: "https://www.doctolib.fr/dentiste/savigny-sur-orge/sandy-barbosa?pid=practice-131168"
+  },
+  {
+    name: "Dr Nicolas Dray",
+    role: "Chirurgien-dentiste",
+    spec: "Esthétique dentaire • Implantologie • Orthodontie invisible",
+    img: "https://i.imgur.com/As9RuQf.jpg",
+    languages: ["🇫🇷 Français"],
+    bio: "Approche holistique de la santé orale. Pratique l'hypnose dentale pour le confort des patients. Spécialiste en facettes et implants.",
+    doctolib: "https://www.doctolib.fr/dentiste/aix-en-provence/nicolas-dray?pid=practice-131168"
+  },
+  {
+    name: "Dr Loana Saggesi",
+    role: "Chirurgien-dentiste",
+    img: "https://i.imgur.com/VoyY5O7.jpg",
+    languages: ["🇫🇷 Français"],
+    bio: "Diplômée de la Faculté d'Odontologie de Marseille. Approche douce et bienveillante. Soins complets pour toute la famille.",
+    doctolib: "https://www.doctolib.fr/dentiste/port-de-bouc/loana-saggesi?pid=practice-131168"
+  },
+  {
+    name: "Dr Adriana Sahlean",
+    role: "Chirurgien-dentiste",
+    spec: "Couronnes dentaires • Prothèses fixes et amovibles",
+    img: "https://i.imgur.com/r2J7fVo.jpg",
+    languages: ["🇫🇷 Français", "🇮🇹 Italien", "🇷🇴 Roumain"],
+    bio: "Expertise en prothèse dentaire. Expérience professionnelle à Marseille, Les Angles et Avignon. Travail de précision.",
+    doctolib: "https://www.doctolib.fr/dentiste/pertuis/adriana-sahlean?pid=practice-131168"
+  },
+  {
+    name: "Dr Romeissa Touat",
+    role: "Chirurgien-dentiste",
+    spec: "Réhabilitation orale complète",
+    img: "https://i.imgur.com/OL8XLl3.jpg",
+    languages: ["🇫🇷 Français", "🇬🇧 Anglais", "🇪🇸 Espagnol", "🇵🇹 Portugais", "🇸🇦 Arabe"],
+    bio: "Spécialisée en réhabilitations orales complexes. Communication facilitée en 5 langues pour accueillir tous les patients.",
+    doctolib: "https://www.doctolib.fr/dentiste/marseille/romeissa-touat?pid=practice-131168"
+  },
+  {
+    name: "Dr Melvyn Saadi",
+    role: "Chirurgien-dentiste",
+    img: "https://i.imgur.com/N24SZf9.jpg",
+    languages: ["🇫🇷 Français"],
+    bio: "Soins conformes aux conventions de la Sécurité Sociale. Approche professionnelle et accessible. Prise en charge complète.",
+    doctolib: "https://www.doctolib.fr/dentiste/marseille/melvyn-saadi-marseille?pid=practice-131168"
+  },
+  {
+    name: "Dr Petra Hent",
+    role: "Chirurgien-dentiste",
+    languages: ["🇫🇷 Français", "🇬🇧 Anglais", "🇭🇺 Hongrois", "🇷🇴 Roumain"],
+    bio: "Spécialisée dans le diagnostic et le traitement des pathologies bucco-dentaires. Approche attentive aux besoins du patient.",
+    doctolib: "https://www.doctolib.fr/dentiste/marseille/petra-hent-saint-ouen?pid=practice-131168"
+  },
+  {
+    name: "Dr Ines Youcef",
+    role: "Chirurgien-dentiste",
+    bio: "Prévention, diagnostic et traitement des pathologies dentaires. Soins complets : détartrage, caries, gencives.",
+    doctolib: "https://www.doctolib.fr/dentiste/berre-l-etang/ines-youcef-port-de-bouc?pid=practice-131168"
+  },
+  {
+    name: "Dr Elea Bondil",
+    role: "Chirurgien-dentiste",
+    languages: ["🇫🇷 Français"],
+    bio: "Prévention et traitement des principales pathologies dentaires. Soins de qualité dans un cadre professionnel.",
+    doctolib: "https://www.doctolib.fr/dentiste/marseille/elea-bondil-4cfb7ce8-a247-408f-83c5-a837c7af9a6a?pid=practice-131168"
+  },
+  {
+    name: "Dr Emilie Egidio",
+    role: "Chirurgien-dentiste",
+    bio: "Prévention, diagnostic et traitement dans un environnement moderne. Soins complets pour toute la famille.",
+    doctolib: "https://www.doctolib.fr/dentiste/port-de-bouc/emilie-egidio-port-de-bouc?pid=practice-131168"
+  },
+  {
+    name: "Dr Ophélie Rogeon",
+    role: "Chirurgien-dentiste",
+    bio: "Prévention et traitement des pathologies dentaires avec professionnalisme. Soins personnalisés.",
+    doctolib: "https://www.doctolib.fr/dentiste/port-de-bouc/ophelie-rogeon-fbc1f39f-d022-4237-936b-d92f20f398c1?pid=practice-131168"
+  },
+  {
+    name: "Dr Wacil Youcef",
+    role: "Chirurgien-dentiste",
+    bio: "Soins de dents, gencives, nerfs et mâchoires. Traitement complet des pathologies bucco-dentaires.",
+    doctolib: "https://www.doctolib.fr/dentiste/port-de-bouc/wacil-youcef?pid=practice-131168"
+  }
 ];
 
 export default function Team() {
@@ -22,9 +100,9 @@ export default function Team() {
     <Layout>
       <div className="bg-secondary text-white pt-32 pb-16">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-6xl font-display mb-4">Notre Équipe</h1>
+          <h1 className="text-4xl md:text-6xl font-display mb-4 font-bold">Notre Équipe</h1>
           <p className="text-xl text-white/60 max-w-2xl mx-auto">
-            Des experts passionnés au service de votre santé bucco-dentaire.
+            Des experts passionnés, multilingues et dévoués à votre santé bucco-dentaire.
           </p>
         </div>
       </div>
@@ -34,24 +112,40 @@ export default function Team() {
           {TEAM_MEMBERS.map((member, idx) => (
             <div 
               key={idx}
-              className="group bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl hover:border-primary/20 transition-all duration-300"
+              className="group bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden flex flex-col hover:shadow-xl hover:border-primary/20 transition-all duration-300"
             >
-              <div className="h-64 bg-muted flex items-center justify-center relative overflow-hidden">
+              <div className="h-80 bg-muted flex items-center justify-center relative overflow-hidden shrink-0">
+                {member.img ? (
+                  <img src={member.img} alt={member.name} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                ) : (
+                  <User2 className="w-24 h-24 text-muted-foreground/30" />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10" />
-                <User2 className="w-24 h-24 text-muted-foreground/30" />
-                {/* Placeholder for real image */}
-                {/* <img src={member.img} className="absolute inset-0 w-full h-full object-cover" /> */}
               </div>
-              <div className="p-6 text-center">
+              <div className="p-6 text-center flex-1 flex flex-col">
                 <h3 className="text-xl font-bold text-secondary font-display mb-1 group-hover:text-primary transition-colors">
                   {member.name}
                 </h3>
                 <p className="text-sm font-semibold text-accent uppercase tracking-wide mb-2">
                   {member.role}
                 </p>
-                <p className="text-sm text-muted-foreground">
-                  Spécialité : {member.spec}
+                {member.spec && (
+                   <p className="text-xs font-medium text-primary/80 mb-3">{member.spec}</p>
+                )}
+                <p className="text-sm text-muted-foreground line-clamp-3 mb-4 flex-1">
+                  {member.bio}
                 </p>
+                {member.languages && (
+                  <p className="text-xs text-muted-foreground/80 mb-6 font-medium">
+                    {member.languages.join(' • ')}
+                  </p>
+                )}
+                <Button 
+                  className="w-full bg-[#0077B6] hover:bg-[#005f8d] text-white font-bold"
+                  onClick={() => window.open(member.doctolib, '_blank')}
+                >
+                  📅 Prendre RDV avec Dr {member.name.split(' ').pop()}
+                </Button>
               </div>
             </div>
           ))}
@@ -60,3 +154,4 @@ export default function Team() {
     </Layout>
   );
 }
+

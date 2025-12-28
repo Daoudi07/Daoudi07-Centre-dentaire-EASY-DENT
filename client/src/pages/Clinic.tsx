@@ -49,6 +49,9 @@ export default function Clinic() {
               Oubliez l'angoisse du dentiste. Notre clinique a été pensée comme un lieu de vie apaisant. 
             </p>
             <p className="text-muted-foreground leading-relaxed">
+              Situé au 39 Avenue du Groupe Manouchian à Port-de-Bouc, notre centre vous accueille du lundi au vendredi de 09h00 à 12h00 et de 14h00 à 18h00.
+            </p>
+            <p className="text-muted-foreground leading-relaxed">
               Dès la salle d'attente, profitez d'une ambiance calme, d'une décoration soignée et d'un accueil chaleureux par notre équipe administrative dévouée.
             </p>
           </div>
