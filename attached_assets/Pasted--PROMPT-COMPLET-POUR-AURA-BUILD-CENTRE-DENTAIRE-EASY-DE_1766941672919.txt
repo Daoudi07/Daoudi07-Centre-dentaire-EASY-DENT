@@ -1,0 +1,600 @@
+# PROMPT COMPLET POUR AURA.BUILD - CENTRE DENTAIRE EASY DENT
+
+## 🎯 OBJECTIF
+Créer un site web multipages premium pour le Centre Dentaire Easy Dent à Port-de-Bouc (13110), France. Style moderne "Medical Luxury" inspiré de cliniques haut de gamme comme Holly Smile Dubai, adapté au marché français avec accessibilité (conventionnement Sécurité Sociale).
+
+---
+
+## 🎨 IDENTITÉ VISUELLE & STYLE
+
+### Palette de couleurs
+- **Primaire**: Blanc pur #FFFFFF (90% du site - luxe, propreté, espace)
+- **Secondaire**: Bleu médical #0077B6 (CTA, liens, accents)
+- **Accent luxury**: Or #D4AF37 (détails logo, étoiles avis)
+- **Texte**: Gris anthracite #2C3E50
+- **Contraste**: Navy foncé #001F3F (footer, sections sombres)
+- **Urgences**: Rouge médical #E63946
+
+### Design principles
+- **Minimalisme extrême**: Espaces blancs généreux, pas de surcharge visuelle
+- **Glassmorphism subtil**: Pour les cards de statistiques uniquement
+- **Ombres douces**: box-shadow: 0 5px 25px rgba(0,0,0,0.06)
+- **Border-radius**: 20px pour toutes les cards
+- **Typographie**: 
+  - Titres: Montserrat Bold ou Poppins SemiBold
+  - Corps: Open Sans Regular ou Inter
+- **Animations**: Hover smooth sur toutes les cards (transform: translateY(-10px))
+- **Mobile-first**: Responsive parfait, navigation tactile optimale
+
+---
+
+## 📁 ARCHITECTURE DU SITE (5 PAGES)
+
+### Page 1: ACCUEIL (Home)
+### Page 2: LA CLINIQUE (About)
+### Page 3: NOS PRATICIENS (Team complet)
+### Page 4: GALERIE SOURIRES (Avant/Après)
+### Page 5: CONTACT
+
+---
+
+## 🏠 PAGE 1: ACCUEIL (HOME PAGE)
+
+### NAVIGATION (Fixed top)
+```
+Logo Easy Dent (fichier uploadé) | Menu: Accueil • La Clinique • Notre Équipe • Galerie • Contact | Bouton CTA: 04 42 75 24 71
+```
+- Background: rgba(255,255,255,0.98) avec backdrop-filter: blur(10px)
+- Logo à gauche (40px height)
+- Menu centré, liens avec hover couleur #0077B6
+- Téléphone à droite en bouton bleu arrondi
+
+### HERO SECTION
+**Image de fond**: Utiliser le fichier uploadé (photo reception Easy Dent)
+**Overlay**: linear-gradient(rgba(0,31,63,0.4), rgba(0,119,182,0.3))
+
+**Contenu centré**:
+```html
+<h1>Votre sourire, notre excellence</h1>
+<p class="subtitle">Expertise dentaire et technologies de pointe au cœur de Port-de-Bouc</p>
+<div class="hero-buttons">
+  <button class="btn-primary">Prendre Rendez-vous</button>
+  <button class="btn-urgence">🚨 Urgence Dentaire</button>
+</div>
+```
+
+**Card statistiques glassmorphism** (position: absolute, bottom: 50px):
+```
+12+ Praticiens experts | 6000+ Patients satisfaits | 4.4★ Note Google
+```
+Background: rgba(255,255,255,0.15), backdrop-filter: blur(15px)
+
+### SECTION: POURQUOI EASY DENT
+**Titre**: "Pourquoi choisir Easy Dent ?"
+**Sous-titre**: "Une équipe pluridisciplinaire, des équipements de dernière génération et un engagement : votre confort et votre sourire"
+
+**3 cartes features** (grid 3 colonnes):
+
+1. **12+ Chirurgiens-dentistes**
+   - Icône: 👨‍⚕️ (dans div 70x70px, background gradient bleu, border-radius 20px)
+   - Texte: "Une équipe complète et expérimentée couvrant toutes les spécialités : esthétique, implantologie, orthodontie invisible, urgences dentaires."
+
+2. **Technologies d'avant-garde**
+   - Icône: 🔬
+   - Texte: "Scanner 3D intra-oral, radiologie panoramique numérique, stérilisation selon normes européennes les plus strictes. Équipements renouvelés régulièrement."
+
+3. **Tiers payant intégral**
+   - Icône: 💳
+   - Texte: "Conventionné Sécurité Sociale et mutuelles. Soins d'excellence accessibles à tous sans avance de frais. Devis détaillés et transparents."
+
+### SECTION: NOTRE ÉQUIPE (Aperçu 6 praticiens)
+**Titre**: "Notre équipe de spécialistes"
+**Sous-titre**: "Des praticiens passionnés, multilingues et dévoués à votre santé bucco-dentaire"
+
+**Grid 3 colonnes (2 rangées)**:
+
+#### Dr Sandy Barbosa
+- **Photo**: https://i.imgur.com/gY3xRoF.jpg
+- **Nom**: Dr Sandy Barbosa
+- **Spécialité**: Chirurgien-dentiste
+- **Langues**: 🇫🇷 Français • 🇬🇧 Anglais • 🇪🇸 Espagnol • 🇵🇹 Portugais
+- **Description courte**: "Spécialisée en prévention et urgences dentaires. Expertise en bruxisme et greffes osseuses."
+- **Bouton**: "Prendre RDV" → https://www.doctolib.fr/dentiste/savigny-sur-orge/sandy-barbosa?pid=practice-131168
+
+#### Dr Nicolas Dray
+- **Photo**: https://i.imgur.com/As9RuQf.jpg
+- **Nom**: Dr Nicolas Dray
+- **Spécialité**: Esthétique dentaire • Implantologie • Orthodontie invisible
+- **Langues**: 🇫🇷 Français
+- **Description courte**: "Approche holistique de la santé orale. Pratique l'hypnose dentale pour le confort des patients."
+- **Bouton**: "Prendre RDV" → https://www.doctolib.fr/dentiste/aix-en-provence/nicolas-dray?pid=practice-131168
+
+#### Dr Loana Saggesi
+- **Photo**: https://i.imgur.com/VoyY5O7.jpg
+- **Nom**: Dr Loana Saggesi
+- **Spécialité**: Chirurgien-dentiste
+- **Langues**: 🇫🇷 Français
+- **Description courte**: "Diplômée de la Faculté d'Odontologie de Marseille. Approche douce et bienveillante."
+- **Bouton**: "Prendre RDV" → https://www.doctolib.fr/dentiste/port-de-bouc/loana-saggesi?pid=practice-131168
+
+#### Dr Adriana Sahlean
+- **Photo**: https://i.imgur.com/r2J7fVo.jpg
+- **Nom**: Dr Adriana Sahlean
+- **Spécialité**: Couronnes dentaires • Prothèses fixes et amovibles
+- **Langues**: 🇫🇷 Français • 🇮🇹 Italien • 🇷🇴 Roumain
+- **Description courte**: "Expertise en prothèse dentaire. Expérience à Marseille, Les Angles et Avignon."
+- **Bouton**: "Prendre RDV" → https://www.doctolib.fr/dentiste/pertuis/adriana-sahlean?pid=practice-131168
+
+#### Dr Romeissa Touat
+- **Photo**: https://i.imgur.com/OL8XLl3.jpg
+- **Nom**: Dr Romeissa Touat
+- **Spécialité**: Réhabilitation orale complète
+- **Langues**: 🇫🇷 Français • 🇬🇧 Anglais • 🇪🇸 Espagnol • 🇵🇹 Portugais • 🇸🇦 Arabe
+- **Description courte**: "Spécialisée en réhabilitations orales complexes. Communication facilitée en 5 langues."
+- **Bouton**: "Prendre RDV" → https://www.doctolib.fr/dentiste/marseille/romeissa-touat?pid=practice-131168
+
+#### Dr Melvyn Saadi
+- **Photo**: https://i.imgur.com/N24SZf9.jpg
+- **Nom**: Dr Melvyn Saadi
+- **Spécialité**: Chirurgien-dentiste
+- **Langues**: 🇫🇷 Français
+- **Description courte**: "Soins conformes aux conventions de la Sécurité Sociale. Approche professionnelle."
+- **Bouton**: "Prendre RDV" → https://www.doctolib.fr/dentiste/marseille/melvyn-saadi-marseille?pid=practice-131168
+
+**Bouton en bas de section**: "Découvrir toute l'équipe (12 praticiens)" → lien vers page NOS PRATICIENS
+
+### SECTION: GALERIE SOURIRES (Aperçu)
+**Titre**: "Transformations réalisées"
+**Sous-titre**: "L'expertise de nos praticiens en images"
+
+**3 cartes Avant/Après** (grid 3 colonnes):
+Pour chaque carte:
+- Layout: 2 images côte à côte (desktop) ou empilées (mobile)
+- Image gauche: badge "AVANT" (rouge #E63946, top-left)
+- Image droite: badge "APRÈS" (bleu #0077B6, top-right)
+- **IMPORTANT**: Utiliser des PLACEHOLDERS élégants avec texte:
+  ```
+  <div style="background: linear-gradient(135deg, #f0e4d7, #e8d5c4); height: 250px; display: flex; align-items: center; justify-content: center;">
+    <p style="font-size: 18px; color: #5A6C7D;">Cas clinique 1</p>
+  </div>
+  ```
+- Titre sous les images: "Réhabilitation esthétique complète" / "Implants et couronnes céramique" / "Facettes dentaires"
+
+**Note pour le développeur**: Les photos avant/après seront ajoutées ultérieurement. Créer des placeholders professionnels avec dégradés doux.
+
+**Bouton**: "Voir toute la galerie" → lien vers page GALERIE
+
+### SECTION: AVIS GOOGLE
+**Titre**: "Ce que nos patients disent de nous"
+**Sous-titre**: "4.4★ sur Google - Plus de 200 avis vérifiés"
+
+**3 cartes témoignages** (grid 3 colonnes):
+
+1. **Avis 1**:
+   - Étoiles: ★★★★★ (couleur #D4AF37)
+   - Texte: "Équipe professionnelle et accueillante. Dr Dray a réalisé mes implants avec une précision remarquable. Centre moderne, je recommande vivement !"
+   - Auteur: "Marie L."
+
+2. **Avis 2**:
+   - Étoiles: ★★★★★
+   - Texte: "Centre ultramoderne et propre. Prise en charge rapide pour une urgence dentaire. Merci au Dr Barbosa pour sa gentillesse et son professionnalisme."
+   - Auteur: "Thomas B."
+
+3. **Avis 3**:
+   - Étoiles: ★★★★★
+   - Texte: "J'avais peur du dentiste depuis des années. L'équipe Easy Dent a été patiente et rassurante. Mon sourire est transformé, je souris enfin sans complexes !"
+   - Auteur: "Sophie M."
+
+Style des cartes: Background blanc, padding généreux, border-left: 4px solid #D4AF37
+
+### SECTION: CONTACT RAPIDE
+**Titre**: "Nous contacter"
+
+**2 colonnes**:
+
+**Colonne 1 - Informations**:
+```
+📍 Adresse:
+39 Avenue du Groupe Manouchian
+13110 Port-de-Bouc
+
+📞 Téléphone:
+04 42 75 24 71
+(Click to call sur mobile)
+
+🕒 Horaires:
+Lundi - Vendredi: 09:00 - 12:30 / 14:00 - 19:00
+Samedi - Dimanche: Fermé
+
+✅ Urgences dentaires acceptées
+```
+
+**Colonne 2 - Carte Google Maps**:
+Intégrer Google Maps avec marqueur sur:
+`39 Avenue du Groupe Manouchian, 13110 Port-de-Bouc, France`
+
+---
+
+## 🏥 PAGE 2: LA CLINIQUE
+
+### HERO MINI
+Background: Dégradé bleu subtil
+**Titre**: "Une clinique moderne au service de votre sourire"
+**Sous-titre**: "Technologie de pointe et protocoles d'hygiène strictes"
+
+### SECTION: NOTRE PHILOSOPHIE
+**Texte**:
+"Situé au cœur de Port-de-Bouc, le Centre Dentaire Easy Dent réunit une équipe de 12 chirurgiens-dentistes hautement qualifiés dans un environnement ultramoderne. Nous croyons fermement que l'excellence en dentisterie repose sur trois piliers : l'expertise humaine, l'innovation technologique et l'écoute du patient.
+
+Notre engagement ? Associer soins de haute qualité, confort patient et accessibilité financière grâce au conventionnement intégral avec la Sécurité Sociale et les mutuelles."
+
+### SECTION: NOS TECHNOLOGIES
+**Grid 2 colonnes avec icônes**:
+
+1. **Scanner 3D intra-oral**
+   - Description: "Empreintes numériques précises sans inconfort. Visualisation 3D de votre dentition pour un diagnostic optimal."
+
+2. **Radiologie panoramique numérique**
+   - Description: "Exposition réduite aux rayons X (90% de moins qu'une radio classique). Images haute résolution instantanées."
+
+3. **Stérilisation classe B**
+   - Description: "Autoclaves dernière génération conformes aux normes européennes les plus strictes. Traçabilité complète."
+
+4. **Matériaux biocompatibles**
+   - Description: "Céramiques, composites et implants de dernière génération. Garanties fabricants longue durée."
+
+### SECTION: GALERIE CLINIQUE
+**Grid 4 images** (photos des salles):
+- IMPORTANT: Créer des placeholders pour les 2 photos des salles opératoires qui seront ajoutées
+- Style: Images avec overlay léger au hover, légendes en bas
+
+Placeholder exemple:
+```html
+<div style="background: linear-gradient(135deg, #e0e8f0, #d0dce8); height: 300px; border-radius: 20px; display: flex; align-items: center; justify-content: center;">
+  <p style="color: #5A6C7D; font-size: 16px;">Salle de soins moderne</p>
+</div>
+```
+
+### SECTION: CONVENTIONS & TARIFS
+**Texte**:
+"💳 **Tiers payant intégral**
+Nous pratiquons le tiers payant avec la Sécurité Sociale et l'ensemble des mutuelles. Aucune avance de frais pour vos soins conventionnés.
+
+📋 **Devis gratuits et détaillés**
+Avant tout traitement, nous établissons un devis transparent mentionnant les tarifs et les remboursements prévus.
+
+⚡ **Urgences dentaires**
+Plages horaires dédiées chaque jour pour les urgences (rage de dents, dent cassée, abcès). Appelez le 04 42 75 24 71."
+
+---
+
+## 👥 PAGE 3: NOS PRATICIENS (TEAM COMPLET)
+
+### HERO MINI
+**Titre**: "Une équipe d'experts à votre écoute"
+**Sous-titre**: "12 chirurgiens-dentistes, spécialités complémentaires, langues multiples"
+
+### SECTION: PRATICIENS (Grid complète)
+**Grid 4 colonnes** (3 rangées):
+
+**AVEC PHOTOS (6 premiers - mêmes que home page)**:
+1. Dr Sandy Barbosa (photo + infos complètes + bio)
+2. Dr Nicolas Dray (photo + infos complètes + bio)
+3. Dr Loana Saggesi (photo + infos complètes + bio)
+4. Dr Adriana Sahlean (photo + infos complètes + bio)
+5. Dr Romeissa Touat (photo + infos complètes + bio)
+6. Dr Melvyn Saadi (photo + infos complètes + bio)
+
+**SANS PHOTOS (6 suivants - placeholder icône dentiste)**:
+
+#### Dr Petra Hent
+- **Icône**: Silhouette dentiste professionnelle (SVG)
+- **Spécialité**: Chirurgien-dentiste
+- **Langues**: 🇫🇷 Français • 🇬🇧 Anglais • 🇭🇺 Hongrois • 🇷🇴 Roumain
+- **Bio**: "Spécialisée dans le diagnostic, la prévention et le traitement des pathologies du cavité buccal. Approche professionnelle et attentive aux besoins du patient."
+- **Horaires**: Lundi - Vendredi: 09:00-12:00 / 14:00-18:00
+- **Bouton**: "Prendre RDV" → https://www.doctolib.fr/dentiste/marseille/petra-hent-saint-ouen?pid=practice-131168
+
+#### Dr Ines Youcef
+- **Icône**: Silhouette dentiste
+- **Spécialité**: Chirurgien-dentiste
+- **Bio**: "Prévention, diagnostic et traitement des pathologies du cavité buccal. Soins complets : détartrage, caries, gencives irritées."
+- **Bouton**: "Prendre RDV" → https://www.doctolib.fr/dentiste/berre-l-etang/ines-youcef-port-de-bouc?pid=practice-131168
+
+#### Dr Elea Bondil
+- **Icône**: Silhouette dentiste
+- **Spécialité**: Chirurgien-dentiste
+- **Langues**: 🇫🇷 Français
+- **Bio**: "Prévention et traitement des principales pathologies dentaires. Soins de dents, gencives et mâchoires dans un cadre professionnel."
+- **Horaires**: Lundi - Vendredi: 09:00-12:00 / 14:00-18:00
+- **Bouton**: "Prendre RDV" → https://www.doctolib.fr/dentiste/marseille/elea-bondil-4cfb7ce8-a247-408f-83c5-a837c7af9a6a?pid=practice-131168
+
+#### Dr Emilie Egidio
+- **Icône**: Silhouette dentiste
+- **Spécialité**: Chirurgien-dentiste
+- **Bio**: "Prévention, diagnostic et traitement des pathologies du cavité buccal. Soins complets dans un environnement moderne."
+- **Horaires**: Lundi - Vendredi: 09:00-12:00 / 14:00-18:00
+- **Bouton**: "Prendre RDV" → https://www.doctolib.fr/dentiste/port-de-bouc/emilie-egidio-port-de-bouc?pid=practice-131168
+
+#### Dr Ophélie Rogeon
+- **Icône**: Silhouette dentiste
+- **Spécialité**: Chirurgien-dentiste
+- **Bio**: "Prévention et traitement des pathologies dentaires. Soins de dents, gencives et mâchoires avec professionnalisme."
+- **Horaires**: Lundi - Vendredi: 09:00-12:00 / 14:00-18:00
+- **Bouton**: "Prendre RDV" → https://www.doctolib.fr/dentiste/port-de-bouc/ophelie-rogeon-fbc1f39f-d022-4237-936b-d92f20f398c1?pid=practice-131168
+
+#### Dr Wacil Youcef
+- **Icône**: Silhouette dentiste
+- **Spécialité**: Chirurgien-dentiste
+- **Bio**: "Prévention, diagnostic et traitement des pathologies du cavité buccal. Soins de dents, gencives, nerfs et mâchoires."
+- **Horaires**: Lundi - Vendredi: 09:00-12:00 / 14:00-18:00
+- **Bouton**: "Prendre RDV" → https://www.doctolib.fr/dentiste/port-de-bouc/wacil-youcef?pid=practice-131168
+
+**Style des cards sans photo**:
+```css
+.doctor-card-no-photo {
+  background: linear-gradient(135deg, #f8fafb, #e8f0f5);
+  border: 2px dashed #d0dce8;
+  /* Icône dentiste centrée en SVG */
+}
+```
+
+---
+
+## 📸 PAGE 4: GALERIE SOURIRES
+
+### HERO MINI
+**Titre**: "Nos transformations"
+**Sous-titre**: "L'excellence de nos praticiens en images"
+
+### FILTRES (optionnel)
+Boutons: Tous • Esthétique • Implants • Orthodontie
+
+### GALERIE (Grid 2 colonnes)
+**6-9 cas avant/après**:
+- IMPORTANT: Tous les cas doivent être des PLACEHOLDERS pour l'instant
+- Layout responsive: desktop = côte à côte, mobile = empilé verticalement
+- Badge "AVANT" rouge, badge "APRÈS" bleu
+
+Exemple placeholder:
+```html
+<div class="case-card">
+  <div class="case-images">
+    <div class="case-before" style="background: linear-gradient(135deg, #f0e4d7, #e8d5c4);">
+      <span class="badge-avant">AVANT</span>
+      <p>Cas esthétique 1</p>
+    </div>
+    <div class="case-after" style="background: linear-gradient(135deg, #e8f4f8, #d0e8f0);">
+      <span class="badge-apres">APRÈS</span>
+      <p>Résultat</p>
+    </div>
+  </div>
+  <div class="case-info">
+    <h3>Réhabilitation esthétique complète</h3>
+    <p>Facettes céramique • Blanchiment professionnel</p>
+  </div>
+</div>
+```
+
+Titres des cas:
+1. "Réhabilitation esthétique complète"
+2. "Implants et couronnes céramique"
+3. "Facettes dentaires ultra-fines"
+4. "Orthodontie invisible adulte"
+5. "Reconstruction arcades complètes"
+6. "Sourire Hollywood"
+
+**Note en bas de page**: "Photos de cas réels avec autorisation des patients. Résultats individuels variables."
+
+---
+
+## 📞 PAGE 5: CONTACT
+
+### HERO MINI
+**Titre**: "Prenez rendez-vous"
+**Sous-titre**: "Urgences dentaires acceptées chaque jour"
+
+### SECTION: INFORMATIONS
+**3 colonnes**:
+
+**Colonne 1: Adresse & Contact**
+```
+📍 Centre Dentaire Easy Dent
+39 Avenue du Groupe Manouchian
+13110 Port-de-Bouc
+France
+
+📞 04 42 75 24 71
+📧 contact@easydent-portdebouc.fr (si disponible)
+
+🚗 Parking disponible à proximité
+🚌 Arrêt de bus: "Manouchian" (ligne XX)
+```
+
+**Colonne 2: Horaires**
+```
+Lundi: 09:00 - 12:30 / 14:00 - 19:00
+Mardi: 09:00 - 12:30 / 14:00 - 19:00
+Mercredi: 09:00 - 12:30 / 14:00 - 19:00
+Jeudi: 09:00 - 12:30 / 14:00 - 19:00
+Vendredi: 09:00 - 12:30 / 14:00 - 19:00
+Samedi: Fermé
+Dimanche: Fermé
+
+⚡ Créneaux urgences tous les jours
+```
+
+**Colonne 3: Rendez-vous en ligne**
+Boutons vers Doctolib:
+- "Prendre RDV avec un praticien"
+- "Urgence dentaire"
+- "Première consultation"
+
+### GOOGLE MAPS
+**Grande carte interactive** occupant toute la largeur:
+```
+39 Avenue du Groupe Manouchian, 13110 Port-de-Bouc, France
+```
+Marker personnalisé avec logo Easy Dent
+
+---
+
+## 🦶 FOOTER (Toutes les pages)
+
+**Background**: #001F3F (navy foncé)
+**Couleur texte**: rgba(255,255,255,0.8)
+
+**4 colonnes**:
+
+**Colonne 1: Easy Dent**
+```
+Logo (version blanche si possible)
+39 Av. du Groupe Manouchian
+13110 Port-de-Bouc
+
+📞 04 42 75 24 71
+
+Suivez-nous:
+[Icônes Facebook] [Instagram] [LinkedIn]
+```
+
+**Colonne 2: Navigation**
+- Accueil
+- La Clinique
+- Notre Équipe
+- Galerie
+- Contact
+- Mentions légales
+- Politique de confidentialité
+
+**Colonne 3: Horaires**
+```
+Lundi - Vendredi
+09:00 - 12:30
+14:00 - 19:00
+
+Samedi - Dimanche
+Fermé
+```
+
+**Colonne 4: Infos pratiques**
+```
+✅ Tiers payant intégral
+✅ Conventionné Sécu & mutuelles
+✅ Urgences dentaires
+✅ Parking disponible
+✅ Accès PMR
+✅ 12 praticiens experts
+```
+
+**Footer bottom**:
+```
+© 2024 Centre Dentaire Easy Dent - Port-de-Bouc. Tous droits réservés.
+Site réalisé avec ❤️ pour votre sourire
+```
+
+---
+
+## 📱 ÉLÉMENTS MOBILE SPÉCIFIQUES
+
+### BOUTON URGENCE FIXE (Mobile uniquement)
+```html
+<a href="tel:0442752471" class="mobile-urgence-btn">
+  🚨 Urgence
+</a>
+```
+Style:
+- Position: fixed, bottom: 20px, right: 20px
+- Background: #E63946 (rouge)
+- Border-radius: 50px
+- Box-shadow: 0 5px 20px rgba(230,57,70,0.4)
+- Z-index: 9999
+- Toujours visible lors du scroll
+- Vibration au tap (si navigateur le supporte)
+
+### MENU HAMBURGER
+- Icône: 3 barres horizontales (top-right)
+- Slide-in depuis la droite
+- Background: rgba(255,255,255,0.98)
+- Links empilés verticalement avec icônes
+
+---
+
+## ⚙️ INSTRUCTIONS TECHNIQUES AURA.BUILD
+
+### Images uploadées
+1. **Logo Easy Dent**: À utiliser dans la navigation (height: 40px) et footer
+2. **Photo Hero reception**: À utiliser comme background de la hero section homepage avec overlay
+
+### Images depuis URLs Imgur
+Les photos des praticiens suivants doivent être chargées via leurs URLs:
+- Dr Sandy Barbosa: https://i.imgur.com/gY3xRoF.jpg
+- Dr Nicolas Dray: https://i.imgur.com/As9RuQf.jpg
+- Dr Loana Saggesi: https://i.imgur.com/VoyY5O7.jpg
+- Dr Adriana Sahlean: https://i.imgur.com/r2J7fVo.jpg
+- Dr Romeissa Touat: https://i.imgur.com/OL8XLl3.jpg
+- Dr Melvyn Saadi: https://i.imgur.com/N24SZf9.jpg
+
+### Placeholders à créer
+- Photos avant/après (galerie homepage et page galerie)
+- Photos salles opératoires (page La Clinique)
+- Icônes silhouettes dentistes (6 praticiens sans photo)
+
+### Performance
+- Lazy loading pour toutes les images
+- Compression automatique
+- WebP format si possible
+- Minification CSS/JS
+
+### SEO
+```html
+<title>Centre Dentaire Easy Dent - Port-de-Bouc | 12 Praticiens Experts</title>
+<meta name="description" content="Centre dentaire moderne à Port-de-Bouc. 12 chirurgiens-dentistes, technologies de pointe, tiers payant intégral. Urgences dentaires acceptées. ☎️ 04 42 75 24 71">
+<meta name="keywords" content="dentiste port-de-bouc, centre dentaire, implants, orthodontie, urgence dentaire, tiers payant">
+```
+
+### Liens externes
+Tous les boutons "Prendre RDV" doivent ouvrir les liens Doctolib dans un nouvel onglet:
+```html
+<a href="[URL_DOCTOLIB]" target="_blank" rel="noopener noreferrer">
+```
+
+### Call-to-actions prioritaires
+1. Bouton téléphone (04 42 75 24 71) → tel:0442752471
+2. Boutons Doctolib individuels
+3. Bouton urgence mobile fixe
+
+---
+
+## 🎨 STYLE FINAL CHECKLIST
+
+✅ Blanc dominant (90% du site)
+✅ Bleu médical pour CTA (#0077B6)
+✅ Or discret pour accents (#D4AF37)
+✅ Ombres douces (pas d'ombres dures)
+✅ Border-radius 20px partout
+✅ Glassmorphism uniquement pour card stats hero
+✅ Animations hover smooth
+✅ Espaces blancs généreux (padding 6rem pour sections)
+✅ Typographie hiérarchisée (h1: 3.5rem, h2: 2.8rem, body: 1.1rem)
+✅ Mobile-first responsive
+✅ Bouton urgence rouge fixe (mobile)
+✅ Click-to-call sur tous les numéros
+✅ Navigation sticky top
+✅ Footer navy (#001F3F)
+
+---
+
+## 🚀 OBJECTIF FINAL
+
+Un site web qui inspire:
+- **Confiance** (design premium, témoignages, certifications)
+- **Modernité** (technologies de pointe, design actuel)
+- **Accessibilité** (tiers payant, urgences, 12 praticiens)
+- **Professionnalisme** (équipe expérimentée, environnement soigné)
+
+Le visiteur doit ressentir qu'Easy Dent est **le meilleur centre dentaire de Port-de-Bouc** : luxueux mais accessible, high-tech mais humain, expert mais accueillant.
+
+---
+
+**Prêt à créer l'excellence dentaire en ligne ! 🦷✨**
