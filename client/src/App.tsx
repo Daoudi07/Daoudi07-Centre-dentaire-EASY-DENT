@@ -5,12 +5,21 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 
+// Pages
+import Home from "@/pages/Home";
+import Clinic from "@/pages/Clinic";
+import Team from "@/pages/Team";
+import Gallery from "@/pages/Gallery";
+import Contact from "@/pages/Contact";
+
 function Router() {
   return (
     <Switch>
-      {/* Add pages below */}
-      {/* <Route path="/" component={Home}/> */}
-      {/* Fallback to 404 */}
+      <Route path="/" component={Home} />
+      <Route path="/clinique" component={Clinic} />
+      <Route path="/equipe" component={Team} />
+      <Route path="/galerie" component={Gallery} />
+      <Route path="/contact" component={Contact} />
       <Route component={NotFound} />
     </Switch>
   );
@@ -20,8 +29,8 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <Toaster />
         <Router />
+        <Toaster />
       </TooltipProvider>
     </QueryClientProvider>
   );
