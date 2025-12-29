@@ -1,0 +1,1139 @@
+# 🏥 PROMPT MASTER RIFINITURA SITO EASY DENT - REPLIT
+
+## 📋 OBIETTIVO GENERALE
+Trasformare il sito attuale in un'esperienza **Medical Luxury** di livello Dubai, ottimizzata mobile-first per iPhone 17, con navigazione fluida, immagini professionali AI-generated e UX impeccabile.
+
+---
+
+## 🎯 MODIFICHE PRIORITARIE
+
+---
+
+### 1. 🔧 CORREZIONE UX MOBILE - MENU SIDE DRAWER
+
+#### PROBLEMA ATTUALE:
+- Menu hamburger copre tutto lo schermo (100% larghezza)
+- Background trasparente (testo illeggibile)
+- Nessun pulsante di chiusura "X"
+- Impossibile chiudere cliccando fuori dal menu
+
+#### SOLUZIONE RICHIESTA:
+
+**A) Implementare Side Drawer moderno:**
+
+```css
+/* SIDE DRAWER SPECIFICHE */
+.side-drawer {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Inizialmente nascosto fuori schermo */
+    width: 75%; /* 75% della larghezza schermo */
+    max-width: 320px; /* Massimo 320px su schermi grandi */
+    height: 100vh;
+    background: #FFFFFF; /* Bianco solido */
+    box-shadow: -5px 0 30px rgba(0, 0, 0, 0.2);
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1050;
+    overflow-y: auto;
+}
+
+.side-drawer.open {
+    right: 0; /* Scorre dentro quando aperto */
+}
+```
+
+**B) Aggiungere icona Close "X":**
+
+```html
+<!-- Posizionare in alto a destra nel drawer -->
+<button class="close-drawer" aria-label="Fermer le menu">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M18 6L6 18M6 6l12 12" stroke="#001F3F" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+</button>
+```
+
+```css
+.close-drawer {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 40px;
+    height: 40px;
+    background: #f0f4f8;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.close-drawer:hover {
+    background: #e0e8f0;
+    transform: rotate(90deg);
+}
+```
+
+**C) Aggiungere Overlay oscurato:**
+
+```css
+.drawer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 31, 63, 0.5); /* Blu scuro semi-trasparente */
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+    z-index: 1040;
+}
+
+.drawer-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+```
+
+**D) JavaScript per funzionalità:**
+
+```javascript
+// Apertura/Chiusura Side Drawer
+const hamburger = document.querySelector('.hamburger');
+const drawer = document.querySelector('.side-drawer');
+const overlay = document.querySelector('.drawer-overlay');
+const closeBtn = document.querySelector('.close-drawer');
+
+function openDrawer() {
+    drawer.classList.add('open');
+    overlay.classList.add('active');
+    hamburger.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Blocca scroll body
+}
+
+function closeDrawer() {
+    drawer.classList.remove('open');
+    overlay.classList.remove('active');
+    hamburger.classList.remove('active');
+    document.body.style.overflow = ''; // Ripristina scroll
+}
+
+hamburger.addEventListener('click', openDrawer);
+closeBtn.addEventListener('click', closeDrawer);
+overlay.addEventListener('click', closeDrawer); // Chiudi cliccando overlay
+
+// Chiudi premendo ESC
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && drawer.classList.contains('open')) {
+        closeDrawer();
+    }
+});
+```
+
+**E) Animazione Hamburger → X:**
+
+Utilizzare l'animazione allegata (Image 6 - icona hamburger animata):
+
+```css
+.hamburger {
+    width: 28px;
+    height: 24px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: transparent;
+    border: none;
+    position: relative;
+    z-index: 1100;
+}
+
+.hamburger span {
+    width: 100%;
+    height: 3px;
+    background: #001F3F;
+    border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Animazione trasformazione in X */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(20px);
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+```
+
+---
+
+### 2. 🎨 HERO BANNERS CONTESTUALI PER OGNI SEZIONE
+
+#### ELIMINARE:
+Le attuali bande blu piatte (#001F3F solido) in alto a ogni sezione
+
+#### SOSTITUIRE CON:
+Hero Banners con immagini di sfondo + overlay + titolo elegante
+
+**SPECIFICHE HERO BANNERS:**
+
+```css
+.section-hero {
+    position: relative;
+    height: 320px; /* 320px mobile, 400px desktop */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+/* Overlay scuro per leggibilità */
+.section-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 31, 63, 0.85), rgba(0, 119, 182, 0.75));
+    z-index: 1;
+}
+
+.section-hero-title {
+    position: relative;
+    z-index: 2;
+    color: #FFFFFF;
+    font-size: 2.5rem; /* 40px */
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: -0.5px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    padding: 0 2rem;
+}
+
+@media (min-width: 768px) {
+    .section-hero {
+        height: 400px;
+    }
+    
+    .section-hero-title {
+        font-size: 3.5rem; /* 56px */
+    }
+}
+```
+
+**IMMAGINI DI SFONDO PER OGNI SEZIONE:**
+
+1. **PAGE L'ÉQUIPE (Team):**
+   - Background: Usa una delle foto sala operatoria già presenti (quella con strumenti moderni)
+   - Titolo: "Notre équipe de spécialistes"
+
+2. **PAGE GALERIE:**
+   - Background: Dettaglio tecnologico (scanner 3D / lampada operatoria)
+   - Titolo: "Galerie Sourires"
+
+3. **PAGE CONTACT:**
+   - Background: Foto reception Easy Dent (quella già usata in homepage)
+   - Titolo: "Contactez-nous"
+
+4. **PAGE LA CLINIQUE:**
+   - Background: Vista ampia sala operatoria
+   - Titolo: "Notre Clinique"
+
+**IMPLEMENTAZIONE HTML:**
+
+```html
+<!-- Esempio per page L'ÉQUIPE -->
+<section class="section-hero" style="background-image: url('sala-operatoria.jpg');">
+    <h1 class="section-hero-title">Notre équipe de spécialistes</h1>
+</section>
+```
+
+---
+
+### 3. 📸 OTTIMIZZAZIONE TEAM - NUOVE FOTO AI-GENERATED
+
+#### FOTO ALLEGATE DA UTILIZZARE:
+
+**IMPORTANTE:** I file allegati hanno questi nomi (da rispettare esattamente):
+
+1. **dr-sandy-barbosa.jpg** (Image 1 - donna capelli lunghi castani, camice bianco)
+2. **dr-loana-saggesi.jpg** (Image 2 - donna capelli raccolti, collana croce)
+3. **dr-romeissa-touat.jpg** (Image 3 - donna capelli ricci, carnagione olivastra)
+4. **dr-nicolas-dray.jpg** (Image 4 - uomo barba, dolcevita nero sotto camice)
+5. **dr-adriana-sahlean.jpg** (Image 5 - donna capelli lunghi neri, scritta su camice)
+6. **dr-melvyn-saadi.jpg** (Image 7 - donna capelli scuri, braccia conserte)
+
+#### SPECIFICHE CARD MEDICI:
+
+```css
+.doctor-card {
+    background: #FFFFFF;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.doctor-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 119, 182, 0.2);
+}
+
+/* FORMATO 1:1 OBBLIGATORIO */
+.doctor-image {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Forza rapporto 1:1 (quadrato) */
+    object-fit: cover;
+    object-position: center;
+}
+```
+
+**STRUTTURA HTML CARD:**
+
+```html
+<div class="doctor-card">
+    <img src="dr-sandy-barbosa.jpg" alt="Dr Sandy Barbosa" class="doctor-image">
+    <div class="doctor-info">
+        <h3 class="doctor-name">Dr Sandy Barbosa</h3>
+        <p class="doctor-specialty">Chirurgien-dentiste</p>
+        <div class="doctor-languages">
+            <span class="lang-tag">🇫🇷 Français</span>
+            <span class="lang-tag">🇬🇧 Anglais</span>
+            <span class="lang-tag">🇪🇸 Espagnol</span>
+            <span class="lang-tag">🇵🇹 Portugais</span>
+        </div>
+        <button class="btn-doctolib" onclick="window.open('https://www.doctolib.fr/dentiste/savigny-sur-orge/sandy-barbosa?pid=practice-131168', '_blank')">
+            📅 Prendre RDV
+        </button>
+    </div>
+</div>
+```
+
+#### SOSTITUZIONE FOTO:
+
+**❌ RIMUOVERE:** Tutte le foto attuali (placeholder o vecchie foto)
+
+**✅ SOSTITUIRE CON:**
+
+| Medico | File da usare | Link Doctolib |
+|--------|---------------|---------------|
+| Dr Sandy Barbosa | dr-sandy-barbosa.jpg | https://www.doctolib.fr/dentiste/savigny-sur-orge/sandy-barbosa?pid=practice-131168 |
+| Dr Nicolas Dray | dr-nicolas-dray.jpg | https://www.doctolib.fr/dentiste/aix-en-provence/nicolas-dray?pid=practice-131168 |
+| Dr Loana Saggesi | dr-loana-saggesi.jpg | https://www.doctolib.fr/dentiste/port-de-bouc/loana-saggesi?pid=practice-131168 |
+| Dr Adriana Sahlean | dr-adriana-sahlean.jpg | https://www.doctolib.fr/dentiste/pertuis/adriana-sahlean?pid=practice-131168 |
+| Dr Romeissa Touat | dr-romeissa-touat.jpg | https://www.doctolib.fr/dentiste/marseille/romeissa-touat?pid=practice-131168 |
+| Dr Melvyn Saadi | dr-melvyn-saadi.jpg | https://www.doctolib.fr/dentiste/marseille/melvyn-saadi-marseille?pid=practice-131168 |
+
+**Altri 6 medici (senza foto - usare placeholder icona):**
+- Dr Petra Hent
+- Dr Ines Youcef
+- Dr Elea Bondil
+- Dr Emilie Egidio
+- Dr Ophélie Rogeon
+- Dr Wacil Youcef
+
+---
+
+### 4. 🚨 PULSANTE URGENZE MOBILE PERSISTENTE
+
+#### REQUISITI:
+- Sempre visibile su mobile (fixed position)
+- Colore rosso prominente (#E63946)
+- Icona telefono + testo "Urgence"
+- Click diretto a `tel:0442752471`
+- Non deve coprire contenuti importanti
+
+```css
+.mobile-urgence-btn {
+    display: none; /* Nascosto su desktop */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+    background: #E63946;
+    color: #FFFFFF;
+    padding: 1rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    box-shadow: 0 5px 20px rgba(230, 57, 70, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+.mobile-urgence-btn:hover {
+    background: #d62839;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(230, 57, 70, 0.5);
+}
+
+/* Animazione pulsante attira attenzione */
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 5px 20px rgba(230, 57, 70, 0.4);
+    }
+    50% {
+        box-shadow: 0 5px 30px rgba(230, 57, 70, 0.7);
+    }
+}
+
+/* Mostra solo su mobile */
+@media (max-width: 768px) {
+    .mobile-urgence-btn {
+        display: flex;
+    }
+}
+```
+
+```html
+<a href="tel:0442752471" class="mobile-urgence-btn">
+    <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+    </svg>
+    Urgence
+</a>
+```
+
+---
+
+### 5. 📍 CORREZIONE INDIRIZZO & CONTATTI
+
+#### INDIRIZZO CORRETTO (da usare ovunque):
+
+```
+39 Avenue du Groupe Manouchian
+13110 Port-de-Bouc
+France
+```
+
+#### DOVE CORREGGERE:
+1. Footer (tutte le pagine)
+2. Page Contact (sezione "Nous trouver")
+3. Google Maps embed
+
+#### ORARI (da formattare così):
+
+```html
+<div class="horaires">
+    <h3>Horaires d'ouverture</h3>
+    <div class="horaire-item">
+        <span class="jour">Lundi - Vendredi</span>
+        <span class="heures">09:00 - 12:30 / 14:00 - 19:00</span>
+    </div>
+    <div class="horaire-item">
+        <span class="jour">Samedi</span>
+        <span class="heures">Sur RDV</span>
+    </div>
+    <div class="horaire-item">
+        <span class="jour">Dimanche</span>
+        <span class="heures">Fermé</span>
+    </div>
+    <p class="urgence-note">⚡ Urgences dentaires acceptées chaque jour</p>
+</div>
+```
+
+---
+
+### 6. 🎠 CAROSELLI HOMEPAGE
+
+#### A) CAROSELLO MEDICI (dopo 3 card features)
+
+**TITOLO SEZIONE:**
+```html
+<section class="team-carousel-section">
+    <h2 class="section-title">Notre équipe de spécialistes</h2>
+    <p class="section-subtitle">Des praticiens passionnés, multilingues et dévoués à votre santé bucco-dentaire</p>
+    
+    <div class="carousel-container">
+        <div class="carousel-track">
+            <!-- Duplicare 2 volte le 6 card per loop infinito seamless -->
+            <!-- Card Dr Barbosa -->
+            <!-- Card Dr Dray -->
+            <!-- Card Dr Saggesi -->
+            <!-- Card Dr Sahlean -->
+            <!-- Card Dr Touat -->
+            <!-- Card Dr Saadi -->
+            <!-- [RIPETERE TUTTE LE 6 CARD] -->
+        </div>
+    </div>
+    
+    <div class="text-center" style="margin-top: 3rem;">
+        <a href="/equipe" class="btn-secondary">Découvrir toute l'équipe (12 praticiens) →</a>
+    </div>
+</section>
+```
+
+**CSS CAROSELLO AUTO-SCROLL:**
+
+```css
+.carousel-container {
+    overflow: hidden;
+    padding: 2rem 0;
+    position: relative;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 2rem;
+    animation: scroll-left 40s linear infinite;
+    width: fit-content;
+}
+
+/* Animazione scroll infinito */
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%); /* -50% perché le card sono duplicate */
+    }
+}
+
+/* Pausa hover */
+.carousel-track:hover {
+    animation-play-state: paused;
+}
+
+/* Card nel carosello */
+.carousel-track .doctor-card {
+    width: 320px;
+    flex-shrink: 0;
+}
+```
+
+#### B) CAROSELLO RECENSIONI (dopo sezione filosofia)
+
+**RECENSIONI GOOGLE DA USARE:**
+
+```javascript
+const reviews = [
+    {
+        stars: 5,
+        text: "Cabinet au top! Le meilleur que j'ai fait dans ma vie! Que ce soit niveau soin dentaire, sans parler de la décoration du cabinet, l'hygiène vraiment au top!",
+        author: "Patient vérifié"
+    },
+    {
+        stars: 5,
+        text: "Nous sommes extrêmement satisfaits de ce cabinet dentaire, tant par l'accueil, le professionnalisme et la gentillesse du personnel ainsi que l'hygiène qui est irréprochable.",
+        author: "Sophie M."
+    },
+    {
+        stars: 5,
+        text: "Un cabinet super classe, un accueil irréprochable par une équipe efficace et plutôt rare chez un dentiste jamais d'attente! Le directeur et les dentistes rapides, efficaces et sans douleur.",
+        author: "Thomas B."
+    },
+    {
+        stars: 5,
+        text: "Enfin un dentiste qui donne envie d'aller chez le dentiste :) Que ce soit du côté dentaire ou du côté médecine esthétique je le recommande fortement.",
+        author: "Marie L."
+    },
+    {
+        stars: 5,
+        text: "Le docteur Margheriti m'a fait de superbes couronnes fidèle à sa réputation. Le centre est très propre et ils ont fait tous les papiers administratifs. Je recommande les yeux fermés.",
+        author: "Jean-Pierre D."
+    },
+    {
+        stars: 5,
+        text: "Cabinet dentaire au top!! Des secrétaires adorables sans parler du Dr Margheriti, enfin un chirurgien gentil et compétent à la fois. Merci à vous.",
+        author: "Caroline R."
+    },
+    {
+        stars: 5,
+        text: "J'ai eu la belle surprise de voir que le tiers payant est réalisé pour toutes les mutuelles. Un vrai plus. Centre moderne et accueillant, je recommande!",
+        author: "Ahmed K."
+    }
+];
+```
+
+**STRUTTURA HTML:**
+
+```html
+<section class="reviews-carousel-section">
+    <h2 class="section-title">Ce que nos patients disent de nous</h2>
+    <p class="section-subtitle">Plus de 180 avis positifs sur Google et autres plateformes</p>
+    
+    <div class="carousel-container">
+        <div class="reviews-track">
+            <!-- Duplicare 2 volte tutte le recensioni per loop infinito -->
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"Cabinet au top! Le meilleur..."</p>
+                <p class="review-author">— Patient vérifié</p>
+            </div>
+            <!-- Altre recensioni -->
+        </div>
+    </div>
+</section>
+```
+
+**CSS CARD RECENSIONE:**
+
+```css
+.review-card {
+    width: 400px;
+    flex-shrink: 0;
+    background: #FFFFFF;
+    border-left: 4px solid #D4AF37;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.stars {
+    color: #D4AF37;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.review-text {
+    color: #5A6C7D;
+    line-height: 1.8;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}
+
+.review-author {
+    font-weight: 700;
+    color: #001F3F;
+    font-size: 0.95rem;
+}
+
+.reviews-track {
+    display: flex;
+    gap: 2rem;
+    animation: scroll-left 50s linear infinite;
+}
+```
+
+---
+
+### 7. 📱 OTTIMIZZAZIONE MOBILE-FIRST (iPhone 17)
+
+#### VIEWPORT & META TAGS:
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+```
+
+#### BREAKPOINTS:
+
+```css
+/* Mobile First (default) */
+@media (min-width: 640px) { /* Small tablets */ }
+@media (min-width: 768px) { /* Tablets */ }
+@media (min-width: 1024px) { /* Desktop */ }
+@media (min-width: 1280px) { /* Large desktop */ }
+```
+
+#### TOUCH OPTIMIZATIONS:
+
+```css
+/* Aumenta area touch per bottoni */
+.btn, .nav-link, .doctor-card {
+    min-height: 44px; /* Standard iOS touch target */
+}
+
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Previeni zoom accidentale input */
+input, select, textarea {
+    font-size: 16px; /* Previene auto-zoom iOS */
+}
+```
+
+---
+
+### 8. 🎨 STILE "MEDICAL LUXURY" (Dubai Style)
+
+#### PALETTE COLORI DEFINITIVA:
+
+```css
+:root {
+    /* Primary */
+    --white-pure: #FFFFFF;
+    --blue-medical: #0077B6;
+    --gold-luxury: #D4AF37;
+    
+    /* Secondary */
+    --navy-dark: #001F3F;
+    --gray-text: #2C3E50;
+    --gray-light: #5A6C7D;
+    
+    /* Accents */
+    --red-urgence: #E63946;
+    --bg-light: #f8fafb;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, rgba(0,31,63,0.85), rgba(0,119,182,0.75));
+    --gradient-gold: linear-gradient(135deg, #D4AF37, #F4D03F);
+}
+```
+
+#### TIPOGRAFIA ELEGANTE:
+
+```css
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap');
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 400;
+}
+
+h1, h2, h3, .nav-links {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.section-title {
+    font-size: 2.5rem; /* Mobile */
+    font-weight: 700;
+    color: var(--navy-dark);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+    .section-title {
+        font-size: 3rem;
+    }
+}
+```
+
+#### OMBRE & TRANSIZIONI:
+
+```css
+/* Ombra morbida standard */
+.card, .doctor-card, .review-card {
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.06);
+}
+
+/* Ombra hover */
+.card:hover, .doctor-card:hover {
+    box-shadow: 0 15px 40px rgba(0, 119, 182, 0.15);
+}
+
+/* Transizioni fluide universali */
+* {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+```
+
+#### SPAZI BIANCHI GENEROSI:
+
+```css
+.section {
+    padding: 5rem 1.5rem; /* Mobile */
+}
+
+@media (min-width: 768px) {
+    .section {
+        padding: 8rem 5%; /* Desktop */
+    }
+}
+
+/* Margini titoli */
+.section-title {
+    margin-bottom: 1rem;
+}
+
+.section-subtitle {
+    margin-bottom: 4rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+```
+
+---
+
+### 9. ✅ CHECKLIST COMPLETA IMPLEMENTAZIONE
+
+#### PRIORITÀ 1 - CRITICHE (fare subito):
+- [ ] Implementare side drawer 75% con X e overlay
+- [ ] Sostituire tutte le bande blu con hero banners
+- [ ] Caricare le 6 nuove foto AI-generated (formato 1:1)
+- [ ] Aggiungere link Doctolib individuali a ogni medico
+- [ ] Implementare bottone urgenze mobile fisso
+- [ ] Correggere indirizzo in footer e contact page
+
+#### PRIORITÀ 2 - IMPORTANTI:
+- [ ] Implementare carosello medici homepage (auto-scroll)
+- [ ] Implementare carosello recensioni homepage
+- [ ] Aggiungere recensioni Google nella page Contact
+- [ ] Verificare responsive perfetto su iPhone 17
+- [ ] Testare animazione hamburger → X
+
+#### PRIORITÀ 3 - FINITURE:
+- [ ] Ottimizzare tempo caricamento immagini
+- [ ] Aggiungere lazy loading
+- [ ] Testare su Safari iOS
+- [ ] Verificare contrasti accessibilità
+- [ ] Rimuovere badge "Made with Replit"
+
+---
+
+### 10. 📦 STRUTTURA FILE DA CARICARE SU REPLIT
+
+```
+/images/
+  ├── dr-sandy-barbosa.jpg (Image 1)
+  ├── dr-nicolas-dray.jpg (Image 4)
+  ├── dr-loana-saggesi.jpg (Image 2)
+  ├── dr-adriana-sahlean.jpg (Image 5)
+  ├── dr-romeissa-touat.jpg (Image 3)
+  ├── dr-melvyn-saadi.jpg (Image 7)
+  ├── hero-team.jpg (foto sala operatoria)
+  ├── hero-galerie.jpg (dettaglio tecnologico)
+  ├── hero-contact.jpg (reception)
+  └── hero-clinique.jpg (sala ampia)
+```
+
+---
+
+### 11. 🚀 CODICE ESEMPIO COMPLETO PAGE HOMEPAGE
+
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Centre Dentaire Easy Dent - Port-de-Bouc</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav class="nav-container">
+        <div class="nav-content">
+            <a href="/" class="logo">
+                <div class="logo-icon">👑</div>
+                <span>EASY DENT</span>
+            </a>
+            
+            <!-- Desktop Menu (hidden on mobile) -->
+            <ul class="nav-links">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="/clinique">La Clinique</a></li>
+                <li><a href="/equipe">Notre Équipe</a></li>
+                <li><a href="/galerie">Galerie</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+            
+            <!-- Mobile Hamburger -->
+            <button class="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- SIDE DRAWER MOBILE -->
+    <div class="drawer-overlay"></div>
+    <nav class="side-drawer">
+        <button class="close-drawer" aria-label="Fermer">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M18 6L6 18M6 6l12 12" stroke="#001F3F" stroke-width="2"/>
+            </svg>
+        </button>
+        
+        <ul class="drawer-links">
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/clinique">La Clinique</a></li>
+            <li><a href="/equipe">Notre Équipe</a></li>
+            <li><a href="/galerie">Galerie</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+        
+        <div class="drawer-footer">
+            <a href="tel:0442752471" class="drawer-phone">
+                📞 04 42 75 24 71
+            </a>
+            <p class="drawer-address">
+                39 Av. du Groupe Manouchian<br>
+                13110 Port-de-Bouc
+            </p>
+        </div>
+    </nav>
+    
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">⭐ L'excellence dentaire à Port-de-Bouc</span>
+            <h1>Votre sourire mérite<br>le meilleur soin</h1>
+            <p class="hero-subtitle">Une clinique ultramoderne alliant expertise médicale et confort absolu pour une expérience dentaire unique.</p>
+            
+            <div class="hero-buttons">
+                <a href="tel:0442752471" class="btn-primary">📅 Prendre Rendez-vous</a>
+                <a href="tel:0442752471" class="btn-urgence">🚨 Urgence Dentaire</a>
+            </div>
+        </div>
+        
+        <div class="stats-glass">
+            <div class="stat-item">
+                <span class="stat-number">12+</span>
+                <span class="stat-label">Praticiens experts</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">6000+</span>
+                <span class="stat-label">Patients satisfaits</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">4.4★</span>
+                <span class="stat-label">Note Google</span>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 3 FEATURES CARDS -->
+    <section class="features-section">
+        <div class="features-grid">
+            <div class="feature-card blue">
+                <div class="feature-icon">🕐</div>
+                <h3>Urgences 7j/7</h3>
+                <p>Prise en charge rapide de vos douleurs dentaires.</p>
+            </div>
+            
+            <div class="feature-card dark">
+                <div class="feature-icon">🔬</div>
+                <h3>Équipements dernière génération</h3>
+                <p>Scanner 3D, radiologie numérique, stérilisation hospitalière.</p>
+            </div>
+            
+            <div class="feature-card gold">
+                <div class="feature-icon">👥</div>
+                <h3>Équipe Experte</h3>
+                <p>12 praticiens spécialisés à votre écoute.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CAROSELLO MEDICI -->
+    <section class="team-carousel-section">
+        <h2 class="section-title">Notre équipe de spécialistes</h2>
+        <p class="section-subtitle">Des praticiens passionnés, multilingues et dévoués à votre santé bucco-dentaire</p>
+        
+        <div class="carousel-container">
+            <div class="carousel-track" id="teamCarousel">
+                <!-- Card 1 -->
+                <div class="doctor-card">
+                    <img src="/images/dr-sandy-barbosa.jpg" alt="Dr Sandy Barbosa" class="doctor-image">
+                    <div class="doctor-info">
+                        <h3 class="doctor-name">Dr Sandy Barbosa</h3>
+                        <p class="doctor-specialty">Chirurgien-dentiste</p>
+                        <div class="doctor-languages">
+                            <span class="lang-tag">🇫🇷 FR</span>
+                            <span class="lang-tag">🇬🇧 EN</span>
+                            <span class="lang-tag">🇪🇸 ES</span>
+                            <span class="lang-tag">🇵🇹 PT</span>
+                        </div>
+                        <button class="btn-doctolib" onclick="window.open('https://www.doctolib.fr/dentiste/savigny-sur-orge/sandy-barbosa?pid=practice-131168', '_blank')">
+                            📅 Prendre RDV
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="doctor-card">
+                    <img src="/images/dr-nicolas-dray.jpg" alt="Dr Nicolas Dray" class="doctor-image">
+                    <div class="doctor-info">
+                        <h3 class="doctor-name">Dr Nicolas Dray</h3>
+                        <p class="doctor-specialty">Esthétique • Implantologie</p>
+                        <div class="doctor-languages">
+                            <span class="lang-tag">🇫🇷 FR</span>
+                        </div>
+                        <button class="btn-doctolib" onclick="window.open('https://www.doctolib.fr/dentiste/aix-en-provence/nicolas-dray?pid=practice-131168', '_blank')">
+                            📅 Prendre RDV
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Card 3, 4, 5, 6... (ripetere per tutti i 6 medici) -->
+                
+                <!-- DUPLICARE TUTTE LE 6 CARD PER LOOP SEAMLESS -->
+            </div>
+        </div>
+        
+        <div class="text-center" style="margin-top: 3rem;">
+            <a href="/equipe" class="btn-secondary">Découvrir toute l'équipe (12 praticiens) →</a>
+        </div>
+    </section>
+    
+    <!-- SEZIONE PHILOSOPHIE -->
+    <section class="philosophy-section">
+        <div class="philosophy-grid">
+            <div class="philosophy-image">
+                <img src="/images/sala-operatoria.jpg" alt="Salle de soins">
+            </div>
+            <div class="philosophy-content">
+                <span class="section-label">NOTRE PHILOSOPHIE</span>
+                <h2 class="section-title-left">L'art de soigner,<br>le plaisir de sourire</h2>
+                <p>Au Centre Dentaire Easy Dent, nous croyons que chaque patient est unique. Notre approche combine une expertise médicale rigoureuse avec une écoute attentive de vos besoins.</p>
+                
+                <ul class="philosophy-list">
+                    <li>✓ Plans de traitement personnalisés</li>
+                    <li>✓ Transparence totale sur les tarifs</li>
+                    <li>✓ Gestion de la douleur et du stress</li>
+                    <li>✓ Suivi post-opératoire rigoureux</li>
+                </ul>
+                
+                <a href="/clinique" class="btn-secondary">En savoir plus sur nous</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CAROSELLO RECENSIONI -->
+    <section class="reviews-carousel-section">
+        <h2 class="section-title">Ce que nos patients disent de nous</h2>
+        <p class="section-subtitle">Plus de 180 avis positifs sur Google</p>
+        
+        <div class="carousel-container">
+            <div class="reviews-track" id="reviewsCarousel">
+                <!-- Recensione 1 -->
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"Cabinet au top! Le meilleur que j'ai fait dans ma vie! Que ce soit niveau soin dentaire, sans parler de la décoration du cabinet, l'hygiène vraiment au top!"</p>
+                    <p class="review-author">— Patient vérifié</p>
+                </div>
+                
+                <!-- Recensione 2, 3, 4... (ripetere tutte le 7 recensioni) -->
+                <!-- DUPLICARE TUTTE LE RECENSIONI PER LOOP SEAMLESS -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA RENDEZ-VOUS -->
+    <section class="cta-section">
+        <h2>Besoin d'un rendez-vous rapidement ?</h2>
+        <p>Consultez nos disponibilités en ligne et réservez votre créneau en quelques clics.</p>
+        
+        <div class="cta-buttons">
+            <a href="https://www.doctolib.fr" class="btn-primary">Réserver sur Doctolib</a>
+            <a href="tel:0442752471" class="btn-outline">Appeler le 04 42 75 24 71</a>
+        </div>
+    </section>
+    
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <div class="logo-icon">👑</div>
+                    <span>EASY DENT</span>
+                </div>
+                <p>Une approche humaine et technologique pour votre sourire.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook">📘</a>
+                    <a href="#" aria-label="Instagram">📷</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="/">Accueil</a></li>
+                    <li><a href="/clinique">La Clinique</a></li>
+                    <li><a href="/equipe">Notre Équipe</a></li>
+                    <li><a href="/galerie">Galerie</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>📍 39 Avenue du Groupe Manouchian<br>13110 Port-de-Bouc</p>
+                <p>📞 <a href="tel:0442752471">04 42 75 24 71</a></p>
+                <p>📧 contact@easydent.fr</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Horaires</h3>
+                <p><strong>Lundi - Vendredi</strong><br>09:00 - 19:00</p>
+                <p><strong>Samedi</strong><br>Sur RDV</p>
+                <p><strong>Dimanche</strong><br>Fermé</p>
+                <p class="urgence-footer">⚡ Urgences acceptées</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2024 Centre Dentaire Easy Dent. Tous droits réservés.</p>
+        </div>
+    </footer>
+    
+    <!-- BOUTON URGENCE MOBILE FIXE -->
+    <a href="tel:0442752471" class="mobile-urgence-btn">
+        <svg width="20" height="20" fill="currentColor">
+            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+        </svg>
+        Urgence
+    </a>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+```
+
+---
+
+### 12. 🎯 RISULTATO FINALE ATTESO
+
+Un sito web che:
+- ✅ Ha un menu mobile side drawer perfetto (75% + X + overlay)
+- ✅ Mostra hero banners eleganti invece di bande blu
+- ✅ Presenta i medici con foto AI professionali formato 1:1
+- ✅ Ha 2 caroselli infiniti fluidi (medici + recensioni)
+- ✅ Bottone urgenze mobile sempre visibile e funzionante
+- ✅ Indirizzo corretto ovunque
+- ✅ Stile Medical Luxury Dubai con spazi bianchi generosi
+- ✅ Performance ottimizzata per iPhone 17
+- ✅ Animazioni fluide e transizioni smooth
+- ✅ Link Doctolib funzionanti per ogni medico
+
+---
+
+## 📌 NOTE FINALI PER REPLIT
+
+1. **Caricare le immagini nella cartella `/images/`** con i nomi esatti indicati
+2. **Testare su Safari iOS** (preferibilmente iPhone reale)
+3. **Verificare che tutti i link Doctolib si aprano in nuove tab**
+4. **Controllare che i caroselli girino smooth senza scatti**
+5. **Assicurarsi che il side drawer non crei scroll orizzontale**
+6. **Validare il CSS** per browser compatibility
+
+---
+
+**Il sito deve trasmettere: LUSSO • TECNOLOGIA • COMPETENZA • ACCESSIBILITÀ**
+
+**Stile: Clinica privata Dubai, ma con calore umano provenzale.**
+
+---
+
+🚀 **PRONTO PER L'IMPLEMENTAZIONE SU REPLIT!**
