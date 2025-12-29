@@ -3,7 +3,7 @@ import { Link, useLocation } from "wouter";
 import { Menu, X, Phone, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button-custom";
 import { cn } from "@/lib/utils";
-import logoImg from "@assets/logo_1766941636458.jpg";
+import logoImg from "@assets/Logo_easy-dent-removebg-preview_1767022325247.png";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -115,7 +115,15 @@ export function Header() {
         isMobileMenuOpen ? "translate-x-0" : "translate-x-full",
         "w-[75%]"
       )}>
-        <nav className="flex flex-col gap-6 px-8 pb-12 pt-6">
+        <nav className="flex flex-col gap-6 px-8 pb-12 pt-16 relative">
+          <button 
+            className="hamburger active absolute top-6 right-6"
+            onClick={() => setIsMobileMenuOpen(false)}
+            aria-label="Fermer le menu"
+          >
+            <span></span>
+            <span></span>
+          </button>
           {navLinks.map((link) => (
             <Link
               key={link.href}
