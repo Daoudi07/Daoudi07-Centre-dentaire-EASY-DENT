@@ -1,0 +1,47 @@
+Subject: UI/UX Refinement for Dental Clinic Website "Easy-Dent"
+
+"Please apply the following technical and design updates to the project. Follow these instructions strictly:
+
+1. Hero Section & Buttons (Mobile Fix):
+
+In the Hero Section, make the two Call-to-Action buttons ('Prendre RDV' and 'Découvrir la clinique') appear side-by-side (inline) even on mobile devices.
+
+Ensure the buttons are fully visible and not cut off at the bottom. Adjust padding/margin to prevent overlap with the bottom of the screen.
+
+2. Hamburger Menu (Side Drawer Cleanup):
+
+Fix the navigation drawer: it should occupy 75% of the screen width and slide from the right.
+
+Clean up the close button: Remove any duplicate 'X'. Keep only one animated 'X' icon in the top-right corner.
+
+Add a dark semi-transparent overlay behind the drawer when it's open. Clicking the overlay should close the menu.
+
+3. Section Headers (Visual Upgrade):
+
+Remove all flat blue background bars at the top of the pages (La Clinique, Nos Praticiens, etc.).
+
+Replace them with Hero Banners using high-quality dental clinic background images (search for royalty-free stock photos of modern dental interiors).
+
+Apply a dark overlay on the images and center the section title in white, bold, uppercase text.
+
+4. 'La Clinique' Page Content (Professional Enrichment):
+
+Fill the empty 'La Clinique' page with a professional layout inspired by high-end clinics.
+
+Add an 'Our Values' section with 3 cards: 'Hygiène', 'Technologie', 'Empathie'.
+
+Add a 'Patient Journey' (Le parcours patient) section using a step-by-step horizontal or vertical timeline.
+
+Add a 'Advanced Technology' section: find and insert images of a '3D Dental Scanner' and a 'Panoramic X-ray' machine.
+
+5. Contact Page (Functional Email Form):
+
+In the 'Contact' page, the right side is currently empty. Insert a Professional Contact Form.
+
+Fields required: Name, Email, Phone Number, and Message.
+
+Set up the form so it is ready to be connected to a service like Formspree or EmailJS for real email delivery.
+
+General Style:
+
+Maintain a 'Medical Luxury' aesthetic: clean white spaces, professional blue accents, and high-quality imagery. Ensure all images used are high-resolution."
