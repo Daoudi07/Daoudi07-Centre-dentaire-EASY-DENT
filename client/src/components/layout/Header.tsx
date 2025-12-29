@@ -102,22 +102,32 @@ export function Header() {
       </div>
 
       {/* Side Drawer Overlay */}
-      <div 
-        className={cn("drawer-overlay", isMobileMenuOpen && "active")} 
-        onClick={() => setIsMobileMenuOpen(false)}
-      />
+      {isMobileMenuOpen && (
+        <div 
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[1040] transition-opacity duration-300" 
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
 
       {/* Side Drawer */}
-      <div className={cn("side-drawer", isMobileMenuOpen && "open")}>
-        <button 
-          className="close-drawer" 
-          onClick={() => setIsMobileMenuOpen(false)}
-          aria-label="Fermer le menu"
-        >
-          <X className="w-6 h-6 text-secondary" />
-        </button>
+      <div className={cn(
+        "fixed top-0 right-0 h-screen bg-white z-[1050] transition-transform duration-300 ease-in-out shadow-2xl overflow-y-auto",
+        isMobileMenuOpen ? "translate-x-0" : "translate-x-full",
+        "w-[75%]"
+      )}>
+        <div className="flex justify-end p-6">
+          <button 
+            className={cn("hamburger active")}
+            onClick={() => setIsMobileMenuOpen(false)}
+            aria-label="Fermer le menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
 
-        <nav className="flex flex-col gap-6 pt-24 px-8">
+        <nav className="flex flex-col gap-6 px-8 pb-12">
           {navLinks.map((link) => (
             <Link
               key={link.href}

@@ -119,22 +119,22 @@ export default function Home() {
               Bienvenue chez Easy Dent. Une clinique ultramoderne alliant expertise médicale et confort absolu pour une expérience dentaire unique.
             </motion.p>
             
-            <motion.div variants={fadeIn} className="flex flex-col sm:flex-row gap-4">
+            <motion.div variants={fadeIn} className="flex flex-row gap-2 sm:gap-4 mt-4">
               <Button 
-                size="lg" 
+                size="sm" 
                 variant="accent"
                 onClick={() => window.open('https://www.doctolib.fr/cabinet-dentaire/port-de-bouc/centre-dentaire-port-de-bouc', '_blank')}
-                className="text-secondary"
+                className="text-secondary text-[13px] sm:text-base px-3 sm:px-6 h-10 sm:h-11 flex-1 sm:flex-none whitespace-nowrap"
               >
-                Prendre rendez-vous
+                Prendre RDV
               </Button>
               <Button 
-                size="lg" 
+                size="sm" 
                 variant="outline" 
-                className="text-white border-white hover:bg-white/10"
+                className="text-white border-white hover:bg-white/10 text-[13px] sm:text-base px-3 sm:px-6 h-10 sm:h-11 flex-1 sm:flex-none whitespace-nowrap"
                 onClick={() => setLocation('/clinique')}
               >
-                Découvrir la clinique
+                La clinique
               </Button>
             </motion.div>
           </motion.div>
