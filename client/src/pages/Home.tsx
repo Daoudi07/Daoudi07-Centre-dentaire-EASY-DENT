@@ -124,7 +124,7 @@ export default function Home() {
                 size="sm" 
                 variant="accent"
                 onClick={() => window.open('https://www.doctolib.fr/cabinet-dentaire/port-de-bouc/centre-dentaire-port-de-bouc', '_blank')}
-                className="text-secondary text-[13px] sm:text-base px-3 sm:px-6 h-10 sm:h-11 flex-1 sm:flex-none whitespace-nowrap"
+                className="pt-[5px] pb-[5px] text-secondary text-[13px] sm:text-base px-3 sm:px-6 h-10 sm:h-11 flex-1 sm:flex-none whitespace-nowrap"
               >
                 Prendre RDV
               </Button>
