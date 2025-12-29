@@ -78,7 +78,7 @@
 
   /* SIDE DRAWER SPECIFICHE */
   .side-drawer {
-      @apply fixed top-0 h-screen bg-white z-[1050] transition-all duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] shadow-[-5px_0_30px_rgba(0,0,0,0.2)] overflow-y-auto;
+      @apply fixed top-0 h-screen bg-white z-[1050] transition-all duration-300 ease-in-out shadow-[-5px_0_30px_rgba(0,0,0,0.2)] overflow-y-auto;
       right: -100%;
       width: 75%;
       max-width: 320px;
@@ -89,7 +89,7 @@
   }
 
   .drawer-overlay {
-      @apply fixed top-0 left-0 w-full h-screen bg-[#001F3F]/50 backdrop-blur-sm z-[1040] transition-all duration-400 opacity-0 invisible;
+      @apply fixed top-0 left-0 w-full h-screen bg-[#001F3F]/50 backdrop-blur-sm z-[1040] transition-all duration-300 opacity-0 invisible;
   }
 
   .drawer-overlay.active {
@@ -109,7 +109,7 @@
   }
 
   .hamburger span {
-      @apply w-full h-[3px] bg-[#001F3F] rounded-[2px] transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)];
+      @apply w-full h-[3px] bg-[#001F3F] rounded-[2px] transition-all duration-300 ease-in-out;
   }
 
   .hamburger.active span:nth-child(1) {
