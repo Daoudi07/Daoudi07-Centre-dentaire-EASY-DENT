@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { useLocation } from "wouter";
+import { Phone } from "lucide-react";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -21,6 +22,13 @@ export function Layout({ children }: LayoutProps) {
       <main className="flex-grow">
         {children}
       </main>
+      
+      {/* Mobile Urgence Button */}
+      <a href="tel:0442752471" className="mobile-urgence-btn">
+        <Phone className="w-5 h-5" />
+        Urgence
+      </a>
+
       <Footer />
     </div>
   );

@@ -75,6 +75,102 @@
   .animate-scroll-reverse {
     animation: scroll-reverse 50s linear infinite;
   }
+
+  /* SIDE DRAWER SPECIFICHE */
+  .side-drawer {
+      @apply fixed top-0 h-screen bg-white z-[1050] transition-all duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] shadow-[-5px_0_30px_rgba(0,0,0,0.2)] overflow-y-auto;
+      right: -100%;
+      width: 75%;
+      max-width: 320px;
+  }
+
+  .side-drawer.open {
+      right: 0;
+  }
+
+  .drawer-overlay {
+      @apply fixed top-0 left-0 w-full h-screen bg-[#001F3F]/50 backdrop-blur-sm z-[1040] transition-all duration-400 opacity-0 invisible;
+  }
+
+  .drawer-overlay.active {
+      @apply opacity-100 visible;
+  }
+
+  .close-drawer {
+      @apply absolute top-6 right-6 w-10 h-10 bg-[#f0f4f8] border-none rounded-full flex items-center justify-center transition-all duration-300 cursor-pointer;
+  }
+
+  .close-drawer:hover {
+      @apply bg-[#e0e8f0] rotate-90;
+  }
+
+  .hamburger {
+      @apply w-7 h-6 flex flex-col justify-between bg-transparent border-none cursor-pointer relative z-[1100];
+  }
+
+  .hamburger span {
+      @apply w-full h-[3px] bg-[#001F3F] rounded-[2px] transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)];
+  }
+
+  .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(7px, 7px);
+  }
+
+  .hamburger.active span:nth-child(2) {
+      @apply opacity-0 translate-x-5;
+  }
+
+  .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+  }
+
+  /* HERO BANNERS */
+  .section-hero {
+      @apply relative flex items-center justify-center bg-cover bg-center bg-no-repeat overflow-hidden;
+      height: 320px;
+  }
+
+  @screen md {
+      .section-hero {
+          height: 400px;
+      }
+  }
+
+  .section-hero::before {
+      content: '';
+      @apply absolute inset-0 z-[1];
+      background: linear-gradient(135deg, rgba(0, 31, 63, 0.85), rgba(0, 119, 182, 0.75));
+  }
+
+  .section-hero-title {
+      @apply relative z-[2] text-white font-bold text-center tracking-tight px-8;
+      font-size: 2.5rem;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  @screen md {
+      .section-hero-title {
+          font-size: 3.5rem;
+      }
+  }
+
+  /* MOBILE URGENCE BTN */
+  .mobile-urgence-btn {
+      @apply fixed bottom-5 right-5 z-[999] bg-[#E63946] text-white px-6 py-4 rounded-full font-bold text-[0.95rem] shadow-[0_5px_20px_rgba(230,57,70,0.4)] flex items-center gap-2 transition-all duration-300 animate-pulse-custom md:hidden;
+  }
+
+  .mobile-urgence-btn:hover {
+      @apply bg-[#d62839] -translate-y-[3px] shadow-[0_8px_25px_rgba(230,57,70,0.5)];
+  }
+
+  @keyframes pulse-custom {
+      0%, 100% { box-shadow: 0 5px 20px rgba(230, 57, 70, 0.4); }
+      50% { box-shadow: 0 5px 30px rgba(230, 57, 70, 0.7); }
+  }
+
+  .animate-pulse-custom {
+      animation: pulse-custom 2s infinite;
+  }
 }
 
 /* Nascondere badge Replit */

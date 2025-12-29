@@ -90,41 +90,61 @@ export function Header() {
 
           {/* Mobile Menu Toggle */}
           <button
-            className="lg:hidden p-2 text-secondary bg-white/80 rounded-md backdrop-blur-sm"
+            className={cn("hamburger lg:hidden", isMobileMenuOpen && "active")}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Menu"
           >
-            {isMobileMenuOpen ? <X /> : <Menu />}
+            <span></span>
+            <span></span>
+            <span></span>
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      <div className={cn(
-        "lg:hidden fixed inset-0 bg-secondary/95 backdrop-blur-xl z-40 transition-transform duration-300 ease-in-out pt-24 px-6",
-        isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
-      )}>
-        <nav className="flex flex-col gap-6">
+      {/* Side Drawer Overlay */}
+      <div 
+        className={cn("drawer-overlay", isMobileMenuOpen && "active")} 
+        onClick={() => setIsMobileMenuOpen(false)}
+      />
+
+      {/* Side Drawer */}
+      <div className={cn("side-drawer", isMobileMenuOpen && "open")}>
+        <button 
+          className="close-drawer" 
+          onClick={() => setIsMobileMenuOpen(false)}
+          aria-label="Fermer le menu"
+        >
+          <X className="w-6 h-6 text-secondary" />
+        </button>
+
+        <nav className="flex flex-col gap-6 pt-24 px-8">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-2xl font-display font-bold text-white hover:text-accent transition-colors"
+              className={cn(
+                "text-2xl font-display font-bold transition-colors",
+                location === link.href ? "text-primary" : "text-secondary hover:text-primary"
+              )}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {link.name}
             </Link>
           ))}
-          <div className="h-px bg-white/10 my-4" />
+          <div className="h-px bg-muted my-4" />
           <Button 
-            variant="accent" 
-            className="w-full justify-center"
-            onClick={() => window.open('https://www.doctolib.fr', '_blank')}
+            variant="primary" 
+            className="w-full justify-center font-bold"
+            onClick={() => {
+              window.open('https://www.doctolib.fr', '_blank');
+              setIsMobileMenuOpen(false);
+            }}
           >
             Prendre Rendez-vous
           </Button>
           <a 
             href="tel:0442752471" 
-            className="flex items-center justify-center gap-2 text-white font-bold bg-white/10 p-4 rounded-xl"
+            className="flex items-center justify-center gap-2 text-primary font-bold bg-muted p-4 rounded-xl hover:bg-muted/80 transition-colors"
           >
             <Phone className="w-5 h-5" />
             04 42 75 24 71
