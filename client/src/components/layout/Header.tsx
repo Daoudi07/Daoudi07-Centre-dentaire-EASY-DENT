@@ -115,17 +115,7 @@ export function Header() {
         isMobileMenuOpen ? "translate-x-0" : "translate-x-full",
         "w-[75%]"
       )}>
-        <div className="flex justify-end p-6">
-          <button 
-            className="p-2 rounded-lg hover:bg-muted transition-colors text-secondary"
-            onClick={() => setIsMobileMenuOpen(false)}
-            aria-label="Fermer le menu"
-          >
-            <X className="w-6 h-6" />
-          </button>
-        </div>
-
-        <nav className="flex flex-col gap-6 px-8 pb-12">
+        <nav className="flex flex-col gap-6 px-8 pb-12 pt-6">
           {navLinks.map((link) => (
             <Link
               key={link.href}
