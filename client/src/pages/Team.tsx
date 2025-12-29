@@ -95,17 +95,30 @@ const TEAM_MEMBERS = [
   }
 ];
 
+import stockTeam from "@assets/stock_images/modern_dental_clinic_dd8e3b86.jpg";
+
 export default function Team() {
   return (
     <Layout>
-      <div className="bg-secondary text-white pt-32 pb-16">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-6xl font-display mb-4 font-bold">Notre Équipe</h1>
-          <p className="text-xl text-white/60 max-w-2xl mx-auto">
-            Des experts passionnés, multilingues et dévoués à votre santé bucco-dentaire.
-          </p>
+      <section className="section-hero" style={{ backgroundImage: `url(${stockTeam})` }}>
+        <div className="section-hero-title">
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-4xl md:text-6xl uppercase"
+          >
+            Nos Praticiens
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="text-lg md:text-xl font-medium text-white/80 mt-4"
+          >
+            Une équipe d'experts dédiée à votre santé bucco-dentaire.
+          </motion.p>
         </div>
-      </div>
+      </section>
 
       <Section>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">

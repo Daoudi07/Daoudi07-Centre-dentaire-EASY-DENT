@@ -5,23 +5,30 @@ import equipmentImg from "@assets/attrezzatura_1766941636444.jpg";
 import roomImg from "@assets/sala.jpn_1766941636457.webp";
 import waitingImg from "@assets/attesa3_1766941636452.jpg";
 
+import stockClinic from "@assets/stock_images/modern_dental_clinic_4b1334f0.jpg";
+
 export default function Clinic() {
   return (
     <Layout>
-      <div className="bg-secondary text-white pt-32 pb-16">
-        <div className="container mx-auto px-4 text-center">
+      <section className="section-hero" style={{ backgroundImage: `url(${stockClinic})` }}>
+        <div className="section-hero-title">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-display mb-4"
+            className="text-4xl md:text-6xl uppercase"
           >
-            La Clinique
+            Notre Clinique
           </motion.h1>
-          <p className="text-xl text-white/60 max-w-2xl mx-auto">
-            Un espace conçu pour votre confort et votre sécurité.
-          </p>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="text-lg md:text-xl font-medium text-white/80 mt-4"
+          >
+            L'excellence technologique au service de votre sourire.
+          </motion.p>
         </div>
-      </div>
+      </section>
 
       <Section>
         <div className="grid md:grid-cols-2 gap-12 items-center mb-24">
