@@ -1,0 +1,218 @@
+# 🏥 RIFINITURA SITO EASY DENT - REPLIT
+
+## 🎯 OBIETTIVO
+Trasformare il sito attuale in un'esperienza Medical Luxury (stile Dubai) ottimizzata mobile-first con navigazione fluida e immagini professionali.
+
+---
+
+## 🔧 MODIFICHE DA FARE
+
+### 1. MENU MOBILE → SIDE DRAWER
+**Problema:** Menu hamburger attuale copre tutto lo schermo, è trasparente e senza tasto chiusura.
+
+**Soluzione:**
+- Trasforma il menu in Side Drawer che scorre da destra
+- Larghezza: 75% dello schermo (max 320px)
+- Background: bianco solido (#FFFFFF)
+- Aggiungi icona "X" in alto a destra per chiudere
+- Aggiungi overlay scuro semi-trasparente che copre il resto della pagina
+- Chiusura: click su X, click overlay, o tasto ESC
+
+**Animazione hamburger:**
+- Quando aperto: le 3 righe si trasformano in una X
+- Usa transition smooth CSS
+
+---
+
+### 2. HERO BANNERS SEZIONI
+**Eliminare:** Le bande blu piatte (#001F3F) in cima a ogni sezione (Team, Galleria, Contact, Clinique)
+
+**Sostituire con:**
+Hero banners con:
+- Immagine di sfondo (usa foto sale operatorie già presenti nel progetto)
+- Overlay scuro gradient: `linear-gradient(135deg, rgba(0,31,63,0.85), rgba(0,119,182,0.75))`
+- Titolo centrato in bianco, font grande e leggibile
+- Altezza: 320px mobile, 400px desktop
+
+**Esempio:**
+```html
+<section class="section-hero" style="background-image: url('sala-operatoria.jpg');">
+    <h1 class="hero-title">Notre équipe de spécialistes</h1>
+</section>
+```
+
+---
+
+### 3. FOTO MEDICI - SOSTITUIRE CON NUOVE
+**File da caricare** (nella cartella `/images/`):
+- `dr-sandy-barbosa.jpg`
+- `dr-nicolas-dray.jpg`
+- `dr-loana-saggesi.jpg`
+- `dr-adriana-sahlean.jpg`
+- `dr-romeissa-touat.jpg`
+- `dr-melvyn-saadi.jpg`
+
+**Card medici:**
+- Formato immagine: 1:1 (quadrato) usando `aspect-ratio: 1/1`
+- Ogni card deve avere nome medico + bottone "Prendre RDV" che apre il link Doctolib in nuova tab
+
+**Link Doctolib per ogni medico:**
+- Dr Sandy Barbosa: https://www.doctolib.fr/dentiste/savigny-sur-orge/sandy-barbosa?pid=practice-131168
+- Dr Nicolas Dray: https://www.doctolib.fr/dentiste/aix-en-provence/nicolas-dray?pid=practice-131168
+- Dr Loana Saggesi: https://www.doctolib.fr/dentiste/port-de-bouc/loana-saggesi?pid=practice-131168
+- Dr Adriana Sahlean: https://www.doctolib.fr/dentiste/pertuis/adriana-sahlean?pid=practice-131168
+- Dr Romeissa Touat: https://www.doctolib.fr/dentiste/marseille/romeissa-touat?pid=practice-131168
+- Dr Melvyn Saadi: https://www.doctolib.fr/dentiste/marseille/melvyn-saadi-marseille?pid=practice-131168
+
+---
+
+### 4. CAROSELLO MEDICI HOMEPAGE
+**Dove:** Dopo le 3 card features (Urgences/Équipements/Équipe)
+
+**Cosa:** Carosello orizzontale infinito che mostra le 6 card medici con foto
+
+**Comportamento:**
+- Scroll automatico da destra a sinistra (velocità lenta)
+- Loop infinito seamless (duplica le card)
+- Pausa su hover
+- Touch-friendly su mobile
+
+**Titolo sezione:**
+"Notre équipe de spécialistes"
+Subtitle: "Des praticiens passionnés, multilingues et dévoués"
+
+**In fondo:** Bottone "Découvrir toute l'équipe (12 praticiens)" → link /equipe
+
+---
+
+### 5. CAROSELLO RECENSIONI HOMEPAGE
+**Dove:** Dopo la sezione "Notre Philosophie"
+
+**Cosa:** Carosello orizzontale infinito con recensioni Google
+
+**7 Recensioni da inserire:**
+
+1. ★★★★★ "Cabinet au top! Le meilleur que j'ai fait dans ma vie! Hygiène vraiment au top!" — Patient vérifié
+
+2. ★★★★★ "Nous sommes extrêmement satisfaits de ce cabinet dentaire, tant par l'accueil que le professionnalisme." — Sophie M.
+
+3. ★★★★★ "Un cabinet super classe, jamais d'attente! Dentistes rapides, efficaces et sans douleur." — Thomas B.
+
+4. ★★★★★ "Enfin un dentiste qui donne envie d'aller chez le dentiste :)" — Marie L.
+
+5. ★★★★★ "Le docteur m'a fait de superbes couronnes. Le centre est très propre. Je recommande les yeux fermés." — Jean-Pierre D.
+
+6. ★★★★★ "Cabinet dentaire au top!! Des secrétaires adorables, chirurgien gentil et compétent." — Caroline R.
+
+7. ★★★★★ "Tiers payant pour toutes les mutuelles. Un vrai plus. Centre moderne et accueillant!" — Ahmed K.
+
+**Style card recensione:**
+- Background blanc
+- Border-left: 4px solid #D4AF37 (oro)
+- Stelle: couleur #D4AF37
+- Texte italique
+- Largheur: 400px
+
+**Titolo:** "Ce que nos patients disent de nous"
+Subtitle: "Plus de 180 avis positifs sur Google"
+
+---
+
+### 6. BOTTONE URGENCES MOBILE
+**Cosa:** Bottone fisso in basso a destra, visibile SOLO su mobile
+
+**Style:**
+- Background: rosso #E63946
+- Text: "🚨 Urgence" 
+- Border-radius: 50px
+- Position: fixed bottom 20px right 20px
+- Link: `tel:0442752471`
+- Animazione pulse continua per attirare attenzione
+- Z-index: 999
+
+**Hidden su desktop** (display: none sopra 768px)
+
+---
+
+### 7. CORREGGERE INDIRIZZO
+**Indirizzo corretto da usare ovunque:**
+```
+39 Avenue du Groupe Manouchian
+13110 Port-de-Bouc
+France
+```
+
+**Dove correggere:**
+- Footer (tutte le pagine)
+- Page Contact
+- Google Maps
+
+---
+
+### 8. GRID RECENSIONI PAGE CONTACT
+**Dove:** In fondo alla page Contact, prima del footer
+
+**Cosa:** Grid 3 colonne (desktop) / 1 colonna (mobile) con 6 recensioni scelte tra quelle sopra
+
+**Titolo:** "Ils nous font confiance"
+
+**Style:** Stesso design delle card carosello (border oro, stelle, ecc.)
+
+---
+
+## 🎨 STILE GENERALE
+
+**Palette colori:**
+- Blanc pur: #FFFFFF (dominante)
+- Bleu médical: #0077B6 (CTA, liens)
+- Or luxury: #D4AF37 (accents)
+- Navy foncé: #001F3F (footer)
+- Rouge urgence: #E63946
+
+**Font:**
+- Google Fonts: Montserrat (titres) + Inter (texte)
+
+**Ombres:**
+- Standard: `box-shadow: 0 5px 25px rgba(0,0,0,0.06)`
+- Hover: `box-shadow: 0 15px 40px rgba(0,119,182,0.15)`
+
+**Transitions:**
+- Toutes: `transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1)`
+
+**Espacements:**
+- Sections: padding 5rem mobile, 8rem desktop
+- Border-radius: 20px pour toutes les cards
+
+---
+
+## ✅ CHECKLIST
+
+- [ ] Side drawer 75% avec X et overlay
+- [ ] Hero banners au lieu des bandes bleues
+- [ ] 6 nouvelles photos medici (format 1:1)
+- [ ] Link Doctolib individuali funzionanti
+- [ ] Carosello medici homepage (auto-scroll infinito)
+- [ ] Carosello recensioni homepage (7 avis)
+- [ ] Grid recensioni page Contact
+- [ ] Bottone urgences mobile fisso
+- [ ] Indirizzo corretto ovunque
+- [ ] Animation hamburger → X
+
+---
+
+## 🚀 PRIORITÉ
+
+**Faire en premier:**
+1. Side drawer mobile
+2. Nouvelles photos medici
+3. Hero banners
+4. Caroselli homepage
+
+**Faire après:**
+5. Bottone urgences
+6. Recensioni page Contact
+7. Correzioni indirizzo
+
+---
+
+**Style final: Medical Luxury Dubai - Bianco dominante, spazi generosi, transizioni fluide, ottimizzato iPhone 17.**
