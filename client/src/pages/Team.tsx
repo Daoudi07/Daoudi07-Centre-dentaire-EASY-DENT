@@ -2,6 +2,7 @@ import { Layout } from "@/components/layout/Layout";
 import { Section } from "@/components/ui/section";
 import { User2 } from "lucide-react";
 import { Button } from "@/components/ui/button-custom";
+import { motion } from "framer-motion";
 
 const TEAM_MEMBERS = [
   {

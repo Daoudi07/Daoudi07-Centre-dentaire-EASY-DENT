@@ -9,6 +9,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useCreateContactMessage } from "@/hooks/use-contact";
 import { MapPin, Phone, Mail, Clock, Star } from "lucide-react";
+import { motion } from "framer-motion";
+import stockContact from "@assets/stock_images/modern_dental_clinic_e5189e63.jpg";
 
 export default function Contact() {
   const mutation = useCreateContactMessage();
@@ -31,17 +33,28 @@ export default function Contact() {
 
   return (
     <Layout>
-      <div className="bg-secondary text-white pt-32 pb-16">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-6xl font-display mb-4">Contactez-nous</h1>
-          <p className="text-xl text-white/60 max-w-2xl mx-auto">
+      <section className="section-hero" style={{ backgroundImage: `url(${stockContact})` }}>
+        <div className="section-hero-title">
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-4xl md:text-6xl uppercase"
+          >
+            Contactez-nous
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="text-lg md:text-xl font-medium text-white/80 mt-4"
+          >
             Une question ? Une urgence ? Notre équipe est à votre écoute.
-          </p>
+          </motion.p>
         </div>
-      </div>
+      </section>
 
       <Section className="pb-0">
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto items-start">
           {/* Contact Info Cards */}
           <div className="space-y-6">
             <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 flex items-start gap-4">
@@ -82,6 +95,88 @@ export default function Contact() {
                 </ul>
               </div>
             </div>
+          </div>
+
+          {/* Professional Contact Form */}
+          <div className="bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
+            <h3 className="text-2xl font-display font-bold text-secondary mb-6">Envoyez-nous un message</h3>
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                <FormField
+                  control={form.control}
+                  name="name"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Nom Complet</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Votre nom" {...field} className="rounded-xl border-gray-200 focus:border-primary" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Email</FormLabel>
+                        <FormControl>
+                          <Input placeholder="votre@email.com" {...field} className="rounded-xl border-gray-200 focus:border-primary" />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="phone"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Téléphone</FormLabel>
+                        <FormControl>
+                          <Input 
+                            placeholder="06 00 00 00 00" 
+                            {...field} 
+                            value={field.value ?? ""} 
+                            className="rounded-xl border-gray-200 focus:border-primary" 
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+                <FormField
+                  control={form.control}
+                  name="message"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Message</FormLabel>
+                      <FormControl>
+                        <Textarea 
+                          placeholder="Comment pouvons-nous vous aider ?" 
+                          className="min-h-[120px] rounded-xl border-gray-200 focus:border-primary" 
+                          {...field} 
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <Button 
+                  type="submit" 
+                  className="w-full bg-secondary hover:bg-secondary/90 text-white font-bold py-6 rounded-xl shadow-lg shadow-secondary/20 transition-all duration-300 active:scale-[0.98]"
+                  disabled={mutation.isPending}
+                >
+                  {mutation.isPending ? "Envoi en cours..." : "Envoyer le message"}
+                </Button>
+                <p className="text-[10px] text-center text-muted-foreground mt-4 italic">
+                  En envoyant ce formulaire, vous acceptez que vos données soient traitées pour répondre à votre demande.
+                </p>
+              </form>
+            </Form>
           </div>
         </div>
       </Section>

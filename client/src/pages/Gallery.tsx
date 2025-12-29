@@ -12,17 +12,30 @@ const CASES = [
   { title: "Esthétique", desc: "Harmonisation du sourire" },
 ];
 
+import stockGallery from "@assets/stock_images/modern_dental_clinic_cd60d35e.jpg";
+
 export default function Gallery() {
   return (
     <Layout>
-      <div className="bg-secondary text-white pt-32 pb-16">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-6xl font-display mb-4">Galerie Sourires</h1>
-          <p className="text-xl text-white/60 max-w-2xl mx-auto">
+      <section className="section-hero" style={{ backgroundImage: `url(${stockGallery})` }}>
+        <div className="section-hero-title">
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-4xl md:text-6xl uppercase"
+          >
+            Galerie Sourires
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="text-lg md:text-xl font-medium text-white/80 mt-4"
+          >
             Découvrez les transformations réalisées par nos experts.
-          </p>
+          </motion.p>
         </div>
-      </div>
+      </section>
 
       <Section>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">

@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import equipmentImg from "@assets/attrezzatura_1766941636444.jpg";
 import roomImg from "@assets/sala.jpn_1766941636457.webp";
 import waitingImg from "@assets/attesa3_1766941636452.jpg";
+import scanner3D from "@assets/stock_images/3d_dental_scanner_ma_016a0eac.jpg";
+import panoramicXray from "@assets/stock_images/panoramic_dental_x-r_968f4dcc.jpg";
 
 import stockClinic from "@assets/stock_images/modern_dental_clinic_4b1334f0.jpg";
 
@@ -31,18 +33,84 @@ export default function Clinic() {
       </section>
 
       <Section>
+        <div className="grid md:grid-cols-2 gap-16 items-center mb-24">
+          <div className="rounded-2xl overflow-hidden shadow-2xl relative group">
+            <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-500 z-10" />
+            <img 
+              src={roomImg} 
+              alt="Notre cabinet" 
+              className="w-full h-[400px] object-cover hover:scale-105 transition-transform duration-700" 
+            />
+          </div>
+          <div>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-secondary mb-6">L'Excellence au service de votre santé</h2>
+            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+              Le Centre Dentaire Easy Dent est dédié à fournir des soins dentaires de la plus haute qualité dans un environnement luxueux et apaisant. Notre équipe de praticiens expérimentés utilise les technologies les plus avancées pour garantir des traitements précis et confortables.
+            </p>
+            <div className="grid grid-cols-1 gap-4">
+              {[
+                { title: "Hygiène Rigoureuse", desc: "Protocoles de stérilisation de pointe pour votre sécurité." },
+                { title: "Technologie de Pointe", desc: "Scanner 3D et radiologie numérique de dernière génération." },
+                { title: "Empathie & Écoute", desc: "Une approche douce pour une expérience sans stress." }
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-4 p-4 bg-muted rounded-xl border border-gray-100 shadow-sm">
+                  <div className="w-2 h-2 rounded-full bg-accent mt-2 shrink-0" />
+                  <div>
+                    <h4 className="font-bold text-secondary">{item.title}</h4>
+                    <p className="text-sm text-muted-foreground">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
         <div className="grid md:grid-cols-2 gap-12 items-center mb-24">
           <div className="order-2 md:order-1">
-            <h2 className="text-3xl font-display mb-6 text-primary">Technologie Avancée</h2>
+            <h2 className="text-3xl font-display mb-6 text-primary">Plateau Technique de Pointe</h2>
             <p className="text-muted-foreground mb-4 leading-relaxed">
               Nous investissons continuellement dans les dernières technologies dentaires pour garantir des diagnostics précis et des traitements moins invasifs.
             </p>
-            <p className="text-muted-foreground leading-relaxed">
-              Notre plateau technique comprend la radiologie numérique 3D, des scanners intra-oraux pour des empreintes sans pâte, et des systèmes de stérilisation de grade hospitalier.
-            </p>
+            <div className="space-y-4">
+              <div className="flex gap-4 items-center bg-white p-4 rounded-xl shadow-sm border border-gray-50">
+                <img src={scanner3D} alt="3D Dental Scanner" className="w-20 h-20 object-cover rounded-lg" />
+                <div>
+                  <h4 className="font-bold text-secondary">Scanner Dentaire 3D</h4>
+                  <p className="text-sm text-muted-foreground">Imagerie haute résolution pour une précision chirurgicale.</p>
+                </div>
+              </div>
+              <div className="flex gap-4 items-center bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+                <img src={panoramicXray} alt="Panoramic X-ray" className="w-20 h-20 object-cover rounded-lg" />
+                <div>
+                  <h4 className="font-bold text-secondary">Radiographie Panoramique</h4>
+                  <p className="text-sm text-muted-foreground">Diagnostic global rapide et efficace.</p>
+                </div>
+              </div>
+            </div>
           </div>
           <div className="order-1 md:order-2 rounded-2xl overflow-hidden shadow-2xl">
             <img src={equipmentImg} alt="Technologie dentaire" className="w-full h-auto hover:scale-105 transition-transform duration-700" />
+          </div>
+        </div>
+
+        {/* Patient Journey Section */}
+        <div className="max-w-4xl mx-auto mb-24">
+          <h2 className="text-3xl font-display font-bold text-center text-secondary mb-16">Votre parcours chez Easy Dent</h2>
+          <div className="relative border-l-2 border-primary/20 ml-4 md:ml-0 md:border-l-0 md:flex md:justify-between">
+            {[
+              { step: "01", title: "Accueil", desc: "Prise en charge personnalisée dès votre arrivée." },
+              { step: "02", title: "Diagnostic", desc: "Bilan complet avec imagerie numérique 3D." },
+              { step: "03", title: "Plan de Soins", desc: "Explication détaillée des options et devis clair." },
+              { step: "04", title: "Traitement", desc: "Réalisation des soins avec les meilleures technologies." },
+              { step: "05", title: "Suivi", desc: "Accompagnement post-opératoire et maintenance." }
+            ].map((item, i) => (
+              <div key={i} className="mb-12 md:mb-0 md:flex-1 md:text-center relative px-4">
+                <div className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-primary md:relative md:left-0 md:mx-auto md:mb-4" />
+                <span className="text-accent font-bold text-lg block mb-2">{item.step}</span>
+                <h4 className="font-bold text-secondary mb-2">{item.title}</h4>
+                <p className="text-sm text-muted-foreground">{item.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
 
