@@ -117,13 +117,11 @@ export function Header() {
       )}>
         <div className="flex justify-end p-6">
           <button 
-            className={cn("hamburger active")}
+            className="p-2 rounded-lg hover:bg-muted transition-colors text-secondary"
             onClick={() => setIsMobileMenuOpen(false)}
             aria-label="Fermer le menu"
           >
-            <span></span>
-            <span></span>
-            <span></span>
+            <X className="w-6 h-6" />
           </button>
         </div>
 
