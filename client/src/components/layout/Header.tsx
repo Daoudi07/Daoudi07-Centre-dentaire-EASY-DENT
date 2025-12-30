@@ -37,11 +37,12 @@ export function Header() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-[20px] group">
-            <div className="logo-container flex items-center justify-center bg-transparent">
+            <div className="h-[55px] w-auto flex items-center justify-center bg-transparent">
               <img 
                 src={logoImg} 
                 alt="Easy Dent" 
-                className="logo-img group-hover:scale-105 transition-transform" 
+                className="h-full w-auto object-contain group-hover:scale-105 transition-transform bg-transparent" 
+                style={{ backgroundColor: 'transparent' }}
               />
             </div>
             <div className="flex flex-col">
