@@ -101,15 +101,15 @@ export default function Home() {
               initial: { opacity: 0 },
               animate: { opacity: 1, transition: { staggerChildren: 0.1 } }
             }}
-            className="max-w-4xl w-full p-8 md:p-12 rounded-[20px] bg-white/10 backdrop-blur-[10px] border border-white/20"
+            className="max-w-4xl w-[95%] md:w-full p-6 md:p-12 rounded-[20px] bg-white/10 backdrop-blur-[10px] border border-white/20"
           >
             <motion.div variants={fadeIn} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/20 backdrop-blur-md border border-accent/30 text-accent mb-8">
               <Star className="w-4 h-4 fill-current" />
               <span className="text-sm font-bold uppercase tracking-wider">L'excellence dentaire à Port-de-Bouc</span>
             </motion.div>
             
-            <motion.h1 variants={fadeIn} className="text-5xl md:text-7xl font-display font-bold leading-tight mb-6 text-white text-shadow-lg">
-              Votre sourire mérite <br />
+            <motion.h1 variants={fadeIn} className="text-[1.8rem] md:text-[3.5rem] font-display font-bold leading-[1.2] mb-6 text-white text-shadow-lg whitespace-normal break-keep">
+              Votre sourire mérite <br className="hidden md:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-white">
                 le meilleur soin
               </span>
@@ -140,20 +140,20 @@ export default function Home() {
           </motion.div>
 
           {/* FLOATING CARDS */}
-          <div className="mt-[60px] grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl">
+          <div className="mt-8 md:mt-[60px] flex flex-col md:grid md:grid-cols-3 gap-4 md:gap-6 w-full max-w-5xl px-4 md:px-0">
             {[
               { 
-                icon: () => <div className="w-2.5 h-2.5 rounded-full bg-red-500 shadow-[0_0_12px_#ef4444] animate-pulse" />, 
+                icon: () => <div className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-red-500 shadow-[0_0_12px_#ef4444] animate-pulse" />, 
                 title: "Service d'Urgence", 
                 desc: "Prise en charge 7j/7"
               },
               { 
-                icon: () => <Shield className="w-5 h-5 text-[#D4AF37] stroke-[1px]" />, 
+                icon: () => <Shield className="w-4 h-4 md:w-5 md:h-5 text-[#D4AF37] stroke-[1px]" />, 
                 title: "Technologie 3D", 
                 desc: "Plateau technique de pointe"
               },
               { 
-                icon: () => <Star className="w-5 h-5 text-[#D4AF37] stroke-[1px]" />, 
+                icon: () => <Star className="w-4 h-4 md:w-5 md:h-5 text-[#D4AF37] stroke-[1px]" />, 
                 title: "Experts Diplômés", 
                 desc: "12 praticiens spécialisés"
               },
@@ -163,14 +163,14 @@ export default function Home() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 + (idx * 0.1) }}
-                className="flex items-center gap-4 p-6 rounded-xl border border-[#D4AF37]/40 bg-white/5 backdrop-blur-sm hover:bg-white/10 hover:border-[#D4AF37] transition-all duration-500"
+                className="flex items-center gap-3 md:gap-4 p-4 md:p-6 rounded-xl border border-[#D4AF37]/40 bg-white/5 backdrop-blur-sm hover:bg-white/10 hover:border-[#D4AF37] transition-all duration-500"
               >
-                <div className="flex-shrink-0 w-10 h-10 rounded-full border border-[#D4AF37]/20 flex items-center justify-center">
+                <div className="flex-shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-full border border-[#D4AF37]/20 flex items-center justify-center">
                   <item.icon />
                 </div>
                 <div className="text-left">
-                  <h3 className="text-lg font-bold text-white font-display tracking-wide uppercase text-[15px]">{item.title}</h3>
-                  <p className="text-sm text-white/70 font-light">{item.desc}</p>
+                  <h3 className="text-base md:text-lg font-bold text-white font-display tracking-wide uppercase text-[13px] md:text-[15px]">{item.title}</h3>
+                  <p className="text-xs md:text-sm text-white/70 font-light">{item.desc}</p>
                 </div>
               </motion.div>
             ))}
