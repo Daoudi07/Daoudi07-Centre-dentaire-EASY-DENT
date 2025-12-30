@@ -8,12 +8,13 @@ import chairImg from "@assets/sala2_1766941636456.jpg";
 import { useLocation } from "wouter";
 import { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import sandyImg from "@assets/DrSandyBarbosa_sfondo_1767118407014.png";
 
 const DOCTORS = [
   {
     name: "Dr Sandy Barbosa",
     role: "Chirurgien-dentiste",
-    img: "https://i.imgur.com/gY3xRoF.jpg",
+    img: sandyImg,
     languages: ["Français", "Anglais", "Espagnol", "Portugais"],
     bio: "Spécialisée en prévention, urgences dentaires, bruxisme et greffes osseuses. Approche douce et professionnelle.",
     doctolib: "https://www.doctolib.fr/dentiste/savigny-sur-orge/sandy-barbosa?pid=practice-131168"
@@ -133,7 +134,9 @@ export default function Home() {
                 variant="outline" 
                 className="text-white border-white hover:bg-white/10 px-8 h-12"
                 onClick={() => setLocation('/clinique')}
-              >clinique</Button>
+              >
+                La clinique
+              </Button>
             </motion.div>
           </motion.div>
 
@@ -200,8 +203,8 @@ export default function Home() {
                 onClick={() => setSelectedDoctor(doc)}
                 className="w-[320px] bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden cursor-pointer hover:scale-105 transition-all duration-300"
               >
-                <div className="h-[400px]">
-                  <img src={doc.img} alt={doc.name} className="w-full h-full object-cover" />
+                <div className="h-[400px] p-2">
+                  <img src={doc.img} alt={doc.name} className="w-full h-full object-cover rounded-[15px] shadow-sm" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-secondary font-display mb-1">{doc.name}</h3>
@@ -314,7 +317,7 @@ export default function Home() {
         <DialogContent className="max-w-2xl">
           {selectedDoctor && (
             <div className="flex flex-col md:flex-row gap-8">
-              <div className="w-full md:w-1/2 rounded-xl overflow-hidden shadow-lg">
+              <div className="w-full md:w-1/2 rounded-[15px] overflow-hidden shadow-lg border border-gray-100">
                 <img src={selectedDoctor.img} alt={selectedDoctor.name} className="w-full h-full object-cover" />
               </div>
               <div className="w-full md:w-1/2 flex flex-col justify-between">

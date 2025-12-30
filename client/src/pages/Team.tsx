@@ -3,12 +3,13 @@ import { Section } from "@/components/ui/section";
 import { User2 } from "lucide-react";
 import { Button } from "@/components/ui/button-custom";
 import { motion } from "framer-motion";
+import sandyImg from "@assets/DrSandyBarbosa_sfondo_1767118407014.png";
 
 const TEAM_MEMBERS = [
   {
     name: "Dr Sandy Barbosa",
     role: "Chirurgien-dentiste",
-    img: "https://i.imgur.com/gY3xRoF.jpg",
+    img: sandyImg,
     languages: ["🇫🇷 Français", "🇬🇧 Anglais", "🇪🇸 Espagnol", "🇵🇹 Portugais"],
     bio: "Spécialisée en prévention, urgences dentaires, bruxisme et greffes osseuses. Approche douce et professionnelle.",
     doctolib: "https://www.doctolib.fr/dentiste/savigny-sur-orge/sandy-barbosa?pid=practice-131168"
@@ -129,13 +130,13 @@ export default function Team() {
               key={idx}
               className="group bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden flex flex-col hover:shadow-xl hover:border-primary/20 transition-all duration-300"
             >
-              <div className="h-80 bg-muted flex items-center justify-center relative overflow-hidden shrink-0">
+              <div className="h-80 bg-muted flex items-center justify-center relative shrink-0 p-2">
                 {member.img ? (
-                  <img src={member.img} alt={member.name} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <img src={member.img} alt={member.name} className="w-full h-full object-cover rounded-[15px] shadow-sm group-hover:scale-105 transition-transform duration-500" />
                 ) : (
                   <User2 className="w-24 h-24 text-muted-foreground/30" />
                 )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10" />
+                <div className="absolute inset-2 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10 rounded-[15px]" />
               </div>
               <div className="p-6 text-center flex-1 flex flex-col">
                 <h3 className="text-xl font-bold text-secondary font-display mb-1 group-hover:text-primary transition-colors">
