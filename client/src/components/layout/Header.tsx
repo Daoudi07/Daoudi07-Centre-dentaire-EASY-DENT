@@ -3,7 +3,7 @@ import { Link, useLocation } from "wouter";
 import { Menu, X, Phone, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button-custom";
 import { cn } from "@/lib/utils";
-import logoImg from "@assets/Logo_easy-dent-removebg-preview_1767022325247.png";
+import logoImg from "@assets/EASY-DENT_Senza_sfondo_1767117361849.png";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -36,9 +36,14 @@ export function Header() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 md:w-12 md:h-12 overflow-hidden rounded-lg bg-white shadow-md">
-              <img src={logoImg} alt="Easy Dent" className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+          <Link href="/" className="flex items-center gap-[20px] group">
+            <div className="h-[55px] w-auto flex items-center justify-center bg-transparent">
+              <img 
+                src={logoImg} 
+                alt="Easy Dent" 
+                className="h-full w-auto object-contain group-hover:scale-105 transition-transform bg-transparent" 
+                style={{ backgroundColor: 'transparent' }}
+              />
             </div>
             <div className="flex flex-col">
               <span className={cn("text-lg md:text-xl font-bold font-display leading-tight", isScrolled ? "text-secondary" : "text-secondary md:text-white md:drop-shadow-md")}>

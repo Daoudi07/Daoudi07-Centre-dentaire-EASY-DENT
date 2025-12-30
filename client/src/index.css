@@ -171,6 +171,18 @@
   .animate-pulse-custom {
       animation: pulse-custom 2s infinite;
   }
+
+  /* Force Logo Transparency */
+  .logo-img, 
+  header img[alt="Easy Dent"],
+  header a[href="/"] div {
+      background: transparent !important;
+      background-color: rgba(0,0,0,0) !important;
+      box-shadow: none !important;
+      border: none !important;
+      border-radius: 0 !important;
+      padding: 0 !important;
+  }
 }
 
 /* Nascondere badge Replit */
