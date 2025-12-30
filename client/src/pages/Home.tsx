@@ -169,7 +169,7 @@ export default function Home() {
                   <item.icon />
                 </div>
                 <div className="text-left">
-                  <h3 className="text-base md:text-lg font-bold text-white font-display tracking-wide uppercase text-[13px] md:text-[15px]">{item.title}</h3>
+                  <h3 className="font-bold text-white font-display tracking-wide uppercase text-[13px] md:text-[15px] text-center">{item.title}</h3>
                   <p className="text-xs md:text-sm text-white/70 font-light">{item.desc}</p>
                 </div>
               </motion.div>
@@ -187,7 +187,6 @@ export default function Home() {
           </div>
         </motion.div>
       </section>
-
       {/* DOCTORS CAROUSEL */}
       <Section className="overflow-hidden">
         <div className="text-center mb-12">
@@ -222,7 +221,6 @@ export default function Home() {
           </Button>
         </div>
       </Section>
-
       {/* INTRO / PHILOSOPHY */}
       <Section>
         <div className="grid md:grid-cols-2 gap-16 items-center">
@@ -262,7 +260,6 @@ export default function Home() {
           </div>
         </div>
       </Section>
-
       {/* REVIEWS CAROUSEL */}
       <Section variant="muted" className="overflow-hidden">
         <div className="text-center mb-12">
@@ -287,7 +284,6 @@ export default function Home() {
           </div>
         </div>
       </Section>
-
       {/* CTA BANNER */}
       <Section variant="dark" className="text-center">
         <div className="max-w-4xl mx-auto">
@@ -315,7 +311,6 @@ export default function Home() {
           </div>
         </div>
       </Section>
-
       {/* Doctor Modal */}
       <Dialog open={!!selectedDoctor} onOpenChange={() => setSelectedDoctor(null)}>
         <DialogContent className="max-w-2xl">
