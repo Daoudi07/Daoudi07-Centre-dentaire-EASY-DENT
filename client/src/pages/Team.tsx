@@ -4,6 +4,11 @@ import { User2 } from "lucide-react";
 import { Button } from "@/components/ui/button-custom";
 import { motion } from "framer-motion";
 import sandyImg from "@assets/DrSandyBarbosa_sfondo_1767118407014.png";
+import nicolasImg from "@assets/Dr_Nicolas_DRY_sfodno_1767120002531.png";
+import romeissaImg from "@assets/Dr_Romeissa_Touat_sfondo_1767120002527.png";
+import loanaImg from "@assets/Dr_Loana_SAGGESI_1767120002527.png";
+import emilieImg from "@assets/Dr_Emilie_Egidio_1767120002526.png";
+import ophelieImg from "@assets/Dr_Ophélie_Rogeon_sondo_1767120002519.png";
 
 const TEAM_MEMBERS = [
   {
@@ -18,7 +23,7 @@ const TEAM_MEMBERS = [
     name: "Dr Nicolas Dray",
     role: "Chirurgien-dentiste",
     spec: "Esthétique dentaire • Implantologie • Orthodontie invisible",
-    img: "https://i.imgur.com/As9RuQf.jpg",
+    img: nicolasImg,
     languages: ["🇫🇷 Français"],
     bio: "Approche holistique de la santé orale. Pratique l'hypnose dentale pour le confort des patients. Spécialiste en facettes et implants.",
     doctolib: "https://www.doctolib.fr/dentiste/aix-en-provence/nicolas-dray?pid=practice-131168"
@@ -26,7 +31,7 @@ const TEAM_MEMBERS = [
   {
     name: "Dr Loana Saggesi",
     role: "Chirurgien-dentiste",
-    img: "https://i.imgur.com/VoyY5O7.jpg",
+    img: loanaImg,
     languages: ["🇫🇷 Français"],
     bio: "Diplômée de la Faculté d'Odontologie de Marseille. Approche douce et bienveillante. Soins complets pour toute la famille.",
     doctolib: "https://www.doctolib.fr/dentiste/port-de-bouc/loana-saggesi?pid=practice-131168"
@@ -44,7 +49,7 @@ const TEAM_MEMBERS = [
     name: "Dr Romeissa Touat",
     role: "Chirurgien-dentiste",
     spec: "Réhabilitation orale complète",
-    img: "https://i.imgur.com/OL8XLl3.jpg",
+    img: romeissaImg,
     languages: ["🇫🇷 Français", "🇬🇧 Anglais", "🇪🇸 Espagnol", "🇵🇹 Portugais", "🇸🇦 Arabe"],
     bio: "Spécialisée en réhabilitations orales complexes. Communication facilitée en 5 langues pour accueillir tous les patients.",
     doctolib: "https://www.doctolib.fr/dentiste/marseille/romeissa-touat?pid=practice-131168"
@@ -80,12 +85,14 @@ const TEAM_MEMBERS = [
   {
     name: "Dr Emilie Egidio",
     role: "Chirurgien-dentiste",
+    img: emilieImg,
     bio: "Prévention, diagnostic et traitement dans un environnement moderne. Soins complets pour toute la famille.",
     doctolib: "https://www.doctolib.fr/dentiste/port-de-bouc/emilie-egidio-port-de-bouc?pid=practice-131168"
   },
   {
     name: "Dr Ophélie Rogeon",
     role: "Chirurgien-dentiste",
+    img: ophelieImg,
     bio: "Prévention et traitement des pathologies dentaires avec professionnalisme. Soins personnalisés.",
     doctolib: "https://www.doctolib.fr/dentiste/port-de-bouc/ophelie-rogeon-fbc1f39f-d022-4237-936b-d92f20f398c1?pid=practice-131168"
   },
@@ -132,7 +139,7 @@ export default function Team() {
             >
               <div className="h-80 bg-muted flex items-center justify-center relative shrink-0 p-2">
                 {member.img ? (
-                  <img src={member.img} alt={member.name} className="w-full h-full object-cover rounded-[15px] shadow-sm group-hover:scale-105 transition-transform duration-500" />
+                  <img src={member.img} alt={member.name} className="w-full h-full aspect-[3/4] object-cover rounded-[15px] shadow-sm group-hover:scale-105 transition-transform duration-500" />
                 ) : (
                   <User2 className="w-24 h-24 text-muted-foreground/30" />
                 )}

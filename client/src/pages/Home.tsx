@@ -9,6 +9,11 @@ import { useLocation } from "wouter";
 import { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import sandyImg from "@assets/DrSandyBarbosa_sfondo_1767118407014.png";
+import nicolasImg from "@assets/Dr_Nicolas_DRY_sfodno_1767120002531.png";
+import romeissaImg from "@assets/Dr_Romeissa_Touat_sfondo_1767120002527.png";
+import loanaImg from "@assets/Dr_Loana_SAGGESI_1767120002527.png";
+import emilieImg from "@assets/Dr_Emilie_Egidio_1767120002526.png";
+import ophelieImg from "@assets/Dr_Ophélie_Rogeon_sondo_1767120002519.png";
 
 const DOCTORS = [
   {
@@ -22,7 +27,7 @@ const DOCTORS = [
   {
     name: "Dr Nicolas Dray",
     role: "Esthétique dentaire • Implantologie",
-    img: "https://i.imgur.com/As9RuQf.jpg",
+    img: nicolasImg,
     languages: ["Français"],
     bio: "Approche holistique de la santé orale. Pratique l'hypnose dentale pour le confort des patients. Spécialiste en facettes et implants.",
     doctolib: "https://www.doctolib.fr/dentiste/aix-en-provence/nicolas-dray?pid=practice-131168"
@@ -30,7 +35,7 @@ const DOCTORS = [
   {
     name: "Dr Loana Saggesi",
     role: "Chirurgien-dentiste",
-    img: "https://i.imgur.com/VoyY5O7.jpg",
+    img: loanaImg,
     languages: ["Français"],
     bio: "Diplômée de la Faculté d'Odontologie de Marseille. Approche douce et bienveillante. Soins complets pour toute la famille.",
     doctolib: "https://www.doctolib.fr/dentiste/port-de-bouc/loana-saggesi?pid=practice-131168"
@@ -46,7 +51,7 @@ const DOCTORS = [
   {
     name: "Dr Romeissa Touat",
     role: "Réhabilitation orale complète",
-    img: "https://i.imgur.com/OL8XLl3.jpg",
+    img: romeissaImg,
     languages: ["Français", "Anglais", "Espagnol", "Portugais", "Arabe"],
     bio: "Spécialisée en réhabilitations orales complexes. Communication facilitée en 5 langues pour accueillir tous les patients.",
     doctolib: "https://www.doctolib.fr/dentiste/marseille/romeissa-touat?pid=practice-131168"
@@ -204,7 +209,7 @@ export default function Home() {
                 className="w-[320px] bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden cursor-pointer hover:scale-105 transition-all duration-300"
               >
                 <div className="h-[400px] p-2">
-                  <img src={doc.img} alt={doc.name} className="w-full h-full object-cover rounded-[15px] shadow-sm" />
+                  <img src={doc.img} alt={doc.name} className="w-full h-full aspect-[3/4] object-cover rounded-[15px] shadow-sm" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-secondary font-display mb-1">{doc.name}</h3>
@@ -318,7 +323,7 @@ export default function Home() {
           {selectedDoctor && (
             <div className="flex flex-col md:flex-row gap-8">
               <div className="w-full md:w-1/2 rounded-[15px] overflow-hidden shadow-lg border border-gray-100">
-                <img src={selectedDoctor.img} alt={selectedDoctor.name} className="w-full h-full object-cover" />
+                <img src={selectedDoctor.img} alt={selectedDoctor.name} className="w-full h-full aspect-[3/4] object-cover" />
               </div>
               <div className="w-full md:w-1/2 flex flex-col justify-between">
                 <div>
