@@ -30,7 +30,7 @@ export default function Gallery() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="text-lg md:text-xl font-medium text-white/80 mt-4"
+            className="text-lg md:text-xl font-medium text-white/80 mt-4 text-shadow"
           >
             Découvrez les transformations réalisées par nos experts.
           </motion.p>

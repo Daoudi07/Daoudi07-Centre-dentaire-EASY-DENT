@@ -83,17 +83,17 @@ export default function Home() {
   return (
     <Layout>
       {/* HERO SECTION */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-20">
         <div className="absolute inset-0 z-0">
           <img 
             src={heroImg} 
             alt="Salle d'attente moderne" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-secondary/90 via-secondary/70 to-transparent" />
+          <div className="absolute inset-0 bg-[#001F3F]/80" />
         </div>
 
-        <div className="container relative z-10 px-4 pt-20">
+        <div className="container relative z-10 px-4 pt-20 flex flex-col items-center text-center">
           <motion.div 
             initial="initial"
             animate="animate"
@@ -101,43 +101,80 @@ export default function Home() {
               initial: { opacity: 0 },
               animate: { opacity: 1, transition: { staggerChildren: 0.1 } }
             }}
-            className="max-w-3xl text-white"
+            className="max-w-4xl w-full p-8 md:p-12 rounded-[20px] bg-white/10 backdrop-blur-[10px] border border-white/20"
           >
-            <motion.div variants={fadeIn} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/20 backdrop-blur-md border border-accent/30 text-accent mb-6">
+            <motion.div variants={fadeIn} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/20 backdrop-blur-md border border-accent/30 text-accent mb-8">
               <Star className="w-4 h-4 fill-current" />
               <span className="text-sm font-bold uppercase tracking-wider">L'excellence dentaire à Port-de-Bouc</span>
             </motion.div>
             
-            <motion.h1 variants={fadeIn} className="text-5xl md:text-7xl font-display font-bold leading-tight mb-6">
+            <motion.h1 variants={fadeIn} className="text-5xl md:text-7xl font-display font-bold leading-tight mb-6 text-white text-shadow-lg">
               Votre sourire mérite <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-white">
                 le meilleur soin
               </span>
             </motion.h1>
             
-            <motion.p variants={fadeIn} className="text-lg md:text-xl text-white/80 mb-8 max-w-2xl leading-relaxed">
+            <motion.p variants={fadeIn} className="text-lg md:text-xl text-white mb-10 max-w-2xl mx-auto leading-relaxed text-shadow">
               Bienvenue chez Easy Dent. Une clinique ultramoderne alliant expertise médicale et confort absolu pour une expérience dentaire unique.
             </motion.p>
             
-            <motion.div variants={fadeIn} className="flex flex-row gap-2 sm:gap-4 mt-4">
+            <motion.div variants={fadeIn} className="flex flex-row gap-4 justify-center">
               <Button 
-                size="sm" 
+                size="lg" 
                 variant="accent"
                 onClick={() => window.open('https://www.doctolib.fr/cabinet-dentaire/port-de-bouc/centre-dentaire-port-de-bouc', '_blank')}
-                className="pt-[5px] pb-[5px] text-secondary text-[13px] sm:text-base px-3 sm:px-6 h-10 sm:h-11 flex-1 sm:flex-none whitespace-nowrap"
+                className="text-secondary font-bold px-8 h-12"
               >
                 Prendre RDV
               </Button>
               <Button 
-                size="sm" 
+                size="lg" 
                 variant="outline" 
-                className="text-white border-white hover:bg-white/10 text-[13px] sm:text-base px-3 sm:px-6 h-10 sm:h-11 flex-1 sm:flex-none whitespace-nowrap"
+                className="text-white border-white hover:bg-white/10 px-8 h-12"
                 onClick={() => setLocation('/clinique')}
               >
                 La clinique
               </Button>
             </motion.div>
           </motion.div>
+
+          {/* FLOATING CARDS */}
+          <div className="mt-[60px] grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl">
+            {[
+              { 
+                icon: () => <div className="w-2.5 h-2.5 rounded-full bg-red-500 shadow-[0_0_12px_#ef4444] animate-pulse" />, 
+                title: "Service d'Urgence", 
+                desc: "Prise en charge 7j/7"
+              },
+              { 
+                icon: () => <Shield className="w-5 h-5 text-[#D4AF37] stroke-[1px]" />, 
+                title: "Technologie 3D", 
+                desc: "Plateau technique de pointe"
+              },
+              { 
+                icon: () => <Star className="w-5 h-5 text-[#D4AF37] stroke-[1px]" />, 
+                title: "Experts Diplômés", 
+                desc: "12 praticiens spécialisés"
+              },
+            ].map((item, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 + (idx * 0.1) }}
+                className="flex items-center gap-4 p-6 rounded-xl border border-[#D4AF37]/40 bg-white/5 backdrop-blur-sm hover:bg-white/10 hover:border-[#D4AF37] transition-all duration-500"
+              >
+                <div className="flex-shrink-0 w-10 h-10 rounded-full border border-[#D4AF37]/20 flex items-center justify-center">
+                  <item.icon />
+                </div>
+                <div className="text-left">
+                  <h3 className="text-lg font-bold text-white font-display tracking-wide uppercase text-[15px]">{item.title}</h3>
+                  <p className="text-sm text-white/70 font-light">{item.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         <motion.div 
@@ -150,45 +187,6 @@ export default function Home() {
           </div>
         </motion.div>
       </section>
-
-      {/* STATS / FEATURES */}
-      <Section className="relative -mt-20 z-20 pt-0 pb-20 pointer-events-none">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pointer-events-auto">
-          {[
-            { 
-              icon: Clock, 
-              title: "Urgences 7j/7", 
-              desc: "Prise en charge rapide de vos douleurs dentaires.",
-              color: "bg-blue-600"
-            },
-            { 
-              icon: Shield, 
-              title: "Technologie de pointe", 
-              desc: "Équipements dernière génération pour des soins précis.",
-              color: "bg-secondary"
-            },
-            { 
-              icon: Users, 
-              title: "Équipe Experte", 
-              desc: "12 praticiens spécialisés à votre écoute.",
-              color: "bg-accent"
-            },
-          ].map((item, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className={`${item.color === 'bg-accent' ? 'text-secondary' : 'text-white'} ${item.color} p-8 rounded-2xl shadow-xl hover:-translate-y-1 transition-transform duration-300`}
-            >
-              <item.icon className="w-10 h-10 mb-4 opacity-80" />
-              <h3 className="text-2xl font-bold mb-2 font-display">{item.title}</h3>
-              <p className="opacity-80">{item.desc}</p>
-            </motion.div>
-          ))}
-        </div>
-      </Section>
 
       {/* DOCTORS CAROUSEL */}
       <Section className="overflow-hidden">
