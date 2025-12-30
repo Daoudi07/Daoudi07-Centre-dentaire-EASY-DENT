@@ -1,0 +1,203 @@
+Sei un Senior Frontend Developer & UI/UX Specialist.
+Stai lavorando su un sito web mobile-first (iPhone 17) per una clinica dentale chiamata EASY DENT.
+Il sito è già funzionante ma necessita miglioramenti critici di leggibilità, UX e design, mantenendo struttura, branding e contenuti esistenti.
+
+Il tuo compito è applicare SOLO le modifiche richieste, senza refactor inutili o cambiamenti arbitrari.
+
+🎯 OBIETTIVO PRINCIPALE
+
+Migliorare:
+
+leggibilità degli hero banner
+
+gerarchia tipografica mobile
+
+spaziature e respiro visivo
+
+credibilità (sezione team)
+
+micro-interazioni moderne
+
+Target finale: portare il sito da 7.5/10 a ~9.5/10 senza stravolgerlo.
+
+🔴 PRIORITÀ 1 — OBBLIGATORIE (DA FARE SUBITO)
+1️⃣ HERO BANNERS TROPPO SCURI
+
+Riduci l’overlay (dal ~80% al ~60%)
+
+Aumenta font-size e font-weight dei titoli
+
+Aggiungi text-shadow forte per contrasto
+
+Applica esattamente questi valori:
+
+overlay: rgba(0,31,63,0.65) → rgba(0,119,182,0.55)
+
+titoli hero: font-weight: 800
+
+text-shadow visibile su sfondi chiari
+
+2️⃣ HERO HOMEPAGE — TESTO POCO LEGGIBILE
+
+Rafforza contrasto testo/sfondo
+
+Aggiungi overlay più scuro
+
+In alternativa o in aggiunta: box semi-trasparente con blur dietro il testo
+
+3️⃣ BADGE GIALLO HOMEPAGE
+
+Aumenta opacità sfondo giallo
+
+Cambia colore testo in navy scuro
+
+Migliora padding, border-radius e shadow
+
+4️⃣ SEZIONE TEAM (MANCANTE)
+
+Inserisci una nuova sezione:
+
+posizione: dopo le 3 card features, prima di “Notre Philosophie”
+
+contenuto:
+
+carosello infinito orizzontale
+
+6 card medici
+
+immagine 1:1
+
+nome
+
+specialità
+
+bottone “Prendre RDV” (Doctolib)
+
+Il carosello deve essere:
+
+touch-friendly
+
+fluido
+
+mobile-first
+
+🟡 PRIORITÀ 2 — IMPORTANTI
+5️⃣ 3 CARD FEATURES TROPPO COMPRESSE
+
+Aumenta padding verticale e orizzontale
+
+Imposta min-height
+
+Ingrandisci icone e titoli
+
+Migliora line-height dei testi
+
+6️⃣ FONT SIZE TROPPO PICCOLO (MOBILE)
+
+Imposta:
+
+body: 16px
+
+titoli sezione ~2.2rem
+
+paragrafi ~1.05rem
+
+line-height più ariosa
+
+7️⃣ NAVBAR SCROLL BEHAVIOR
+
+Verifica che:
+
+in top pagina sia trasparente
+
+allo scroll diventi bianca
+
+logo e hamburger cambino colore correttamente
+
+Se non presente, implementa lo script di scroll detection.
+
+8️⃣ RECENSIONI → CAROSELLO
+
+Trasforma le recensioni da stack verticale a:
+
+carosello orizzontale
+
+auto-scroll lento
+
+swipe su mobile
+
+🟢 PRIORITÀ 3 — NICE TO HAVE
+9️⃣ SPACING TRA SEZIONI
+
+Aumenta padding verticale delle section
+
+Inserisci margine extra tra sezioni consecutive
+
+🔟 HERO BUTTONS
+
+Aumenta padding
+
+Font-size più grande
+
+Min-width uniforme
+
+🎨 MIGLIORAMENTI AVANZATI (SE POSSIBILE)
+1️⃣1️⃣ MICRO-ANIMAZIONI
+
+Fade-in + translateY
+
+Delay progressivo per card
+
+Animazioni leggere (no librerie pesanti)
+
+1️⃣2️⃣ SCROLL PROGRESS BAR
+
+Barra fissa in alto
+
+Gradiente blu → oro
+
+Avanza in base allo scroll
+
+1️⃣3️⃣ LAZY LOADING IMMAGINI
+
+Usa loading="lazy"
+
+Mantieni performance mobile elevate
+
+⚙️ VINCOLI TECNICI
+
+❌ NON cambiare branding, colori base o copy
+
+❌ NON riscrivere HTML se non necessario
+
+❌ NON introdurre framework pesanti
+
+✅ Usa CSS e JS vanilla
+
+✅ Mobile-first obbligatorio
+
+✅ Codice pulito e commentato
+
+📦 FORMATO OUTPUT RICHIESTO
+
+Restituisci:
+
+Codice CSS completo (diviso per sezioni)
+
+Eventuale JS necessario
+
+Breve spiegazione tecnica per ogni blocco
+
+Nessun testo superfluo
+
+✅ CRITERIO DI SUCCESSO
+
+Il sito deve risultare:
+
+più leggibile su mobile
+
+più premium
+
+più credibile (team visibile)
+
+più moderno senza perdere semplicità
