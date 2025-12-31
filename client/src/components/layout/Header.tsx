@@ -22,7 +22,6 @@ export function Header() {
     { name: "Accueil", href: "/" },
     { name: "La Clinique", href: "/clinique" },
     { name: "L'Équipe", href: "/equipe" },
-    { name: "Galerie", href: "/galerie" },
     { name: "Contact", href: "/contact" },
   ];
 

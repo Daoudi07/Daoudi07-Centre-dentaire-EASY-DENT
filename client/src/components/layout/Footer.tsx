@@ -39,7 +39,6 @@ export function Footer() {
                 { label: "La Clinique", href: "/clinique" },
                 { label: "Notre Équipe", href: "/equipe" },
                 { label: "Traitements", href: "/clinique" },
-                { label: "Galerie", href: "/galerie" },
                 { label: "Contact", href: "/contact" },
               ].map((link) => (
                 <li key={link.label}>

@@ -15,6 +15,8 @@ import loanaImg from "@assets/Dr_Loana_SAGGESI_1767120002527.png";
 import emilieImg from "@assets/Dr_Emilie_Egidio_1767120002526.png";
 import ophelieImg from "@assets/Dr_Ophélie_Rogeon_sondo_1767120002519.png";
 
+import { NumbersBar } from "@/components/NumbersBar";
+
 const DOCTORS = [
   {
     name: "Dr Sandy Barbosa",
@@ -268,6 +270,7 @@ export default function Home() {
           </div>
         </div>
       </Section>
+      <NumbersBar />
       {/* REVIEWS CAROUSEL */}
       <Section variant="muted" className="overflow-hidden section-padding">
         <div className="text-center mb-12 animate-fade-in-up">

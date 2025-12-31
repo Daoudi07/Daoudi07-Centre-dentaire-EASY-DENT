@@ -12,6 +12,8 @@ import { MapPin, Phone, Mail, Clock, Star } from "lucide-react";
 import { motion } from "framer-motion";
 import stockContact from "@assets/stock_images/modern_dental_clinic_e5189e63.jpg";
 
+import { NumbersBar } from "@/components/NumbersBar";
+
 export default function Contact() {
   const mutation = useCreateContactMessage();
   
@@ -181,29 +183,44 @@ export default function Contact() {
         </div>
       </Section>
 
+      <NumbersBar />
+
       {/* REVIEWS SECTION */}
-      <Section variant="muted">
-        <div className="text-center mb-12">
+      <Section variant="muted" className="overflow-hidden">
+        <div className="text-center mb-12 animate-fade-in-up">
           <h2 className="text-4xl font-display font-bold text-secondary mb-4">Ils nous font confiance</h2>
           <p className="text-lg text-muted-foreground">Découvrez les témoignages de nos patients satisfaits</p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto px-4">
-          {[
-            { text: "Cabinet au top! Le meilleur que j'ai fait dans ma vie! Que ce soit niveau soin dentaire, sans parler de la décoration du cabinet, l'hygiène vraiment au top!", author: "Patient vérifié" },
-            { text: "Nous sommes extrêmement satisfaits de ce cabinet dentaire, tant par l'accueil, le professionnalisme et la gentillesse del personale ainsi que l'hygiène irréprochable.", author: "Sophie M." },
-            { text: "Un cabinet super classe, un accueil irréprochable par une équipe efficace et plutôt rare chez un dentiste jamais d'attente! Le directeur et les dentistes rapides, efficaces.", author: "Thomas B." },
-            { text: "Enfin un dentiste qui donne envie d'aller chez le dentiste :) Que ce soit du côté dentaire ou du côté médecine esthétique je le recommande fortement.", author: "Marie L." },
-            { text: "Le docteur Margheriti m'a fait de superbes couronnes fidèle à sa réputation. Le centre est très propre et ils ont fait tous les papiers administratifs.", author: "Jean-Pierre D." },
-            { text: "Cabinet dentaire au top!! Des secrétaires adorables sans parler du Dr Margheriti, enfin un chirurgien gentil et compétent à la fois. Merci à vous.", author: "Caroline R." }
-          ].map((rev, idx) => (
-            <div key={idx} className="bg-white p-8 rounded-2xl shadow-md border-l-4 border-accent">
-              <div className="flex gap-1 text-accent mb-4">
-                {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 fill-current" />)}
+        
+        <div className="relative group">
+          <div className="flex gap-8 animate-scroll hover:[animation-play-state:paused] w-max py-4">
+            {[
+              { text: "Cabinet au top! Le meilleur que j'ai fait dans ma vie! Que ce soit niveau soin dentaire, sans parler de la décoration du cabinet, l'hygiène vraiment au top!", author: "Patient vérifié" },
+              { text: "Nous sommes extrêmement satisfaits de ce cabinet dentaire, tant par l'accueil, le professionnalisme et la gentillesse del personale ainsi que l'hygiène irréprochable.", author: "Sophie M." },
+              { text: "Un cabinet super classe, un accueil irréprochable par une équipe efficace et plutôt rare chez un dentiste jamais d'attente! Le directeur et les dentistes rapides, efficaces.", author: "Thomas B." },
+              { text: "Enfin un dentiste qui donne envie d'aller chez le dentiste :) Que ce soit du côté dentaire ou du côté médecine esthétique je le recommande fortement.", author: "Marie L." },
+              { text: "Le docteur Margheriti m'a fait de superbes couronnes fidèle à sa réputation. Le centre est très propre et ils ont fait tous les papiers administratifs.", author: "Jean-Pierre D." },
+              { text: "Cabinet dentaire au top!! Des secrétaires adorables sans parler du Dr Margheriti, enfin un chirurgien gentil et compétent à la fois. Merci à vous.", author: "Caroline R." }
+            ].concat([
+              { text: "Cabinet au top! Le meilleur que j'ai fait dans ma vie! Que ce soit niveau soin dentaire, sans parler de la décoration du cabinet, l'hygiène vraiment au top!", author: "Patient vérifié" },
+              { text: "Nous sommes extrêmement satisfaits de ce cabinet dentaire, tant par l'accueil, le professionnalisme et la gentillesse del personale ainsi que l'hygiène irréprochable.", author: "Sophie M." },
+              { text: "Un cabinet super classe, un accueil irréprochable par une équipe efficace et plutôt rare chez un dentiste jamais d'attente! Le directeur et les dentistes rapides, efficaces.", author: "Thomas B." },
+              { text: "Enfin un dentiste qui donne envie d'aller chez le dentiste :) Que ce soit du côté dentaire ou du côté médecine esthétique je le recommande fortement.", author: "Marie L." },
+              { text: "Le docteur Margheriti m'a fait de superbes couronnes fidèle à sa réputation. Le centre est très propre et ils ont fait tous les papiers administratifs.", author: "Jean-Pierre D." },
+              { text: "Cabinet dentaire au top!! Des secrétaires adorables sans parler du Dr Margheriti, enfin un chirurgien gentil et compétent à la fois. Merci à vous.", author: "Caroline R." }
+            ]).map((rev, idx) => (
+              <div 
+                key={idx} 
+                className="w-[350px] bg-white p-8 rounded-2xl shadow-md border-l-4 border-accent shrink-0"
+              >
+                <div className="flex gap-1 text-accent mb-4">
+                  {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 fill-current" />)}
+                </div>
+                <p className="text-muted-foreground italic mb-6 leading-relaxed">"{rev.text}"</p>
+                <p className="font-bold text-secondary">— {rev.author}</p>
               </div>
-              <p className="text-muted-foreground italic mb-6 leading-relaxed">"{rev.text}"</p>
-              <p className="font-bold text-secondary">— {rev.author}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </Section>
 
