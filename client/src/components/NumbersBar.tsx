@@ -31,10 +31,10 @@ export function NumbersBar() {
               transition={ { delay: idx * 0.1 } }
               className="text-center flex-1"
             >
-              <div className="text-[1.1rem] md:text-4xl font-display font-black text-accent mb-1 md:mb-2">
+              <div className="text-[1.1rem] md:text-4xl font-display font-black text-accent mb-1 md:mb-2 will-change-transform">
                 {stat.value}
               </div>
-              <div className="text-[0.7rem] md:text-base text-white/70 uppercase tracking-widest font-medium leading-tight">
+              <div className="text-[0.7rem] md:text-base text-white/70 uppercase tracking-widest font-medium leading-tight will-change-transform">
                 {stat.label} {stat.isGoogle && (
                   <span className="font-bold ml-0.5 md:ml-1">
                     <span className={googleColors[0]}>G</span>

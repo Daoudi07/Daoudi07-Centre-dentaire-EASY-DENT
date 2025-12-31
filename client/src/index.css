@@ -70,14 +70,17 @@
 
   .animate-scroll {
     animation: scroll 40s linear infinite;
+    will-change: transform;
   }
 
   .animate-scroll-reverse {
     animation: scroll-reverse 50s linear infinite;
+    will-change: transform;
   }
 
   .animate-fade-in-up {
     animation: fadeInUp 0.8s ease-out forwards;
+    will-change: transform, opacity;
   }
 
   @keyframes fadeInUp {
