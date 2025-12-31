@@ -57,7 +57,8 @@ export function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3 text-white/70">
                 <MapPin className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                <span>
+                <span className="text-sm">
+                  <strong>Centre Dentaire Easy Dent</strong><br />
                   39 Avenue du Groupe Manouchian<br />
                   13110 Port-de-Bouc<br />
                   France
@@ -65,7 +66,7 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3 text-white/70">
                 <Phone className="w-5 h-5 text-accent shrink-0" />
-                <a href="tel:0442752471" className="hover:text-white">04 42 75 24 71</a>
+                <a href="tel:+33442752471" className="hover:text-white font-bold text-base">04 42 75 24 71</a>
               </li>
               <li className="flex items-center gap-3 text-white/70">
                 <Mail className="w-5 h-5 text-accent shrink-0" />

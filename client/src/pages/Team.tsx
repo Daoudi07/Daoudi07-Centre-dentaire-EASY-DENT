@@ -130,16 +130,19 @@ export default function Team() {
         </div>
       </section>
 
-      <Section>
+      <Section className="section-padding">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {TEAM_MEMBERS.map((member, idx) => (
-            <div 
+            <motion.div 
               key={idx}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               className="group bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden flex flex-col hover:shadow-xl hover:border-primary/20 transition-all duration-300"
             >
               <div className="h-80 bg-muted flex items-center justify-center relative shrink-0 p-2">
                 {member.img ? (
-                  <img src={member.img} alt={member.name} className="w-full h-full aspect-[3/4] object-cover rounded-[15px] shadow-sm group-hover:scale-105 transition-transform duration-500" />
+                  <img src={member.img} alt={`${member.name} - Dentiste à Port-de-Bouc`} className="w-full h-full aspect-[3/4] object-cover rounded-[15px] shadow-sm group-hover:scale-105 transition-transform duration-500" />
                 ) : (
                   <User2 className="w-24 h-24 text-muted-foreground/30" />
                 )}
@@ -170,7 +173,7 @@ export default function Team() {
                   📅 Prendre RDV avec Dr {member.name.split(' ').pop()}
                 </Button>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </Section>

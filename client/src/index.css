@@ -46,8 +46,8 @@
 }
 
 @layer utilities {
-  .glass {
-    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-xl;
+  .section-padding {
+    @apply py-24;
   }
   
   .text-shadow {

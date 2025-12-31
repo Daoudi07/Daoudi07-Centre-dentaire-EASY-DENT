@@ -53,8 +53,8 @@ export default function Contact() {
         </div>
       </section>
 
-      <Section className="pb-0">
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto items-start">
+      <Section className="section-padding pb-0">
+        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto items-start animate-fade-in-up">
           {/* Contact Info Cards */}
           <div className="space-y-6">
             <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 flex items-start gap-4">

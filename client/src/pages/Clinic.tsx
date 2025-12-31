@@ -32,13 +32,13 @@ export default function Clinic() {
         </div>
       </section>
 
-      <Section>
-        <div className="grid md:grid-cols-2 gap-16 items-center mb-24">
+      <Section className="section-padding">
+        <div className="grid md:grid-cols-2 gap-16 items-center mb-24 animate-fade-in-up">
           <div className="rounded-2xl overflow-hidden shadow-2xl relative group">
             <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-500 z-10" />
             <img 
               src={roomImg} 
-              alt="Notre cabinet" 
+              alt="Notre cabinet dentaire à Port-de-Bouc - Un environnement d'exception" 
               className="w-full h-[400px] object-cover hover:scale-105 transition-transform duration-700" 
             />
           </div>

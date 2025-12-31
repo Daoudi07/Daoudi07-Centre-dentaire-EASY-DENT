@@ -107,22 +107,23 @@ export default function Home() {
               initial: { opacity: 0 },
               animate: { opacity: 1, transition: { staggerChildren: 0.1 } }
             }}
-            className="max-w-4xl w-[95%] md:w-full p-6 md:p-12 rounded-[20px] bg-white/10 backdrop-blur-[10px] border border-white/20"
+            className="max-w-4xl w-[95%] md:w-full p-6 md:p-12 rounded-[20px] bg-white/10 backdrop-blur-[10px] border border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
           >
             <motion.div variants={fadeIn} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/20 backdrop-blur-md border border-accent/30 text-accent mb-8">
               <Star className="w-4 h-4 fill-current" />
               <span className="text-sm font-bold uppercase tracking-wider">L'excellence dentaire à Port-de-Bouc</span>
             </motion.div>
             
-            <motion.h1 variants={fadeIn} className="text-[1.8rem] md:text-[3.5rem] font-display font-bold leading-[1.2] mb-6 text-white text-shadow-lg whitespace-normal break-keep">
-              Votre sourire mérite <br className="hidden md:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-white">
-                le meilleur soin
-              </span>
+            <motion.h1 variants={fadeIn} className="text-[2rem] md:text-[4rem] font-display font-black leading-[1.1] mb-6 text-white text-shadow-lg whitespace-normal break-keep">
+              Votre Centre Dentaire <br className="hidden md:block" />
+              <span className="text-accent">
+                de Référence
+              </span> <br className="hidden md:block" />
+              à Port-de-Bouc
             </motion.h1>
             
-            <motion.p variants={fadeIn} className="text-lg md:text-xl text-white mb-10 max-w-2xl mx-auto leading-relaxed text-shadow">
-              Bienvenue chez Easy Dent. Une clinique ultramoderne alliant expertise médicale et confort absolu pour une expérience dentaire unique.
+            <motion.p variants={fadeIn} className="text-lg md:text-2xl text-white font-bold mb-10 max-w-2xl mx-auto leading-relaxed text-shadow-lg">
+              L'excellence médicale au service de votre sourire. Un plateau technique de pointe dans un cadre d'exception.
             </motion.p>
             
             <motion.div variants={fadeIn} className="flex flex-row gap-4 justify-center">
@@ -194,8 +195,8 @@ export default function Home() {
         </motion.div>
       </section>
       {/* DOCTORS CAROUSEL */}
-      <Section className="overflow-hidden">
-        <div className="text-center mb-12">
+      <Section className="overflow-hidden section-padding">
+        <div className="text-center mb-12 animate-fade-in-up">
           <h2 className="text-4xl font-display font-bold text-secondary mb-4">Notre équipe de spécialistes</h2>
           <p className="text-lg text-muted-foreground">Des praticiens passionnés, multilingues et dévoués à votre santé bucco-dentaire</p>
         </div>
@@ -203,20 +204,23 @@ export default function Home() {
         <div className="relative group">
           <div className="flex gap-8 animate-scroll hover:[animation-play-state:paused] w-max py-4">
             {[...DOCTORS, ...DOCTORS].map((doc, idx) => (
-              <div 
+              <motion.div 
                 key={idx}
                 onClick={() => setSelectedDoctor(doc)}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 className="w-[320px] bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden cursor-pointer hover:scale-105 transition-all duration-300"
               >
                 <div className="h-[400px] p-2">
-                  <img src={doc.img} alt={doc.name} className="w-full h-full aspect-[3/4] object-cover rounded-[15px] shadow-sm" />
+                  <img src={doc.img} alt={`${doc.name} - Dentiste à Port-de-Bouc`} className="w-full h-full aspect-[3/4] object-cover rounded-[15px] shadow-sm" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-secondary font-display mb-1">{doc.name}</h3>
                   <p className="text-sm font-semibold text-primary uppercase tracking-wide mb-2">{doc.role}</p>
                   <p className="text-xs text-muted-foreground">{doc.languages.join(' • ')}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -228,13 +232,13 @@ export default function Home() {
         </div>
       </Section>
       {/* INTRO / PHILOSOPHY */}
-      <Section>
-        <div className="grid md:grid-cols-2 gap-16 items-center">
+      <Section className="section-padding">
+        <div className="grid md:grid-cols-2 gap-16 items-center animate-fade-in-up">
           <div className="relative">
             <div className="absolute -inset-4 bg-accent/20 rounded-3xl rotate-3" />
             <img 
               src={chairImg} 
-              alt="Cabinet dentaire" 
+              alt="Cabinet dentaire moderne à Port-de-Bouc - Technologie de pointe" 
               className="relative rounded-2xl shadow-2xl w-full h-auto aspect-[4/3] object-cover"
             />
           </div>
@@ -267,8 +271,8 @@ export default function Home() {
         </div>
       </Section>
       {/* REVIEWS CAROUSEL */}
-      <Section variant="muted" className="overflow-hidden">
-        <div className="text-center mb-12">
+      <Section variant="muted" className="overflow-hidden section-padding">
+        <div className="text-center mb-12 animate-fade-in-up">
           <h2 className="text-4xl font-display font-bold text-secondary mb-4">Ce que nos patients disent de nous</h2>
           <p className="text-lg text-muted-foreground">Plus de 180 avis positifs sur Google et autres plateformes</p>
         </div>

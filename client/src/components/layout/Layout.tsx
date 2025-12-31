@@ -6,15 +6,26 @@ import { Phone } from "lucide-react";
 
 interface LayoutProps {
   children: React.ReactNode;
+  title?: string;
+  description?: string;
 }
 
-export function Layout({ children }: LayoutProps) {
+export function Layout({ 
+  children, 
+  title = "Centre Dentaire Easy Dent - Dentiste Port-de-Bouc | Urgences & Luxe",
+  description = "Découvrez le Centre Dentaire Easy Dent à Port-de-Bouc. Soins dentaires de luxe, urgences 7j/7, technologie 3D et équipe de spécialistes diplômés."
+}: LayoutProps) {
   const [pathname] = useLocation();
 
-  // Scroll to top on route change
+  // Scroll to top and SEO update on route change
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [pathname]);
+    document.title = title;
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute("content", description);
+    }
+  }, [pathname, title, description]);
 
   return (
     <div className="min-h-screen flex flex-col font-sans">
