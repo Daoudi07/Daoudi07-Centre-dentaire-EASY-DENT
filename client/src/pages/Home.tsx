@@ -140,9 +140,7 @@ export default function Home() {
                 variant="outline" 
                 className="text-white border-white hover:bg-white/10 px-8 h-12"
                 onClick={() => setLocation('/clinique')}
-              >
-                La clinique
-              </Button>
+              >Clinique</Button>
             </motion.div>
           </motion.div>
 
