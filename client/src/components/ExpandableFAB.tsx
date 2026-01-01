@@ -17,7 +17,7 @@ export function ExpandableFAB() {
 
   const fabVariants = {
     closed: { rotate: 0 },
-    open: { rotate: 135 }
+    open: { rotate: 135 },
   };
 
   const optionVariants = {
@@ -30,9 +30,9 @@ export function ExpandableFAB() {
         delay: i * 0.1,
         type: "spring",
         stiffness: 260,
-        damping: 20
-      }
-    })
+        damping: 20,
+      },
+    }),
   };
 
   return (
@@ -40,9 +40,9 @@ export function ExpandableFAB() {
       <AnimatePresence>
         {showTooltip && !isOpen && (
           <motion.div
-            initial={ { opacity: 0, y: 10 } }
-            animate={ { opacity: 1, y: 0 } }
-            exit={ { opacity: 0 } }
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
             className="absolute bottom-16 right-0 bg-white border border-accent/30 text-secondary text-xs font-bold px-3 py-1.5 rounded-lg shadow-lg whitespace-nowrap"
           >
             Besoin d'aide ?
@@ -60,11 +60,17 @@ export function ExpandableFAB() {
               initial="closed"
               animate="open"
               exit="closed"
-              onClick={() => window.open('https://www.doctolib.fr/cabinet-dentaire/port-de-bouc/centre-dentaire-port-de-bouc', '_blank')}
+              onClick={() =>
+                window.open(
+                  "https://www.doctolib.fr/centre-dentaire/port-de-bouc/centre-dentaire-easy-dent/booking/motives?specialityId=1&telehealth=false&placeId=practice-131168&bookingFunnelSource=profile",
+                )
+              }
               className="w-14 h-14 bg-white border border-accent/30 rounded-full flex items-center justify-center shadow-lg text-accent active:scale-95 will-change-transform"
             >
               <Calendar className="w-6 h-6" />
-              <span className="absolute right-16 bg-white/90 backdrop-blur-sm px-2 py-1 rounded text-[10px] font-bold uppercase text-secondary border border-accent/20 shadow-sm">RDV</span>
+              <span className="absolute right-16 bg-white/90 backdrop-blur-sm px-2 py-1 rounded text-[10px] font-bold uppercase text-secondary border border-accent/20 shadow-sm">
+                RDV
+              </span>
             </motion.button>
             <motion.button
               custom={0}
@@ -72,11 +78,13 @@ export function ExpandableFAB() {
               initial="closed"
               animate="open"
               exit="closed"
-              onClick={() => window.open('tel:0442752471', '_self')}
+              onClick={() => window.open("tel:0442752471", "_self")}
               className="w-14 h-14 bg-[#E63946] rounded-full flex items-center justify-center shadow-lg text-white active:scale-95 will-change-transform"
             >
               <Phone className="w-6 h-6" />
-              <span className="absolute right-16 bg-white/90 backdrop-blur-sm px-2 py-1 rounded text-[10px] font-bold uppercase text-[#E63946] border border-red-200 shadow-sm">Urgence</span>
+              <span className="absolute right-16 bg-white/90 backdrop-blur-sm px-2 py-1 rounded text-[10px] font-bold uppercase text-[#E63946] border border-red-200 shadow-sm">
+                Urgence
+              </span>
             </motion.button>
           </div>
         )}
