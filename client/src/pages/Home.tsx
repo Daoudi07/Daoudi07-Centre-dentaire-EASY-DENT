@@ -71,7 +71,7 @@ const DOCTORS = [
     role: "Réhabilitation orale complète",
     img: romeissaImg,
     languages: ["Français", "Anglais", "Espagnol", "Portugais", "Arabe"],
-    bio: "Spécialisée en réhabilitations orales complexes. Communication facilitée en 5 langues pour accueillir tous les patients.",
+    bio: "Spécialisée en réhabilitations orales complexes. Communication facilitée en 5 langues pour accueillir tutti les patients.",
     doctolib:
       "https://www.doctolib.fr/dentiste/marseille/romeissa-touat?pid=practice-131168",
   },
@@ -100,7 +100,7 @@ const REVIEWS = [
     author: "Thomas B.",
   },
   {
-    text: "Enfin un dentiste qui donne envie d'aller chez le dentiste :) Que ce soit du côté dentaire ou du côté médecine esthétique je le recommande fortement.",
+    text: "Enfin un dentiste qui donne envie d'aller chez le dentiste :) Que ce soit du côté dentaire ou du côté médecine esthétique je le recommande fortemente.",
     author: "Marie L.",
   },
   {
@@ -185,14 +185,14 @@ export default function Home() {
                 href="https://www.doctolib.fr/centre-dentaire/port-de-bouc/centre-dentaire-easy-dent/booking/motives?specialityId=1&telehealth=false&placeId=practice-131168&bookingFunnelSource=profile"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-accent text-secondary hover:bg-accent/90 h-12 px-8 font-bold"
+                className="inline-flex items-center justify-center rounded-full text-sm transition-all hover:scale-105 bg-accent/90 backdrop-blur-md text-secondary hover:bg-accent h-12 px-8 font-bold shadow-lg"
               >
                 Prendre RDV
               </a>
               <Button
                 size="lg"
                 variant="outline"
-                className="text-white border-white hover:bg-white/10 px-8 h-12"
+                className="rounded-full text-white border-white/30 bg-white/10 backdrop-blur-md hover:bg-white/20 px-8 h-12 transition-all font-bold"
                 onClick={() => setLocation("/clinique")}
               >
                 Clinique
@@ -409,14 +409,14 @@ export default function Home() {
               href="https://www.doctolib.fr/centre-dentaire/port-de-bouc/centre-dentaire-easy-dent/booking/motives?specialityId=1&telehealth=false&placeId=practice-131168&bookingFunnelSource=profile"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 disabled:pointer-events-none disabled:opacity-50 bg-accent text-secondary hover:bg-accent/90 h-11 px-8"
+              className="inline-flex items-center justify-center rounded-full text-sm font-bold transition-all hover:scale-105 bg-accent/90 backdrop-blur-md text-secondary hover:bg-accent h-11 px-8 shadow-md"
             >
               Réserver sur Doctolib
             </a>
             <Button
               size="lg"
               variant="outline"
-              className="text-white border-white hover:bg-white/10"
+              className="rounded-full text-white border-white hover:bg-white/10"
               onClick={() => window.open("tel:0442752471", "_self")}
             >
               Appeler le 04 42 75 24 71
