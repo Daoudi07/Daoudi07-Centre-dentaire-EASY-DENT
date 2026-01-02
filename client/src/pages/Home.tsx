@@ -44,7 +44,7 @@ const DOCTORS = [
     role: "Esthétique dentaire • Implantologie",
     img: nicolasImg,
     languages: ["Français"],
-    bio: "Approche holistique de la santé orale. Pratique l'hypnose dentale pour le confort des patients. Spécialiste en facettes et implants.",
+    bio: "Approche holistique de la santé orale. Pratique l'hypnose dentaire pour le confort des patients. Spécialiste en facettes et implants.",
     doctolib:
       "https://www.doctolib.fr/dentiste/aix-en-provence/nicolas-dray?pid=practice-131168",
   },
@@ -181,18 +181,14 @@ export default function Home() {
               variants={fadeIn}
               className="flex flex-row gap-4 justify-center"
             >
-              <Button
-                size="lg"
-                variant="accent"
-                onClick={() =>
-                  window.open(
-                    "https://www.doctolib.fr/centre-dentaire/port-de-bouc/centre-dentaire-easy-dent/booking/motives?specialityId=1&telehealth=false&placeId=practice-131168&bookingFunnelSource=profile",
-                  )
-                }
-                className="text-secondary font-bold px-8 h-12"
+
+                href="https://www.doctolib.fr/centre-dentaire/port-de-bouc/centre-dentaire-easy-dent/booking/motives?specialityId=1&telehealth=false&placeId=practice-131168&bookingFunnelSource=profile"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-accent text-secondary hover:bg-accent/90 h-12 px-8 font-bold"
               >
                 Prendre RDV
-              </Button>
+              </a>
               <Button
                 size="lg"
                 variant="outline"
@@ -262,6 +258,7 @@ export default function Home() {
           </div>
         </motion.div>
       </section>
+
       {/* DOCTORS CAROUSEL */}
       <Section className="overflow-hidden section-padding">
         <div className="text-center mb-12 animate-fade-in-up">
@@ -314,6 +311,7 @@ export default function Home() {
           </Button>
         </div>
       </Section>
+
       {/* INTRO / PHILOSOPHY */}
       <Section className="section-padding">
         <div className="grid md:grid-cols-2 gap-16 items-center animate-fade-in-up">
@@ -360,7 +358,9 @@ export default function Home() {
           </div>
         </div>
       </Section>
+
       <NumbersBar />
+
       {/* REVIEWS CAROUSEL */}
       <Section variant="muted" className="overflow-hidden section-padding">
         <div className="text-center mb-12 animate-fade-in-up">
@@ -393,6 +393,7 @@ export default function Home() {
           </div>
         </div>
       </Section>
+
       {/* CTA BANNER */}
       <Section variant="dark" className="text-center">
         <div className="max-w-4xl mx-auto">
@@ -404,18 +405,14 @@ export default function Home() {
             quelques clics.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              variant="accent"
-              className="text-secondary"
-              onClick={() =>
-                window.open(
-                  "https://www.doctolib.fr/centre-dentaire/port-de-bouc/centre-dentaire-easy-dent/booking/motives?specialityId=1&telehealth=false&placeId=practice-131168&bookingFunnelSource=profile",
-                )
-              }
+
+              href="https://www.doctolib.fr/centre-dentaire/port-de-bouc/centre-dentaire-easy-dent/booking/motives?specialityId=1&telehealth=false&placeId=practice-131168&bookingFunnelSource=profile"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 disabled:pointer-events-none disabled:opacity-50 bg-accent text-secondary hover:bg-accent/90 h-11 px-8"
             >
               Réserver sur Doctolib
-            </Button>
+            </a>
             <Button
               size="lg"
               variant="outline"
@@ -427,6 +424,7 @@ export default function Home() {
           </div>
         </div>
       </Section>
+
       {/* Doctor Modal */}
       <Dialog
         open={!!selectedDoctor}
