@@ -181,7 +181,7 @@ export default function Home() {
               variants={fadeIn}
               className="flex flex-row gap-4 justify-center"
             >
-
+              <a
                 href="https://www.doctolib.fr/centre-dentaire/port-de-bouc/centre-dentaire-easy-dent/booking/motives?specialityId=1&telehealth=false&placeId=practice-131168&bookingFunnelSource=profile"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -405,7 +405,7 @@ export default function Home() {
             quelques clics.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-
+            <a
               href="https://www.doctolib.fr/centre-dentaire/port-de-bouc/centre-dentaire-easy-dent/booking/motives?specialityId=1&telehealth=false&placeId=practice-131168&bookingFunnelSource=profile"
               target="_blank"
               rel="noopener noreferrer"
